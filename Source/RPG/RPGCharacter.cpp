@@ -28,9 +28,9 @@ ARPGCharacter::ARPGCharacter(const class FObjectInitializer& InitializerObject) 
 
 
 	// Don't rotate when the controller rotates. Let that just affect the camera.
-	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = false;
-	bUseControllerRotationRoll = false;
+	//bUseControllerRotationPitch = true;
+	bUseControllerRotationYaw = true;
+	//bUseControllerRotationRoll = true;
 
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
 	if (MovementComponent)
@@ -172,6 +172,26 @@ float ARPGCharacter::GetAirControl() const
 		return PlayerAttributes->GetPlayerAirControl();
 	}
 	return 0.0f;
+}
+
+bool ARPGCharacter::IsHeroSprinting() const
+{
+	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
+	if (MovementComponent)
+	{
+		return MovementComponent->isSprinting;
+	}
+	return false;
+}
+
+UHeroCharacterMovementComponent* ARPGCharacter::GetHeroCharacterMovementComponent() const
+{
+	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
+	if (MovementComponent)
+	{
+		return MovementComponent;
+	}
+	return nullptr;
 }
 
 void ARPGCharacter::GrantAbilityToPlayer(FGameplayAbilitySpec Ability)

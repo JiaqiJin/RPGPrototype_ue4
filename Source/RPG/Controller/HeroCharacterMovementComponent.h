@@ -23,4 +23,11 @@ public:
 	void SetNewJumpZVelocity(float CurrentJumpZValue);
 
 	void SetNewAirControl(float NewValue);
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Hero|Component|MovementComponent")
+	void SetSprinting(bool bNewSprint) { isSprinting = bNewSprint; }
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Hero|Component|MovementComponent")
+	bool isSprinting;
 };

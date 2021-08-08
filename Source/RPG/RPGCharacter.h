@@ -9,6 +9,7 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "Abilities/GameplayAbility.h"
+#include "RPG/Controller/HeroCharacterMovementComponent.h"
 #include "UObject/WeakObjectPtrTemplates.h"
 #include "RPGCharacter.generated.h"
 
@@ -101,6 +102,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
 	float GetAirControl() const;
+
+	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
+	bool IsHeroSprinting() const;
+
+	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
+	UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
 
 	FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
 
