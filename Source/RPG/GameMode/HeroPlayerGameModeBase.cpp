@@ -7,7 +7,7 @@
 
 AHeroPlayerGameModeBase::AHeroPlayerGameModeBase()
 {
-	struct ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Player/Character/HeroPlayerCharacter_BP"));
+	struct ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Player/Character/HeroCharacter_BP"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;

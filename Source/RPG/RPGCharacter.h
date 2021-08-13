@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "RPG/RPG.h"
+#include "RPG/Character/HeroRPGCharacter.h"
 #include "RPG/Data/HeroAbilityDataAsset.h"
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
@@ -16,33 +17,29 @@
 // https://github.com/tranek/GASDocumentation
 // https://www.youtube.com/watch?v=Yub52f4ZUU0
 UCLASS()
-class ARPGCharacter : public ACharacter, public IAbilitySystemInterface
+class ARPGCharacter : public AHeroRPGCharacter
 {
 	GENERATED_BODY()
 
-	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class USpringArmComponent* CameraBoom;
+	///** Camera boom positioning the camera behind the character */
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	//class USpringArmComponent* CameraBoom;
 
-	/** Follow camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class UCameraComponent* FollowCamera;
+	///** Follow camera */
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	//class UCameraComponent* FollowCamera;
 public:
 	ARPGCharacter(const class FObjectInitializer& InitializerObject);
 
-	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
-	float BaseTurnRate;
+	///** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	//float BaseTurnRate;
 
-	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
-	float BaseLookUpRate;
+	///** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
+	//float BaseLookUpRate;
 
 protected:
-
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
-
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -61,12 +58,6 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	/** Handler for when a touch input begins. */
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-
-	/** Handler for when a touch input stops. */
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
-
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
@@ -74,13 +65,10 @@ protected:
 	// Only called on the Server. Calls before Server's AcknowledgePossession.
 	virtual void PossessedBy(AController* NewController) override;
 
-public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+	virtual void Crouch(bool bClientSimulation = false) override;
 
-	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const;
+public:
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
 	float GetMovementSpeed() const;

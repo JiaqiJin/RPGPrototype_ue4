@@ -29,5 +29,13 @@ namespace EHeroAbilityInputID
 		Jump			UMETA(DisplayName = "Jump"),
 		// 8 Sprint
 		Sprint			UMETA(DisplayName = "Sprint"),
+		// 8 Sprint
+		Evade			UMETA(DisplayName = "Evade"),
+		// 9 Side Step
+		ForwardSideStep	UMETA(DisplayName = "Forward Side Step"),
+		// 10 FeatherFall
+		FeatherFall	UMETA(DisplayName = "FeatherFall"),
+		// 11 FeatherFall
+		Crouch	UMETA(DisplayName = "Crouch"),
 	};
 }

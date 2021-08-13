@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "HeroCharacterMovementComponent.generated.h"
 
@@ -30,4 +31,15 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Hero|Component|MovementComponent")
 	bool isSprinting;
+
+	UPROPERTY(EditDefaultsOnly, Category = Tags)
+	FGameplayTag FallingTag;
+
+
+protected:
+	/** Called after MovementMode has changed. Base implementation does special handling for starting certain modes, then notifies the CharacterOwner. */
+	virtual void OnMovementModeChanged(EMovementMode PreviousMovementMode, uint8 PreviousCustomMode);
+
+private:
+	float DefaultGravityScale;
 };

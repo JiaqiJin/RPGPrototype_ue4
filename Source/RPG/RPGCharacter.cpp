@@ -26,11 +26,10 @@ ARPGCharacter::ARPGCharacter(const class FObjectInitializer& InitializerObject) 
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 
-
 	// Don't rotate when the controller rotates. Let that just affect the camera.
-	//bUseControllerRotationPitch = true;
+	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = true;
-	//bUseControllerRotationRoll = true;
+	bUseControllerRotationRoll = false;
 
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
 	if (MovementComponent)
@@ -238,6 +237,11 @@ void ARPGCharacter::ShowHeroDebugMenu()
 	}
 }
 
+void ARPGCharacter::Crouch(bool bClientSimulation)
+{
+	Super::Crouch(bClientSimulation);
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -262,35 +266,9 @@ void ARPGCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInput
 	// Hero Debug Command L key
 	PlayerInputComponent->BindAction("HeroDebugMenu", IE_Pressed, this, &ARPGCharacter::ShowHeroDebugMenu);
 
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ARPGCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ARPGCharacter::TouchStopped);
-
 	// Bind to AbilitySystemComponent
 	AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
 		FString("CancelTarget"), FString("EHeroAbilityInputID"), static_cast<int32>(EHeroAbilityInputID::Type::Confirm), static_cast<int32>(EHeroAbilityInputID::Type::Cancel)));
-}
-
-
-void ARPGCharacter::OnResetVR()
-{
-	// If RPG is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in RPG.Build.cs is not automatically propagated
-	// and a linker error will result.
-	// You will need to either:
-	//		Add "HeadMountedDisplay" to [YourProject].Build.cs PublicDependencyModuleNames in order to build successfully (appropriate if supporting VR).
-	// or:
-	//		Comment or delete the call to ResetOrientationAndPosition below (appropriate if not supporting VR)
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void ARPGCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void ARPGCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
 }
 
 void ARPGCharacter::TurnAtRate(float Rate)
