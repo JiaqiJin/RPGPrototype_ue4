@@ -54,4 +54,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData PlayerAirControl;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, PlayerAirControl);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData Health;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, Health);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData MaxHealth;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, MaxHealth);
 };

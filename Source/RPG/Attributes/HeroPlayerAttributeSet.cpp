@@ -42,4 +42,9 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 	{
 		NewValue = FMath::Clamp<float>(NewValue, 0.0f, 1.0f);
 	}
+
+	if (Attribute == GetHealthAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxHealthAttribute().GetNumericValue(this));
+	}
 }

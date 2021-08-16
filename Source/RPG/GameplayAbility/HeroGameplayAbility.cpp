@@ -3,6 +3,7 @@
 
 #include "HeroGameplayAbility.h"
 #include "RPG/PlayerState/HeroPlayerState.h"
+#include "RPG/Controller/HeroCharacterMovementComponent.h"
 #include "RPG/RPGCharacter.h"
 
 UHeroGameplayAbility::UHeroGameplayAbility(const class FObjectInitializer& InitializerObject)
@@ -25,4 +26,28 @@ ARPGCharacter* UHeroGameplayAbility::GetKawaiiCharacter() const
 	}
 
 	return nullptr;
+}
+
+UHeroCharacterMovementComponent* UHeroGameplayAbility::GetHeroCharacterMovementComponent() const
+{
+	AHeroPlayerState* OWingPlayerState = Cast<AHeroPlayerState>(GetOwningActorFromActorInfo());
+	if (OWingPlayerState)
+	{
+		ARPGCharacter* OwingHeroCharacter = Cast<ARPGCharacter>(OWingPlayerState->GetPawn());
+		if (OwingHeroCharacter)
+		{
+			return OwingHeroCharacter->GetHeroCharacterMovementComponent();
+		}
+	}
+	return nullptr;
+}
+
+void UHeroGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec)
+{
+	Super::OnAvatarSet(ActorInfo, Spec);
+
+	if (bActivateWhenGranted)
+	{
+		bool ActivatedAbility = ActorInfo->AbilitySystemComponent->TryActivateAbility(Spec.Handle);
+	}
 }

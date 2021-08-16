@@ -7,6 +7,7 @@
 #include "HeroGameplayAbility.generated.h"
 
 class ARPGCharacter;
+class UHeroCharacterMovementComponent;
 
 /**
  * The Hero Gameplay Ability extends from UHeroGameplayAbility and should be used fpr all Gameplay Ability in Hero
@@ -20,6 +21,15 @@ public:
 	UHeroGameplayAbility();
 
 	/** Returns the physical actor that is executing this ability. May be null */
-	UFUNCTION(BlueprintCallable, Category = Ability)
+	UFUNCTION(BlueprintPure, Category = Ability)
 	ARPGCharacter* GetKawaiiCharacter() const;
+
+	UFUNCTION(BlueprintPure, Category = Ability)
+	UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
+
+protected:
+	virtual void OnAvatarSet(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) override;
+
+	UPROPERTY(EditDefaultsOnly, Category = "HeroGameplayAbility", meta = (DisplayName ="Activate Ability When Granted"))
+	bool bActivateWhenGranted;
 };
