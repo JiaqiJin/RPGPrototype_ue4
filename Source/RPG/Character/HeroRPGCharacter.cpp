@@ -3,6 +3,7 @@
 
 #include "HeroRPGCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "RPG/Components/HealthComponent/HealthComponent.h"
 
 // Sets default values
 AHeroRPGCharacter::AHeroRPGCharacter(const class FObjectInitializer& InitializerObject)
@@ -11,6 +12,7 @@ AHeroRPGCharacter::AHeroRPGCharacter(const class FObjectInitializer& Initializer
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
 }
 
 // Called when the game starts or when spawned
