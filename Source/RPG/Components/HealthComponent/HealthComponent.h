@@ -26,7 +26,7 @@ protected:
 
 public:	
 	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
 	float Health = 0.0f;
@@ -35,4 +35,8 @@ private:
 private:
 	
 	void HealthChanged(const FOnAttributeChangeData& Data);
+	void MaxHealthChanged(const FOnAttributeChangeData& Data);
+
+	void InitializeHealthAttribute(class AHeroPlayerState* HeroPlayerState);
+	void BindHealthAttributeChange(class ARPGCharacter* HeroCharacter);
 };

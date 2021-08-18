@@ -13,7 +13,7 @@ UHealthComponent::UHealthComponent()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	//PrimaryComponentTick.bCanEverTick = true;
 }
 
 
@@ -28,32 +28,23 @@ void UHealthComponent::BeginPlay()
 
 	if (HeroPlayerState)
 	{
-		PlayerAttributes = HeroPlayerState->GetAttributeSetBase();
-		if (PlayerAttributes.IsValid())
-		{
-			MaxHealth = PlayerAttributes->GetMaxHealth();
-			Health = MaxHealth;
-			PlayerAttributes->InitHealth(Health);
-			//UE_LOG(LogTemp, Warning, TEXT("Max health %f"), PlayerAttributes->GetHealth());
-		}
+		InitializeHealthAttribute(HeroPlayerState);
 	}
 
 	if (HeroCharacter)
 	{
-		AbilitySystemComponent = HeroCharacter->GetAbilitySystemComponent();
-		AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
-		(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::HealthChanged);
+		BindHealthAttributeChange(HeroCharacter);
 	}
 }
 
 
 // Called every frame
-void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
-}
+//void UHealthComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+//{
+//	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+//
+//	// ...
+//}
 
 void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 {
@@ -62,4 +53,35 @@ void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 
 	UE_LOG(LogTemp, Warning, TEXT("New value = %f | Old value = %f"), NewValue, OldValue);
 }
+
+void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
+{
+	float NewValue = Data.NewValue;
+	float OldValue = Data.OldValue;
+
+	UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
+}
+
+void UHealthComponent::InitializeHealthAttribute(AHeroPlayerState* HeroPlayerState)
+{
+	PlayerAttributes = HeroPlayerState->GetAttributeSetBase();
+	if (PlayerAttributes.IsValid())
+	{
+		MaxHealth = PlayerAttributes->GetMaxHealth();
+		Health = MaxHealth;
+		PlayerAttributes->InitHealth(Health);
+	}
+}
+
+void UHealthComponent::BindHealthAttributeChange(class ARPGCharacter* HeroCharacter)
+{
+	AbilitySystemComponent = HeroCharacter->GetAbilitySystemComponent();
+
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
+	(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::HealthChanged);
+
+	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
+	(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::MaxHealthChanged);
+}
+
 
