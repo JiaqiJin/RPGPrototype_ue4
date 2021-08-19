@@ -20,9 +20,18 @@ public:
 
 	void ShowHeroDebug();
 
+	class UHeroCharacterUIMain* GetHeroCharacterUIMain() { return HeroMainWidget; }
+
 protected:
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Debug")
+	virtual void OnPossess(APawn* aPawn) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|UI|Debug")
 	TSubclassOf<class UHeroDebugWidget> HeroDebugMenu;
 
 	class UHeroDebugWidget* HeroDebugMenuWidget;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|UI|Main")
+	TSubclassOf<class UHeroCharacterUIMain> HeroMainUI;
+
+	class UHeroCharacterUIMain* HeroMainWidget;
 };

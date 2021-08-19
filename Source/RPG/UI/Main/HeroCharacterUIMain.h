@@ -4,28 +4,24 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "CharacterHealthWidget.generated.h"
+#include "HeroCharacterUIMain.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RPG_API UCharacterHealthWidget : public UUserWidget
+class RPG_API UHeroCharacterUIMain : public UUserWidget
 {
 	GENERATED_BODY()
-	
-public:
 
+public:
 	bool Initialize() override;
 
 	UPROPERTY(meta = (BindWidget))
-	class UProgressBar* HealthBar;
-
-	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* HealthText;
-
+	class UCharacterHealthWidget* HeroHealth;
+		
 public:
 	void SetHealthBarPercentage(float value);
-	void SetHealthTextBlock(FText HealthTextValue);
+	void SetHealthTextBlock(float health, float MaxHealth);
 
 };

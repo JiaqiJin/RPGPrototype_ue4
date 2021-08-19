@@ -21,9 +21,14 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
-	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
+	virtual void HealthChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
 
+	void InitializeHealthAttribute(class AHeroPlayerState* HeroPlayerState);
+	void BindHealthAttributeChange(class ARPGCharacter* HeroCharacter);
+
+	void UpdateHealthBarPercent();
+	void UpdateHealthBarText();
 public:	
 	// Called every frame
 	//virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -32,11 +37,16 @@ private:
 	float Health = 0.0f;
 	float MaxHealth = 0.0f;
 
-private:
-	
-	void HealthChanged(const FOnAttributeChangeData& Data);
-	void MaxHealthChanged(const FOnAttributeChangeData& Data);
+protected:
+	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
+	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
 
-	void InitializeHealthAttribute(class AHeroPlayerState* HeroPlayerState);
-	void BindHealthAttributeChange(class ARPGCharacter* HeroCharacter);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Hero|UI")
+	TSubclassOf<class UCharacterHealthWidget> HeroHealthMenu;
+
+	class UCharacterHealthWidget* HeroHealthWidget;
+
+	FDelegateHandle HealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthChangedDelegateHandle;
 };

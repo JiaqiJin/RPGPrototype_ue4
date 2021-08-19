@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "UObject/ConstructorHelpers.h"
 #include "RPG/UI/HeroDebugWidget.h"
+#include "RPG/UI/Main/HeroCharacterUIMain.h"
 
 AHeroPlayerController::AHeroPlayerController(const class FObjectInitializer& InitializerObject) :
 	Super(InitializerObject)
@@ -26,6 +27,20 @@ AHeroPlayerController::AHeroPlayerController(const class FObjectInitializer& Ini
 	}
 }
 
+
+void AHeroPlayerController::OnPossess(APawn* aPawn)
+{
+	Super::OnPossess(aPawn);
+
+	if (HeroMainUI)
+	{
+		HeroMainWidget = CreateWidget<UHeroCharacterUIMain>(GetGameInstance(), HeroMainUI);
+		if (HeroMainWidget)
+		{
+			HeroMainWidget->AddToViewport();
+		}
+	}
+}
 
 void AHeroPlayerController::ShowHeroDebug()
 {
