@@ -20,5 +20,7 @@ void UHeroCharacterUIMain::SetHealthBarPercentage(float value)
 
 void UHeroCharacterUIMain::SetHealthTextBlock(float health, float MaxHealth)
 {
-	HeroHealth->SetHealthTextBlock(FText::FromString(FString::Printf(TEXT("%f / %f"), health, MaxHealth)));
+	uint32 HealthInterger = FMath::RoundHalfFromZero(health);
+	uint32 MaxHealthInterger = FMath::RoundHalfFromZero(MaxHealth);
+	HeroHealth->SetHealthTextBlock(FText::FromString(FString::Printf(TEXT("%i / %i"), HealthInterger, MaxHealthInterger)));
 }

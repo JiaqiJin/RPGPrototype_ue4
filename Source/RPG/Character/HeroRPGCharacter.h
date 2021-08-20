@@ -68,6 +68,9 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	UPROPERTY(EditDefaultsOnly, Category = Tags)
+	FGameplayTag DamageTag;
+
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 

@@ -50,7 +50,7 @@ void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 	UpdateHealthBarPercent();
 	UpdateHealthBarText();
 
-	UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
+//	UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
 }
 
 void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
@@ -58,11 +58,11 @@ void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
 	float NewValue = Data.NewValue;
 	float OldValue = Data.OldValue;
 
-	MaxHealth = NewValue;
+	//MaxHealth = NewValue;
 	UpdateHealthBarPercent();
 	UpdateHealthBarText();
 
-	UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
+	//UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
 }
 
 void UHealthComponent::InitializeHealthAttribute(AHeroPlayerState* HeroPlayerState)
