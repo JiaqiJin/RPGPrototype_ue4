@@ -97,7 +97,7 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
 	UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
 
-	FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
+	//FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
 
 protected:
 	// The core ActorComponent for interfacing with the GameplayAbilities System
@@ -105,8 +105,8 @@ protected:
 	// Player Attribute Set
 	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Attributes")
-	UHeroAbilityDataAsset* DefaultAbilities;
+	/*UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Attributes")
+	UHeroAbilityDataAsset* DefaultAbilities;*/
 
 	void ApplyDefaultAbilities();
 

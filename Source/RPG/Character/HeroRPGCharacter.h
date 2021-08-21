@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
+#include "RPG/Data/HeroDamageData.h"
 #include "Abilities/GameplayAbility.h"
 #include "HeroRPGCharacter.generated.h"
 
@@ -77,4 +78,13 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FORCEINLINE class UHeroDamageData* GetDamageData() const { return DamageData; }
+	FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	UHeroDamageData* DamageData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	UHeroAbilityDataAsset* DefaultAbilities;
 };

@@ -2,6 +2,7 @@
 
 
 #include "HeroDamageExcCalculation.h"
+#include "RPG/Data/HeroDamageData.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 
 struct HeroDamageStatics
@@ -22,7 +23,11 @@ static const HeroDamageStatics& DamageStatics()
 
 UHeroDamageExcCalculation::UHeroDamageExcCalculation()
 {
-
+	struct ConstructorHelpers::FObjectFinder<UHeroDamageData> HeroDamageDataClass(TEXT("/Game/Player/Damage/DataAssert/HeroDamageDada"));
+	if (HeroDamageDataClass.Object != NULL)
+	{
+		DamageData = HeroDamageDataClass.Object;
+	}
 }
 
 void UHeroDamageExcCalculation::Execute_Implementation(const FGameplayEffectCustomExecutionParameters& ExecutionParams,
@@ -45,9 +50,15 @@ void UHeroDamageExcCalculation::Execute_Implementation(const FGameplayEffectCust
 	EvaluateParams.SourceTags = SourceTags;
 	EvaluateParams.TargetTags = TargetTags;
 
+	FName DamageTag;
+	if (DamageData)
+	{
+		DamageTag = DamageData->GetDataTag();
+	}
+
 	//float Damage = FMath::Max(<float>(Spec.Get))
 	float Damage = 0.0f;
-	Damage += FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(FName("Data.Damage")), false, -1.0f), 0.0f);
+	Damage += FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(DamageTag), false, -1.0f), 0.0f);
 
 	if (Damage > 0.0f)
 	{
