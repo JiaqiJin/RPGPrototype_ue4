@@ -8,9 +8,9 @@ FName UHeroDamageData::GetDataTag()
 {
 	if (DamageTag.IsValid())
 	{
-		UE_LOG(LogTemp, Warning, TEXT("No damage tag Assigned"));
 		return "Data.Damage";
 	}
+	UE_LOG(LogTemp, Warning, TEXT("No damage tag Assigned! Data.Damage Will Be Use By Default"));
 	return DamageTag.GetTagName();
 }
 

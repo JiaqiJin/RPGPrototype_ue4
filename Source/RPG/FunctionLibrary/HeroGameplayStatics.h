@@ -23,8 +23,8 @@ public:
 	   * @param DamageTypeClass - Class that describes the damage that was done.
 	   * @return Actual damage the ended up being applied to the actor.
 	   */
-	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Game|Damage")
-	static float ApplyDamage(AActor* DamagedActor, float BaseDamage, AController* EventInstigator, 
-		AActor* DamageCauser, TSubclassOf<class UDamageType> DamageTypeClass);
+	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Hero|Damage")
+	static float HeroApplyDamage(AActor* DamagedActor, float BaseDamage, AController* EventInstigator, 
+		AActor* DamageCauser, TSubclassOf<class UDamageType> DamageTypeClass, bool damageOverTime);
 
 };

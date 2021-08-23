@@ -20,8 +20,13 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "GameplayTags")
 	FGameplayTag DamageTag;
 
+	// Base Damage
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
 	TSubclassOf<class UGameplayEffect> DamageGameplayEffect;
+
+	// Damager Over time
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
+	TSubclassOf<class UGameplayEffect> DamageOverTimeGameplayEffect;
 
 public:
 
