@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameplayEffectExecutionCalculation.h"
+#include "RPG/RPGCharacter.h"
 #include "HeroDamageExcCalculation.generated.h"
 
 /**
@@ -22,5 +23,7 @@ public:
 
 private:
 	class UHeroDamageData* DamageData;
+
+	void ApplyHealthRegenerationPreventionEffect(AActor* TargetActor) const;
 };
 

@@ -32,6 +32,7 @@ public:
 
 	virtual void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
 
+public:
 	// Movement Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData PlayerMovementSpeed;
@@ -57,6 +58,9 @@ public:
 	FGameplayAttributeData PlayerAirControl;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, PlayerAirControl);
 
+public:
+
+	// Health Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, Health);
@@ -66,6 +70,31 @@ public:
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, MaxHealth);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HealthRegeneration;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegeneration);
+
+public:
+
+	// Damage Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (HideFromLevelInfos))
 	FGameplayAttributeData Damage;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, Damage);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (HideFromLevelInfos))
+	FGameplayAttributeData WeaponDamageBonus;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, WeaponDamageBonus);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (HideFromLevelInfos))
+	FGameplayAttributeData MagicDamageBonus;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, MagicDamageBonus);
+
+public:
+	// Level Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HeroLevel;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HeroLevel);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HeroMaxLevel;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HeroMaxLevel);
 };

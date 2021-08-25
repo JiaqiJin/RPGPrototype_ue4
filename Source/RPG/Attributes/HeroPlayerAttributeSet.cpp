@@ -133,4 +133,10 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 	{
 		NewValue = FMath::Clamp<float>(NewValue, 0.001f, 10000.0f);
 	}
+
+	if (Attribute == GetHeroLevelAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 1.0f, GetHeroMaxLevel());
+	}
+
 }

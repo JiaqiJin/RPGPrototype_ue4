@@ -3,6 +3,7 @@
 
 #include "HeroDamageExcCalculation.h"
 #include "RPG/Data/HeroDamageData.h"
+#include "RPG/RPGCharacter.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 
 struct HeroDamageStatics
@@ -64,5 +65,20 @@ void UHeroDamageExcCalculation::Execute_Implementation(const FGameplayEffectCust
 	{
 		// Set the Target's damage meta attribute
 		OutExecutionOutput.AddOutputModifier(FGameplayModifierEvaluatedData(DamageStatics().DamageProperty, EGameplayModOp::Additive, Damage));
+		ApplyHealthRegenerationPreventionEffect(TargetActor);
+	}
+}
+
+void UHeroDamageExcCalculation::ApplyHealthRegenerationPreventionEffect(AActor* TargetActor) const
+{
+	ARPGCharacter* Character = Cast<ARPGCharacter>(TargetActor);
+	UAbilitySystemComponent* AbilitySystemComponent = Character->GetAbilitySystemComponent();
+	if (Character && DamageData)
+	{
+		FGameplayEffectContextHandle ContextHandle;
+		FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(DamageData->HealthRegPreventionEffect, Character->GetCurrentLevel(), ContextHandle);
+		FGameplayEffectSpec* Spec = SpecHandle.Data.Get();
+		//Spec->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag("Data.HealthPotion"), 5.0f);
+		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
 	}
 }

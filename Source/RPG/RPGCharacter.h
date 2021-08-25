@@ -95,6 +95,9 @@ public:
 	bool IsHeroSprinting() const;
 
 	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
+	float GetCurrentLevel() const;
+
+	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
 	UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
 
 	//FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }

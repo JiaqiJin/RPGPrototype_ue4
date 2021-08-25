@@ -29,10 +29,6 @@ float UHeroGameplayStatics::HeroApplyDamage(AActor* DamagedActor, float BaseDama
 			AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
 			//Spec->GetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(DamageTag), false, -1.0f);
 		}
-	/*	FGameplayEffectSpecHandle SpecHandle = MakeOutgoingGameplayEffectSpec(CooldownGE->GetClass(), GetAbilityLevel());
-		SpecHandle.Data.Get()->DynamicGrantedTags.AppendTags(CooldownTags);
-		SpecHandle.Data.Get()->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(FName(OurSetByCallerTag)), CooldownDuration.GetValueAtLevel(GetAbilityLevel()));
-		ApplyGameplayEffectSpecToOwner(Handle, ActorInfo, ActivationInfo, SpecHandle);*/
 	}
 	return BaseDamage;
 }

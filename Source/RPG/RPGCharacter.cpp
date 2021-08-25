@@ -242,6 +242,15 @@ void ARPGCharacter::Crouch(bool bClientSimulation)
 	Super::Crouch(bClientSimulation);
 }
 
+float ARPGCharacter::GetCurrentLevel() const
+{
+	if (PlayerAttributes.IsValid())
+	{
+		return PlayerAttributes->GetHeroLevel();
+	}
+	return 0.0f;
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 

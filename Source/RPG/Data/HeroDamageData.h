@@ -28,6 +28,10 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
 	TSubclassOf<class UGameplayEffect> DamageOverTimeGameplayEffect;
 
+	// Damager Over time
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
+	TSubclassOf<class UGameplayEffect> HealthRegPreventionEffect;
+
 public:
 
 	UFUNCTION()
