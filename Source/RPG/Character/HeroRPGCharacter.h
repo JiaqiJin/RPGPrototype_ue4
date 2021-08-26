@@ -7,6 +7,7 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "RPG/Data/HeroDamageData.h"
+#include "RPG/Components/HealthComponent/HealthComponent.h"
 #include "Abilities/GameplayAbility.h"
 #include "HeroRPGCharacter.generated.h"
 
@@ -35,9 +36,6 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 	float BaseLookUpRate;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component, meta = (AllowPrivateAccess = "true"))
-	class UHealthComponent* HealthComponent;
 
 protected:
 	// Called when the game starts or when spawned
@@ -79,11 +77,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	FORCEINLINE class UHeroDamageData* GetDamageData() const { return DamageData; }
+	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
 	FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroDamageData* DamageData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UHealthComponent* HealthComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;

@@ -23,5 +23,5 @@ public:
 public:
 	void SetHealthBarPercentage(float value);
 	void SetHealthTextBlock(float health, float MaxHealth);
-
+	void SetHealthRegenerationValue(float HealthRegeneration);
 };

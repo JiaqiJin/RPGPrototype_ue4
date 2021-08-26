@@ -73,6 +73,14 @@ public:
 	FGameplayAttributeData HealthRegeneration;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegeneration);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HealthRegenerationRate;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegenerationRate);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HealthRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegenerationActivationDelay);
+
 public:
 
 	// Damage Attribute

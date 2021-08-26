@@ -3,7 +3,9 @@
 
 #include "HeroDamageExcCalculation.h"
 #include "RPG/Data/HeroDamageData.h"
+#include "RPG/Data/Health/HealthDataAssert.h"
 #include "RPG/RPGCharacter.h"
+#include "RPG/Components/HealthComponent/HealthComponent.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 
 struct HeroDamageStatics
@@ -75,10 +77,18 @@ void UHeroDamageExcCalculation::ApplyHealthRegenerationPreventionEffect(AActor* 
 	UAbilitySystemComponent* AbilitySystemComponent = Character->GetAbilitySystemComponent();
 	if (Character && DamageData)
 	{
-		FGameplayEffectContextHandle ContextHandle;
-		FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(DamageData->HealthRegPreventionEffect, Character->GetCurrentLevel(), ContextHandle);
-		FGameplayEffectSpec* Spec = SpecHandle.Data.Get();
-		//Spec->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag("Data.HealthPotion"), 5.0f);
-		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
+		UHealthComponent* HealthComponent = Character->GetHealthComponent();
+		if (HealthComponent)
+		{
+			UHealthDataAssert* HealthData = HealthComponent->GetHealthDataAssert();
+			if (HealthData)
+			{
+				FGameplayEffectContextHandle ContextHandle;
+				FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(HealthData->HealthRegPreventionEffect, Character->GetCurrentLevel(), ContextHandle);
+				FGameplayEffectSpec* Spec = SpecHandle.Data.Get();
+				//Spec->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag("Data.HealthPotion"), 5.0f);
+				AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
+			}
+		}
 	}
 }

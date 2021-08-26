@@ -24,8 +24,12 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* HealthText;
 
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* HealthReg;
+
 public:
 	void SetHealthBarPercentage(float value);
 	void SetHealthTextBlock(FText HealthTextValue);
-
+	void SetHealthRegenerationValue(FText RegValue);
+	void SetHealthRegenerationVisibility(bool bIsVisible);
 };

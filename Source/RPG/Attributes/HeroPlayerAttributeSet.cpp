@@ -139,4 +139,18 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 		NewValue = FMath::Clamp<float>(NewValue, 1.0f, GetHeroMaxLevel());
 	}
 
+	if (Attribute == GetHealthRegenerationAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxHealth());
+	}
+
+	if (Attribute == GetHealthRegenerationRateAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetHealthRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
 }

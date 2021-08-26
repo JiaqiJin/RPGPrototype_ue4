@@ -24,3 +24,10 @@ void UHeroCharacterUIMain::SetHealthTextBlock(float health, float MaxHealth)
 	uint32 MaxHealthInterger = FMath::RoundHalfFromZero(MaxHealth);
 	HeroHealth->SetHealthTextBlock(FText::FromString(FString::Printf(TEXT("%i / %i"), HealthInterger, MaxHealthInterger)));
 }
+
+void UHeroCharacterUIMain::SetHealthRegenerationValue(float HealthRegeneration)
+{
+	FString HealthRegString = FString::SanitizeFloat(HealthRegeneration);
+	//float HealthRegInterger = FMath::RoundHalfFromZero(HealthRegeneration);
+	HeroHealth->SetHealthRegenerationValue(FText::FromString(HealthRegString));
+}

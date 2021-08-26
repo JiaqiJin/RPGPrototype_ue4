@@ -30,3 +30,20 @@ void UCharacterHealthWidget::SetHealthTextBlock(FText HealthTextValue)
 		HealthText->SetText(HealthTextValue);
 	}
 }
+
+void UCharacterHealthWidget::SetHealthRegenerationValue(FText RegValue)
+{
+	if (HealthReg)
+	{
+		HealthReg->SetText(RegValue);
+	}
+}
+
+void UCharacterHealthWidget::SetHealthRegenerationVisibility(bool bIsVisible)
+{
+	if (HealthReg)
+	{
+		ESlateVisibility HealthVisibility = bIsVisible ? ESlateVisibility::Visible : ESlateVisibility::Hidden;
+		HealthReg->SetVisibility(HealthVisibility);
+	}
+}
