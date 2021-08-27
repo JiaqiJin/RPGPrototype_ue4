@@ -4,6 +4,7 @@
 #include "HeroRPGCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "RPG/Components/HealthComponent/HealthComponent.h"
+#include "RPG/Components/ManaComponent/ManaComponent.h"
 
 // Sets default values
 AHeroRPGCharacter::AHeroRPGCharacter(const class FObjectInitializer& InitializerObject)
@@ -13,6 +14,7 @@ AHeroRPGCharacter::AHeroRPGCharacter(const class FObjectInitializer& Initializer
 	PrimaryActorTick.bCanEverTick = true;
 
 	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
+	ManaComponent = CreateDefaultSubobject<UManaComponent>(TEXT("Mana Component"));
 }
 
 // Called when the game starts or when spawned

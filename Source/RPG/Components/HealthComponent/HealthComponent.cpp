@@ -63,7 +63,7 @@ void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 		}
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
+	//UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
 }
 
 void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
@@ -113,10 +113,10 @@ void UHealthComponent::BindHealthAttributeChange(class ARPGCharacter* HeroCharac
 		(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::HealthChanged);
 
 		MaxHealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
-		(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::MaxHealthChanged);
+		(PlayerAttributes->GetMaxHealthAttribute()).AddUObject(this, &UHealthComponent::MaxHealthChanged);
 
-		MaxHealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
-		(PlayerAttributes->GetHealthAttribute()).AddUObject(this, &UHealthComponent::HealthRegenerationChanged);
+		MaxHealthRegChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate
+		(PlayerAttributes->GetHealthRegenerationAttribute()).AddUObject(this, &UHealthComponent::HealthRegenerationChanged);
 	}
 }
 
@@ -169,6 +169,7 @@ void UHealthComponent::UpdateHealthRegenerationBarText()
 		if (MainUI)
 		{
 			MainUI->SetHealthRegenerationValue(HealthRegenerationValue);
+			MainUI->SetHealthRegenerationVisibility(Health != MaxHealth);
 		}
 	}
 }

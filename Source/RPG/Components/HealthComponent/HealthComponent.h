@@ -24,7 +24,7 @@ protected:
 
 	virtual void HealthChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
-	void HealthRegenerationChanged(const FOnAttributeChangeData& Data);
+	virtual void HealthRegenerationChanged(const FOnAttributeChangeData& Data);
 
 	void InitializeHealthAttribute(class AHeroPlayerState* HeroPlayerState);
 	void BindHealthAttributeChange(class ARPGCharacter* HeroCharacter);
@@ -59,4 +59,5 @@ protected:
 
 	FDelegateHandle HealthChangedDelegateHandle;
 	FDelegateHandle MaxHealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthRegChangedDelegateHandle;
 };

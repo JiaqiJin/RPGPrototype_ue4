@@ -153,4 +153,20 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 	{
 		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
 	}
+
+	// Mana
+	if (Attribute == GetManaRegenerationAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxMana());
+	}
+
+	if (Attribute == GetManaRegenerationRateAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetManaRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
 }

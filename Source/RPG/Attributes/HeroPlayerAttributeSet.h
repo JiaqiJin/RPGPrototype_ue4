@@ -82,6 +82,28 @@ public:
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegenerationActivationDelay);
 
 public:
+	// Mana Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData Mana;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, Mana);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData MaxMana;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, MaxMana);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData ManaRegeneration;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, ManaRegeneration);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData ManaRegenerationRate;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, ManaRegenerationRate);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData ManaRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, ManaRegenerationActivationDelay);
+
+public:
 
 	// Damage Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (HideFromLevelInfos))

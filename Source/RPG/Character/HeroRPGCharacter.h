@@ -78,6 +78,7 @@ public:
 
 	FORCEINLINE class UHeroDamageData* GetDamageData() const { return DamageData; }
 	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
+	FORCEINLINE class UManaComponent* GetManaComponent() const { return ManaComponent; }
 	FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
 
 protected:
@@ -86,6 +87,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	class UHealthComponent* HealthComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UManaComponent* ManaComponent;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;
