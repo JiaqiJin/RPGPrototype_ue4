@@ -51,3 +51,38 @@ void UHeroGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorInf
 		bool ActivatedAbility = ActorInfo->AbilitySystemComponent->TryActivateAbility(Spec.Handle);
 	}
 }
+
+void UHeroGameplayAbility::ApplyCost(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
+	const FGameplayAbilityActivationInfo ActivationInfo) const
+{
+	Super::ApplyCost(Handle, ActorInfo, ActivationInfo);
+}
+
+bool UHeroGameplayAbility::CommitAbilityCost(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+	OUT FGameplayTagContainer* OptionalRelevantTags)
+{
+	Super::CommitAbilityCost(Handle, ActorInfo, ActivationInfo);
+	return true;
+}
+
+/** The last chance to fail before committing, this will usually be the same as CanActivateAbility. Some abilities may need to do extra checks here if they are consuming extra stuff in CommitExecute */
+bool UHeroGameplayAbility::CommitCheck(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+	OUT FGameplayTagContainer* OptionalRelevantTags)
+{
+	if (bAutoApplyCooldown)
+	{
+		ApplyCooldown(Handle, ActorInfo, ActivationInfo);
+
+	}
+	
+	if (bAutoApplyCost)
+	{
+		ApplyCost(Handle, ActorInfo, ActivationInfo);
+	}
+	
+	return false;
+}
+
+
