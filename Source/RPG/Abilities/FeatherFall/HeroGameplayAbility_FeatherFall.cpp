@@ -4,6 +4,8 @@
 #include "HeroGameplayAbility_FeatherFall.h"
 #include "RPG/Controller/HeroCharacterMovementComponent.h"
 #include "RPG/RPGCharacter.h"
+#include "RPG/Controller/HeroPlayerController.h"
+#include "Kismet/GameplayStatics.h"
 
 UHeroGameplayAbility_FeatherFall::UHeroGameplayAbility_FeatherFall(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -25,6 +27,8 @@ void UHeroGameplayAbility_FeatherFall::ActivateAbility(const FGameplayAbilitySpe
 		{
 			HeroMovementComponent->bNotifyApex = true;
 		}
+
+		//AHeroPlayerController* PC = Cast<AHeroPlayerController>(GEngine->GetFirstLocalPlayerController(GetWorld()));
 	}
 }
 
@@ -45,6 +49,8 @@ void UHeroGameplayAbility_FeatherFall::EndAbility(const FGameplayAbilitySpecHand
 	if (HeroMovementComponent)
 	{
 		HeroMovementComponent->bNotifyApex = true;
+		AHeroPlayerController* PC = Cast<AHeroPlayerController>(GEngine->GetFirstLocalPlayerController(GetWorld()));
+		PC->SetIgnoreMoveInput(true);
 	}
 }
 

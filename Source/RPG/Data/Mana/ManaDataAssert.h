@@ -5,23 +5,22 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "GameplayTagContainer.h"
-#include "HealthDataAssert.generated.h"
+#include "ManaDataAssert.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RPG_API UHealthDataAssert : public UDataAsset
+class RPG_API UManaDataAssert : public UDataAsset
 {
 	GENERATED_BODY()
 	
 public:
-	// Health Over time
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
-	TSubclassOf<class UGameplayEffect> HealthRegPreventionEffect;
+	TSubclassOf<class UGameplayEffect> ManaPreventionEffect;
 
-	// Health regenration efffect
+	// Mana regenration efffect
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
-	TSubclassOf<class UGameplayEffect> HealthRegenerationEffect;
+	TSubclassOf<class UGameplayEffect> ManaRegenerationEffect;
 
 };

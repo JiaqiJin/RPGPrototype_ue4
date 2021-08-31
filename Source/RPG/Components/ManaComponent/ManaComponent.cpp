@@ -5,6 +5,7 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
+#include "RPG/Data/Mana/ManaDataAssert.h"
 #include "RPG/RPGCharacter.h"
 #include "RPG/PlayerState/HeroPlayerState.h"
 #include "RPG/Controller/HeroPlayerController.h"
@@ -172,5 +173,11 @@ void UManaComponent::UpdateManaRegenerationBarText()
 
 void UManaComponent::RemoveManaRegenerationEffect(ARPGCharacter* HeroCharacter)
 {
-
+	AbilitySystemComponent = HeroCharacter->GetAbilitySystemComponent();
+	if (AbilitySystemComponent.IsValid() && ManaData)
+	{
+		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(ManaData->ManaRegenerationEffect,
+			AbilitySystemComponent.Get(), -1);
+		//AbilitySystemComponent->RemoveActiveEffectsWithGrantedTags()
+	}
 }

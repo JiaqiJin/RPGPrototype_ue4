@@ -48,6 +48,9 @@ protected:
 	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
 
+	UPROPERTY(EditAnywhere, Category = "Mana")
+	class UManaDataAssert* ManaData;
+
 	FDelegateHandle ManaChangedDelegateHandle;
 	FDelegateHandle MaxManaChangedDelegateHandle;
 	FDelegateHandle MaxManaRegChangedDelegateHandle;
