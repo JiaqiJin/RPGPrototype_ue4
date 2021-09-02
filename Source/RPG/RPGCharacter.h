@@ -107,7 +107,8 @@ protected:
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
 	// Player Attribute Set
 	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
-
+	// Player Cooldown Set
+	TWeakObjectPtr<class UHeroCooldownAttributeSet> AbilityCooldownAttributeSet;
 	/*UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Attributes")
 	UHeroAbilityDataAsset* DefaultAbilities;*/
 

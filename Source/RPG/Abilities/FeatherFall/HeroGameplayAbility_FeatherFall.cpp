@@ -6,6 +6,8 @@
 #include "RPG/RPGCharacter.h"
 #include "RPG/Controller/HeroPlayerController.h"
 #include "Kismet/GameplayStatics.h"
+#include "Abilities/Tasks/AbilityTask.h"
+#include "Abilities/Tasks/AbilityTask_PlayMontageAndWait.h"
 
 UHeroGameplayAbility_FeatherFall::UHeroGameplayAbility_FeatherFall(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -29,6 +31,18 @@ void UHeroGameplayAbility_FeatherFall::ActivateAbility(const FGameplayAbilitySpe
 		}
 
 		//AHeroPlayerController* PC = Cast<AHeroPlayerController>(GEngine->GetFirstLocalPlayerController(GetWorld()));
+		//UAnimMontage* MontageToPlay = FeatherFallMontage;
+		//UAbilityTask_PlayMontageAndWait* Task;
+		//Task->OnCompleted.AddDynamic(this, &UHeroGameplayAbility_FeatherFall::Oncompleted);
+		// Play fire montage and wait for event telling us to spawn the projectile
+		//UGDAT_PlayMontageAndWaitForEvent* Task = UGDAT_PlayMontageAndWaitForEvent::PlayMontageAndWaitForEvent(this, NAME_None, MontageToPlay, FGameplayTagContainer(), 1.0f, NAME_None, false, 1.0f);
+		//Task->OnBlendOut.AddDynamic(this, &UGDGA_FireGun::OnCompleted);
+		//Task->OnCompleted.AddDynamic(this, &UGDGA_FireGun::OnCompleted);
+		//Task->OnInterrupted.AddDynamic(this, &UGDGA_FireGun::OnCancelled);
+		//Task->OnCancelled.AddDynamic(this, &UGDGA_FireGun::OnCancelled);
+		//Task->EventReceived.AddDynamic(this, &UGDGA_FireGun::EventReceived);
+		//// ReadyForActivation() is how you activate the AbilityTask in C++. Blueprint has magic from K2Node_LatentGameplayTaskCall that will automatically call ReadyForActivation().
+		//Task->ReadyForActivation();
 	}
 }
 

@@ -13,6 +13,7 @@
 #include "GameplayDebuggerCategoryReplicator.h"
 //#include "GameplayDebuggerAddonBase.h"
 #include "DebugRenderSceneProxy.h"
+#include "RPG/Attributes/Cooldown/HeroCooldownAttributeSet.h"
 
 HeroDebuggerCategory_Attributes::HeroDebuggerCategory_Attributes()
 {
@@ -37,6 +38,7 @@ void HeroDebuggerCategory_Attributes::CollectData(class APlayerController* Owner
 		if (AbilityComp)
 		{
 			TArray<FGameplayAttribute> Attributes;
+			//const UHeroCooldownAttributeSet* CooldownAttribute = AbilityComp->GetSet<UHeroCooldownAttributeSet>();
 			AbilityComp->GetAllAttributes(Attributes);
 
 			for (FGameplayAttribute Attribute : Attributes)

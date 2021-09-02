@@ -4,6 +4,7 @@
 #include "HeroPlayerState.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
+#include "RPG/Attributes/Cooldown/HeroCooldownAttributeSet.h"
 #include "RPG/RPGCharacter.h"
 
 AHeroPlayerState::AHeroPlayerState()
@@ -14,6 +15,7 @@ AHeroPlayerState::AHeroPlayerState()
 	AbilitySystemComponent->SetIsReplicated(true);
 
 	AttributeSetBase = CreateDefaultSubobject<UHeroPlayerAttributeSet>(TEXT("AttributeSetBase"));
+	CooldownAttributeSetBase = CreateDefaultSubobject<UHeroCooldownAttributeSet>(TEXT("CooldownAttributeSetBase"));
 }
 
 void AHeroPlayerState::InitializeAttributes()
@@ -21,6 +23,14 @@ void AHeroPlayerState::InitializeAttributes()
 	if (AbilitySystemComponent && AttributeDataTable)
 	{
 		const UAttributeSet* Attributes = AbilitySystemComponent->InitStats(UHeroPlayerAttributeSet::StaticClass(), AttributeDataTable);
+	}
+}
+
+void AHeroPlayerState::InitializeCooldownAttributes()
+{
+	if (AbilitySystemComponent && CooldownAttributeDataTable)
+	{
+		const UAttributeSet* Attributes = AbilitySystemComponent->InitStats(UHeroCooldownAttributeSet::StaticClass(), CooldownAttributeDataTable);
 	}
 }
 
@@ -32,6 +42,11 @@ UAbilitySystemComponent* AHeroPlayerState::GetAbilitySystemComponent() const
 UHeroPlayerAttributeSet* AHeroPlayerState::GetAttributeSetBase() const
 {
 	return AttributeSetBase;
+}
+
+UHeroCooldownAttributeSet* AHeroPlayerState::GetCooldownAttributeSetBase() const
+{
+	return CooldownAttributeSetBase;
 }
 
 float AHeroPlayerState::GetMovementSpeed() const

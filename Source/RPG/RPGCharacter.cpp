@@ -12,6 +12,7 @@
 #include "RPG/PlayerState/HeroPlayerState.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 #include "RPG/Controller/HeroPlayerController.h"
+#include "RPG/Attributes/Cooldown/HeroCooldownAttributeSet.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ARPGCharacter
@@ -75,6 +76,9 @@ void ARPGCharacter::PossessedBy(AController* NewController)
 
 		PlayerAttributes = PS->GetAttributeSetBase();
 		PS->InitializeAttributes();
+
+		AbilityCooldownAttributeSet = PS->GetCooldownAttributeSetBase();
+		PS->InitializeCooldownAttributes();
 
 		ApplyDefaultAbilities();
 

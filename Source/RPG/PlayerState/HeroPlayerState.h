@@ -23,8 +23,10 @@ public:
 	class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 	class UHeroPlayerAttributeSet* GetAttributeSetBase() const;
+	class UHeroCooldownAttributeSet* GetCooldownAttributeSetBase() const;
 
 	void InitializeAttributes();
+	void InitializeCooldownAttributes();
 
 	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
 	float GetMovementSpeed() const;
@@ -49,8 +51,14 @@ protected:
 	UPROPERTY()
 	class UHeroPlayerAttributeSet* AttributeSetBase;
 
+	UPROPERTY()
+	class UHeroCooldownAttributeSet* CooldownAttributeSetBase;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
 	class UDataTable* AttributeDataTable;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Cooldown")
+	class UDataTable* CooldownAttributeDataTable;
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
