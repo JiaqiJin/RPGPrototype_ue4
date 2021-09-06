@@ -30,8 +30,21 @@ void UHeroGameplayAbility_FeatherFall::ActivateAbility(const FGameplayAbilitySpe
 			HeroMovementComponent->bNotifyApex = true;
 		}
 
-		//AHeroPlayerController* PC = Cast<AHeroPlayerController>(GEngine->GetFirstLocalPlayerController(GetWorld()));
-		//UAnimMontage* MontageToPlay = FeatherFallMontage;
+		AHeroPlayerController* PC = Cast<AHeroPlayerController>(GEngine->GetFirstLocalPlayerController(GetWorld()));
+		UAnimMontage* MontageToPlay = FeatherFallMontage;
+		UAnimInstance* FeatherFallAnimInstance = GetOwningComponentFromActorInfo()->GetAnimInstance();
+		UAbilityTask_PlayMontageAndWait* FeatherFallMontageTask = UAbilityTask_PlayMontageAndWait::CreatePlayMontageAndWaitProxy(this,
+			"FeatherFallMontage", FeatherFallMontage);
+
+		if (FeatherFallAnimInstance && MontageToPlay)
+		{
+			/*FeatherFallAnimInstance->Montage_Play(FeatherFallMontage);
+			FeatherFallAnimInstance->OnPlayMontageNotifyBegin.AddUniqueDynamic()*/
+		}
+		else
+		{
+			EndAbility(CurrentSpecHandle, CurrentActorInfo, CurrentActivationInfo, true, true);
+		}
 		//UAbilityTask_PlayMontageAndWait* Task;
 		//Task->OnCompleted.AddDynamic(this, &UHeroGameplayAbility_FeatherFall::Oncompleted);
 		// Play fire montage and wait for event telling us to spawn the projectile
