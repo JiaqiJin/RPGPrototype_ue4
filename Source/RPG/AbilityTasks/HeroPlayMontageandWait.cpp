@@ -6,13 +6,18 @@
 #include "AbilitySystemComponent.h"
 #include "AbilitySystemGlobals.h"
 #include "Animation/AnimInstance.h"
-// ---------
+#include "Abilities/Tasks/AbilityTask_PlayMontageAndWait.h"
 
 UHeroPlayMontageandWait::UHeroPlayMontageandWait(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	Rate = 1.f;
 	bStopWhenAbilityEnds = true;
+}
+
+UAbilitySystemComponent* UHeroPlayMontageandWait::GetTargetASC()
+{
+	return Cast<UAbilitySystemComponent>(AbilitySystemComponent);
 }
 
 void UHeroPlayMontageandWait::OnMontageBlendingOut(UAnimMontage* Montage, bool bInterrupted)
@@ -38,26 +43,28 @@ void UHeroPlayMontageandWait::OnMontageBlendingOut(UAnimMontage* Montage, bool b
 	{
 		if (ShouldBroadcastAbilityTaskDelegates())
 		{
-			OnInterrupted.Broadcast();
+			OnInterrupted.Broadcast("NONE");
 		}
 	}
 	else
 	{
 		if (ShouldBroadcastAbilityTaskDelegates())
 		{
-			OnBlendOut.Broadcast();
+			OnBlendOut.Broadcast("NONE");
 		}
 	}
 }
 
-void UHeroPlayMontageandWait::OnMontageInterrupted()
+void UHeroPlayMontageandWait::OnAbilityCancelled()
 {
+	// TODO: Merge this fix back to engine, it was calling the wrong callback
+
 	if (StopPlayingMontage())
 	{
 		// Let the BP handle the interrupt as well
 		if (ShouldBroadcastAbilityTaskDelegates())
 		{
-			OnInterrupted.Broadcast();
+			OnCancelled.Broadcast("NONE");
 		}
 	}
 }
@@ -68,17 +75,24 @@ void UHeroPlayMontageandWait::OnMontageEnded(UAnimMontage* Montage, bool bInterr
 	{
 		if (ShouldBroadcastAbilityTaskDelegates())
 		{
-			OnCompleted.Broadcast();
+			OnCompleted.Broadcast("NONE");
 		}
 	}
 
 	EndTask();
 }
 
-UHeroPlayMontageandWait* UHeroPlayMontageandWait::CreateHeroPlayMontageAndWaitProxy(UGameplayAbility* OwningAbility,
-	FName TaskInstanceName, UAnimMontage* MontageToPlay, float Rate, FName StartSection, bool bStopWhenAbilityEnds, float AnimRootMotionTranslationScale, float StartTimeSeconds)
+void UHeroPlayMontageandWait::NotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload)
 {
+	if (ShouldBroadcastAbilityTaskDelegates())
+	{
+		OnNotifyBegin.Broadcast(NotifyName);
+	}
+}
 
+UHeroPlayMontageandWait* UHeroPlayMontageandWait::PlayMontageAndWaitForNotify(UGameplayAbility* OwningAbility,
+	FName TaskInstanceName, UAnimMontage* MontageToPlay, float Rate, FName StartSection, bool bStopWhenAbilityEnds, float AnimRootMotionTranslationScale)
+{
 	UAbilitySystemGlobals::NonShipping_ApplyGlobalAbilityScaler_Rate(Rate);
 
 	UHeroPlayMontageandWait* MyObj = NewAbilityTask<UHeroPlayMontageandWait>(OwningAbility, TaskInstanceName);
@@ -87,7 +101,6 @@ UHeroPlayMontageandWait* UHeroPlayMontageandWait::CreateHeroPlayMontageAndWaitPr
 	MyObj->StartSection = StartSection;
 	MyObj->AnimRootMotionTranslationScale = AnimRootMotionTranslationScale;
 	MyObj->bStopWhenAbilityEnds = bStopWhenAbilityEnds;
-	MyObj->StartTimeSeconds = StartTimeSeconds;
 
 	return MyObj;
 }
@@ -100,14 +113,15 @@ void UHeroPlayMontageandWait::Activate()
 	}
 
 	bool bPlayedMontage = false;
+	UAbilitySystemComponent* GDAbilitySystemComponent = GetTargetASC();
 
-	if (AbilitySystemComponent)
+	if (GDAbilitySystemComponent)
 	{
 		const FGameplayAbilityActorInfo* ActorInfo = Ability->GetCurrentActorInfo();
 		UAnimInstance* AnimInstance = ActorInfo->GetAnimInstance();
 		if (AnimInstance != nullptr)
 		{
-			if (AbilitySystemComponent->PlayMontage(Ability, Ability->GetCurrentActivationInfo(), MontageToPlay, Rate, StartSection, StartTimeSeconds) > 0.f)
+			if (GDAbilitySystemComponent->PlayMontage(Ability, Ability->GetCurrentActivationInfo(), MontageToPlay, Rate, StartSection) > 0.f)
 			{
 				// Playing a montage could potentially fire off a callback into game code which could kill this ability! Early out if we are  pending kill.
 				if (ShouldBroadcastAbilityTaskDelegates() == false)
@@ -115,7 +129,7 @@ void UHeroPlayMontageandWait::Activate()
 					return;
 				}
 
-				InterruptedHandle = Ability->OnGameplayAbilityCancelled.AddUObject(this, &UHeroPlayMontageandWait::OnMontageInterrupted);
+				CancelledHandle = Ability->OnGameplayAbilityCancelled.AddUObject(this, &UHeroPlayMontageandWait::OnAbilityCancelled);
 
 				BlendingOutDelegate.BindUObject(this, &UHeroPlayMontageandWait::OnMontageBlendingOut);
 				AnimInstance->Montage_SetBlendingOutDelegate(BlendingOutDelegate, MontageToPlay);
@@ -130,25 +144,28 @@ void UHeroPlayMontageandWait::Activate()
 					Character->SetAnimRootMotionTranslationScale(AnimRootMotionTranslationScale);
 				}
 
+				AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &UHeroPlayMontageandWait::NotifyBegin);
+
 				bPlayedMontage = true;
 			}
 		}
 		else
 		{
-			ABILITY_LOG(Warning, TEXT("UHeroPlayMontageandWait call to PlayMontage failed!"));
+			UE_LOG(LogTemp, Warning, TEXT("UGDAbilityTask_PlayMontageAndWaitForEvent call to PlayMontage failed!"));
 		}
 	}
 	else
 	{
-		ABILITY_LOG(Warning, TEXT("UHeroPlayMontageandWait called on invalid AbilitySystemComponent"));
+		UE_LOG(LogTemp, Warning, TEXT("UGDAbilityTask_PlayMontageAndWaitForEvent called on invalid AbilitySystemComponent"));
 	}
 
 	if (!bPlayedMontage)
 	{
-		ABILITY_LOG(Warning, TEXT("UHeroPlayMontageandWait called in Ability %s failed to play montage %s; Task Instance Name %s."), *Ability->GetName(), *GetNameSafe(MontageToPlay), *InstanceName.ToString());
+		UE_LOG(LogTemp, Warning, TEXT("UGDAbilityTask_PlayMontageAndWaitForEvent called in Ability %s failed to play montage %s; Task Instance Name %s."), *Ability->GetName(), *GetNameSafe(MontageToPlay), *InstanceName.ToString());
 		if (ShouldBroadcastAbilityTaskDelegates())
 		{
-			OnCancelled.Broadcast();
+			//ABILITY_LOG(Display, TEXT("%s: OnCancelled"), *GetName());
+			OnCancelled.Broadcast("NONE");
 		}
 	}
 
@@ -159,10 +176,8 @@ void UHeroPlayMontageandWait::ExternalCancel()
 {
 	check(AbilitySystemComponent);
 
-	if (ShouldBroadcastAbilityTaskDelegates())
-	{
-		OnCancelled.Broadcast();
-	}
+	OnAbilityCancelled();
+
 	Super::ExternalCancel();
 }
 
@@ -174,7 +189,7 @@ void UHeroPlayMontageandWait::OnDestroy(bool AbilityEnded)
 	// This delegate, however, should be cleared as it is a multicast
 	if (Ability)
 	{
-		Ability->OnGameplayAbilityCancelled.Remove(InterruptedHandle);
+		Ability->OnGameplayAbilityCancelled.Remove(CancelledHandle);
 		if (AbilityEnded && bStopWhenAbilityEnds)
 		{
 			StopPlayingMontage();
@@ -236,183 +251,5 @@ FString UHeroPlayMontageandWait::GetDebugString() const
 		}
 	}
 
-	return FString::Printf(TEXT("PlayMontageAndWait. MontageToPlay: %s  (Currently Playing): %s"), *GetNameSafe(MontageToPlay), *GetNameSafe(PlayingMontage));
+	return FString::Printf(TEXT("PlayMontageAndWaitForEvent. MontageToPlay: %s  (Currently Playing): %s"), *GetNameSafe(MontageToPlay), *GetNameSafe(PlayingMontage));
 }
-
-// ---------------- ------------------------------------------
-
-void UHeroPlayMontageandWait::TriggerAnimNotifies(float DeltaSeconds)
-{
-	SCOPE_CYCLE_COUNTER(STAT_AnimTriggerAnimNotifies);
-	const FGameplayAbilityActorInfo* ActorInfo = Ability->GetCurrentActorInfo();
-	if (ActorInfo)
-	{
-		USkeletalMeshComponent* SkelMeshComp = ActorInfo->SkeletalMeshComponent.Get();
-	}
-
-	// Array that will replace the 'ActiveAnimNotifyState' at the end of this function.
-	TArray<FAnimNotifyEvent> NewActiveAnimNotifyState;
-	NewActiveAnimNotifyState.Reserve(NotifyQueue.AnimNotifies.Num());
-
-	// AnimNotifyState freshly added that need their 'NotifyBegin' event called.
-	TArray<const FAnimNotifyEvent*> NotifyStateBeginEvent;
-
-	for (int32 Index = 0; Index < NotifyQueue.AnimNotifies.Num(); Index++)
-	{
-		if (const FAnimNotifyEvent* AnimNotifyEvent = NotifyQueue.AnimNotifies[Index].GetNotify())
-		{
-			// AnimNotifyState
-			if (AnimNotifyEvent->NotifyStateClass)
-			{
-				if (!ActiveAnimNotifyState.RemoveSingleSwap(*AnimNotifyEvent, false))
-				{
-					// Queue up calls to 'NotifyBegin', so they happen after 'NotifyEnd'.
-					NotifyStateBeginEvent.Add(AnimNotifyEvent);
-				}
-				NewActiveAnimNotifyState.Add(*AnimNotifyEvent);
-				continue;
-			}
-
-			// Trigger non 'state' AnimNotifies
-			TriggerSingleAnimNotify(AnimNotifyEvent);
-		}
-	}
-
-	// Send end notification to AnimNotifyState not active anymore.
-	for (int32 Index = 0; Index < ActiveAnimNotifyState.Num(); ++Index)
-	{
-		const FAnimNotifyEvent& AnimNotifyEvent = ActiveAnimNotifyState[Index];
-		if (AnimNotifyEvent.NotifyStateClass && ShouldTriggerAnimNotifyState(AnimNotifyEvent.NotifyStateClass))
-		{
-			TRACE_ANIM_NOTIFY(this, AnimNotifyEvent, End);
-			AnimNotifyEvent.NotifyStateClass->NotifyEnd(SkelMeshComp, Cast<UAnimSequenceBase>(AnimNotifyEvent.NotifyStateClass->GetOuter()));
-		}
-		// The NotifyEnd callback above may have triggered actor destruction and the tear down
-		// of this instance via UninitializeAnimation which empties ActiveAnimNotifyState.
-		// If that happened, we should stop iterating the ActiveAnimNotifyState array
-		if (ActiveAnimNotifyState.IsValidIndex(Index) == false)
-		{
-			ensureMsgf(false, TEXT("UAnimInstance::ActiveAnimNotifyState has been invalidated by NotifyEnd. AnimInstance: %s, Owning Component: %s, Owning Actor: %s "), *GetNameSafe(this), *GetNameSafe(GetOwningComponent()), *GetNameSafe(GetOwningActor()));
-			return;
-		}
-	}
-
-	// Call 'NotifyBegin' event on freshly added AnimNotifyState.
-	for (const FAnimNotifyEvent* AnimNotifyEvent : NotifyStateBeginEvent)
-	{
-		if (ShouldTriggerAnimNotifyState(AnimNotifyEvent->NotifyStateClass))
-		{
-			TRACE_ANIM_NOTIFY(this, *AnimNotifyEvent, Begin);
-			AnimNotifyEvent->NotifyStateClass->NotifyBegin(SkelMeshComp, Cast<UAnimSequenceBase>(AnimNotifyEvent->NotifyStateClass->GetOuter()), AnimNotifyEvent->GetDuration());
-		}
-	}
-
-	// Switch our arrays.
-	ActiveAnimNotifyState = MoveTemp(NewActiveAnimNotifyState);
-
-	// Tick currently active AnimNotifyState
-	for (const FAnimNotifyEvent& AnimNotifyEvent : ActiveAnimNotifyState)
-	{
-		if (ShouldTriggerAnimNotifyState(AnimNotifyEvent.NotifyStateClass))
-		{
-			TRACE_ANIM_NOTIFY(this, AnimNotifyEvent, Tick);
-			AnimNotifyEvent.NotifyStateClass->NotifyTick(SkelMeshComp, Cast<UAnimSequenceBase>(AnimNotifyEvent.NotifyStateClass->GetOuter()), DeltaSeconds);
-		}
-	}
-}
-
-void UHeroPlayMontageandWait::TriggerSingleAnimNotify(const FAnimNotifyEvent* AnimNotifyEvent)
-{
-	// This is for non 'state' anim notifies.
-	if (AnimNotifyEvent && (AnimNotifyEvent->NotifyStateClass == NULL))
-	{
-		if (HandleNotify(*AnimNotifyEvent))
-		{
-			return;
-		}
-
-		if (AnimNotifyEvent->Notify != nullptr)
-		{
-			// Implemented notify: just call Notify. UAnimNotify will forward this to the event which will do the work.
-			TRACE_ANIM_NOTIFY(this, *AnimNotifyEvent, Event);
-			AnimNotifyEvent->Notify->Notify(GetSkelMeshComponent(), Cast<UAnimSequenceBase>(AnimNotifyEvent->Notify->GetOuter()));
-		}
-		else if (AnimNotifyEvent->NotifyName != NAME_None)
-		{
-			// Custom Event based notifies. These will call a AnimNotify_* function on the AnimInstance.
-			const FName FuncName = AnimNotifyEvent->GetNotifyEventName();
-
-			auto NotifyAnimInstance = [this, AnimNotifyEvent, FuncName](UAnimInstance* InAnimInstance)
-			{
-				check(InAnimInstance);
-
-				if (InAnimInstance == this || InAnimInstance->bReceiveNotifiesFromLinkedInstances)
-				{
-					UFunction* Function = InAnimInstance->FindFunction(FuncName);
-					if (Function)
-					{
-						// if parameter is none, add event
-						if (Function->NumParms == 0)
-						{
-							TRACE_ANIM_NOTIFY(this, *AnimNotifyEvent, Event);
-							InAnimInstance->ProcessEvent(Function, nullptr);
-						}
-						else if ((Function->NumParms == 1) && (CastField<FObjectProperty>(Function->PropertyLink) != nullptr))
-						{
-							struct FAnimNotifierHandler_Parms
-							{
-								UAnimNotify* Notify;
-							};
-
-							FAnimNotifierHandler_Parms Parms;
-							Parms.Notify = AnimNotifyEvent->Notify;
-							TRACE_ANIM_NOTIFY(this, *AnimNotifyEvent, Event);
-							InAnimInstance->ProcessEvent(Function, &Parms);
-						}
-						else
-						{
-							// Actor has event, but with different parameters. Print warning
-							UE_LOG(LogAnimNotify, Warning, TEXT("Anim notifier named %s, but the parameter number does not match or not of the correct type"), *FuncName.ToString());
-						}
-					}
-				}
-			};
-
-
-			if (FSimpleMulticastDelegate* ExistingDelegate = ExternalNotifyHandlers.Find(FuncName))
-			{
-				ExistingDelegate->Broadcast();
-			}
-
-			if (bPropagateNotifiesToLinkedInstances)
-			{
-				GetSkelMeshComponent()->ForEachAnimInstance(NotifyAnimInstance);
-			}
-			else
-			{
-				NotifyAnimInstance(this);
-			}
-		}
-	}
-}
-
-void UHeroPlayMontageandWait::EndNotifyStates()
-{
-	const FGameplayAbilityActorInfo* ActorInfo = Ability->GetCurrentActorInfo();
-	if (ActorInfo)
-	{
-		USkeletalMeshComponent* SkelMeshComp = ActorInfo->SkeletalMeshComponent.Get();
-	}
-
-	for (FAnimNotifyEvent& Event : ActiveAnimNotifyState)
-	{
-		if (UAnimNotifyState* NotifyState = Event.NotifyStateClass)
-		{
-			TRACE_ANIM_NOTIFY(this, Event, End);
-			NotifyState->NotifyEnd(SkelMeshComp, Cast<UAnimSequenceBase>(NotifyState->GetOuter()));
-		}
-	}
-	ActiveAnimNotifyState.Reset();
-}
-
-
