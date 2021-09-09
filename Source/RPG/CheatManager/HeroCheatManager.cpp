@@ -5,6 +5,7 @@
 #include "AbilitySystemComponent.h"
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 #include "RPG/RPGCharacter.h"
+#include "RPG/PlayerState/HeroPlayerState.h"
 #include "AbilitySystemGlobals.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -30,3 +31,28 @@ void UHeroCheatManager::SetPlayerAttributte(FString AttributeName, float NewValu
 	}
 }
 
+void UHeroCheatManager::ToggleIgnoreAbilityCooldown(bool bToggle)
+{
+	ARPGCharacter* PlayerCharacter = Cast<ARPGCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	if (PlayerCharacter)
+	{
+		AHeroPlayerState* PlayerState = Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState());
+		if (PlayerState)
+		{
+			PlayerState->ToggleIgnoreAbilityCooldown(bToggle);
+		}
+	}
+}
+
+void UHeroCheatManager::ToggleIgnoreAbilityManaCost(bool bToggle)
+{
+	ARPGCharacter* PlayerCharacter = Cast<ARPGCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	if (PlayerCharacter)
+	{
+		AHeroPlayerState* PlayerState = Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState());
+		if (PlayerState)
+		{
+			PlayerState->ToggleIgnoreAbilityManaCost(bToggle);
+		}
+	}
+}

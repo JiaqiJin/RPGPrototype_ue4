@@ -137,14 +137,14 @@ void UHeroPlayMontageandWait::Activate()
 				MontageEndedDelegate.BindUObject(this, &UHeroPlayMontageandWait::OnMontageEnded);
 				AnimInstance->Montage_SetEndDelegate(MontageEndedDelegate, MontageToPlay);
 
+				AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &UHeroPlayMontageandWait::NotifyBegin);
+
 				ACharacter* Character = Cast<ACharacter>(GetAvatarActor());
 				if (Character && (Character->GetLocalRole() == ROLE_Authority ||
 					(Character->GetLocalRole() == ROLE_AutonomousProxy && Ability->GetNetExecutionPolicy() == EGameplayAbilityNetExecutionPolicy::LocalPredicted)))
 				{
 					Character->SetAnimRootMotionTranslationScale(AnimRootMotionTranslationScale);
 				}
-
-				AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &UHeroPlayMontageandWait::NotifyBegin);
 
 				bPlayedMontage = true;
 			}

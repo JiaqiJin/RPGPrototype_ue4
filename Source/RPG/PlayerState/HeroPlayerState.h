@@ -45,6 +45,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
 	float GetPlayerAirControl() const;
 	
+	FORCEINLINE bool GetIgnoreAbilityCooldown() { return bIgnoreAbilityCooldown; }
+	FORCEINLINE bool GetIgnoreAbilityManaCost() { return bIgnoreAbilityManaCost; }
+
+	void ToggleIgnoreAbilityCooldown(bool bToggle);
+	void ToggleIgnoreAbilityManaCost(bool bToggle);
+	
 protected:
 	class UAbilitySystemComponent* AbilitySystemComponent;
 
@@ -62,4 +68,8 @@ protected:
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+private:
+	bool bIgnoreAbilityCooldown;
+	bool bIgnoreAbilityManaCost;
 };

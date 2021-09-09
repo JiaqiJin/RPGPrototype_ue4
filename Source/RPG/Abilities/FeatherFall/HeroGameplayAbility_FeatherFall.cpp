@@ -81,5 +81,9 @@ void UHeroGameplayAbility_FeatherFall::EndAbility(const FGameplayAbilitySpecHand
 	}
 }
 
-
+void UHeroGameplayAbility_FeatherFall::OnNotifyBegin(FName NotifyName)
+{
+	ARPGCharacter* HeroCharacter = Cast<ARPGCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	//
+}
 

@@ -4,7 +4,9 @@
 #include "HeroGameplayAbility.h"
 #include "RPG/PlayerState/HeroPlayerState.h"
 #include "RPG/Controller/HeroCharacterMovementComponent.h"
+#include "RPG/PlayerState/HeroPlayerState.h"
 #include "RPG/RPGCharacter.h"
+#include "Kismet/GameplayStatics.h"
 
 UHeroGameplayAbility::UHeroGameplayAbility(const class FObjectInitializer& InitializerObject)
 	: Super(InitializerObject)
@@ -55,8 +57,31 @@ void UHeroGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorInf
 void UHeroGameplayAbility::ApplyCost(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 	const FGameplayAbilityActivationInfo ActivationInfo) const
 {
-	Super::ApplyCost(Handle, ActorInfo, ActivationInfo);
+	AHeroPlayerState* PlayerState = GetOwingHeroPlayerState();
+	if (PlayerState)
+	{
+		if (!PlayerState->GetIgnoreAbilityManaCost())
+		{
+			Super::ApplyCost(Handle, ActorInfo, ActivationInfo);
+		}
+	}
+	//Super::ApplyCost(Handle, ActorInfo, ActivationInfo);
 }
+
+/** Applies CooldownGameplayEffect to the target */
+void UHeroGameplayAbility::ApplyCooldown(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo) const
+{
+	AHeroPlayerState* PlayerState = GetOwingHeroPlayerState();
+	if (PlayerState)
+	{
+		if (!PlayerState->GetIgnoreAbilityCooldown())
+		{
+			Super::ApplyCooldown(Handle, ActorInfo, ActivationInfo);
+		}
+	}
+}
+
 
 bool UHeroGameplayAbility::CommitAbilityCost(const FGameplayAbilitySpecHandle Handle,
 	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
@@ -82,7 +107,50 @@ bool UHeroGameplayAbility::CommitCheck(const FGameplayAbilitySpecHandle Handle,
 		ApplyCost(Handle, ActorInfo, ActivationInfo);
 	}
 	
-	return false;
+	return Super::CommitCheck(Handle, ActorInfo, ActivationInfo);
 }
 
 
+bool UHeroGameplayAbility::CommitAbility(const FGameplayAbilitySpecHandle Handle,
+	const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo,
+	OUT FGameplayTagContainer* OptionalRelevantTags)
+{
+	// Last chance to fail (maybe we no longer have resources to commit since we after we started this ability activation)
+	if (!CommitCheck(Handle, ActorInfo, ActivationInfo, OptionalRelevantTags))
+	{
+		return false;
+	}
+
+	if (bAutoApplyCooldown)
+	{
+		ApplyCooldown(Handle, ActorInfo, ActivationInfo);
+
+	}
+
+	if (bAutoApplyCost)
+	{
+		ApplyCost(Handle, ActorInfo, ActivationInfo);
+	}
+
+	CommitExecute(Handle, ActorInfo, ActivationInfo);
+
+	// Fixme: Should we always call this or only if it is implemented? A noop may not hurt but could be bad for perf (storing a HasBlueprintCommit per instance isn't good either)
+	K2_CommitExecute();
+
+	// Broadcast this commitment
+	ActorInfo->AbilitySystemComponent->NotifyAbilityCommit(this);
+
+	return true;
+}
+
+AHeroPlayerState* UHeroGameplayAbility::GetOwingHeroPlayerState() const
+{
+	ARPGCharacter* PlayerCharacter = Cast<ARPGCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+	if (PlayerCharacter)
+	{
+		AHeroPlayerState* PlayerState = Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState());
+		return PlayerState ? PlayerState : nullptr;
+	}
+
+	return nullptr;
+}

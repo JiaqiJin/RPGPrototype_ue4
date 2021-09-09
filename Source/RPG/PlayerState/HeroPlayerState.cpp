@@ -78,3 +78,13 @@ void AHeroPlayerState::BeginPlay()
 {
 	Super::BeginPlay();
 }
+
+void AHeroPlayerState::ToggleIgnoreAbilityCooldown(bool bToggle)
+{
+	bIgnoreAbilityCooldown = bToggle;
+}
+
+void AHeroPlayerState::ToggleIgnoreAbilityManaCost(bool bToggle)
+{
+	bIgnoreAbilityManaCost = bToggle;
+}
