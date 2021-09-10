@@ -13,6 +13,7 @@ UHeroGameplayAbility::UHeroGameplayAbility(const class FObjectInitializer& Initi
 {
 	// Default to Instance Per Actor
 	InstancingPolicy = EGameplayAbilityInstancingPolicy::InstancedPerActor;
+	bIsActiveAbility = true;
 }
 
 ARPGCharacter* UHeroGameplayAbility::GetKawaiiCharacter() const

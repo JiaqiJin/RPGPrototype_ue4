@@ -53,4 +53,10 @@ protected:
 	// If true, Commit Ability Cost will be called on Ability Activate
 	UPROPERTY(EditDefaultsOnly, Category = "HeroGameplayAbility", meta = (DisplayName = "Auto Apply Cooldown"))
 	bool bAutoApplyCooldown;
+
+	UPROPERTY(EditDefaultsOnly, Category = "HeroGameplayAbility", meta = (DisplayName = "Ability Icon"))
+	class UTexture* AbilityIcon;
+
+	UPROPERTY(EditDefaultsOnly, Category = "HeroGameplayAbility", meta = (DisplayName = "Ability Activation"))
+	bool bIsActiveAbility;
 };
