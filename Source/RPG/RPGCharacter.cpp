@@ -27,9 +27,9 @@ ARPGCharacter::ARPGCharacter(const class FObjectInitializer& InitializerObject) 
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
 
-	// Don't rotate when the controller rotates. Let that just affect the camera.
+	// Dont rotate when the controller rotate
+	bUseControllerRotationYaw = false;
 	bUseControllerRotationPitch = false;
-	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
 
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
