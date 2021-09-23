@@ -100,6 +100,11 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Hero|Component|MovementComponent")
 	UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
 
+	UFUNCTION(BlueprintPure, Category = "Hero|State")
+	FORCEINLINE bool IsHeroStealthed() { return bIsStealthed; }
+
+	UFUNCTION(BlueprintCallable, Category = "Hero|State")
+	bool UpdateStealthState(bool bStealth) { bIsStealthed = bStealth;  return bIsStealthed; }
 	//FORCEINLINE class UHeroAbilityDataAsset* GetDefaultAbilityDataAssert() const { return DefaultAbilities; }
 
 protected:
@@ -118,5 +123,15 @@ protected:
 	void GrantAbilitiesToPlayer(TArray<FGameplayAbilitySpec> Abilities);
 
 	void ShowHeroDebugMenu();
+
+	UPROPERTY(Category = Character, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UStaticMeshComponent* Shield;
+
+	UPROPERTY(Category = Character, VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UStaticMeshComponent* Weapon;
+
+private:
+	UPROPERTY(EditDefaultsOnly, Category = "Player")
+	bool bIsStealthed;
 };
 

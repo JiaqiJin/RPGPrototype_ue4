@@ -13,6 +13,7 @@
 #include "RPG/Attributes/HeroPlayerAttributeSet.h"
 #include "RPG/Controller/HeroPlayerController.h"
 #include "RPG/Attributes/Cooldown/HeroCooldownAttributeSet.h"
+#include "Components/StaticMeshComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ARPGCharacter
@@ -41,6 +42,14 @@ ARPGCharacter::ARPGCharacter(const class FObjectInitializer& InitializerObject) 
 		//MovementComponent->JumpZVelocity = 600.0f;
 		//MovementComponent->AirControl = 0.2f;
 	}
+
+	Shield = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Shield"));
+	Weapon = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Weapon"));
+	Weapon->SetupAttachment(GetMesh());
+	Shield->SetupAttachment(GetMesh());
+
+	//Weapon->AttachToComponent(GetMesh(), FAttachmentTransformRules(EAttachmentRule::SnapToTarget, true), TEXT("LeftHand"));
+	Shield->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("LeftHand"));
 
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));

@@ -6,28 +6,28 @@
 UAsyncTaskCooldownChanged* UAsyncTaskCooldownChanged::ListenForCooldownChange(UAbilitySystemComponent* AbilitySystemComponent, 
 	FGameplayTagContainer InCooldownTags, bool InUseServerCooldown)
 {
-UAsyncTaskCooldownChanged* ListenForCooldownChange = NewObject<UAsyncTaskCooldownChanged>();
-ListenForCooldownChange->ASC = AbilitySystemComponent;
-ListenForCooldownChange->CooldownTags = InCooldownTags;
-ListenForCooldownChange->UseServerCooldown = InUseServerCooldown;
+	UAsyncTaskCooldownChanged* ListenForCooldownChange = NewObject<UAsyncTaskCooldownChanged>();
+	ListenForCooldownChange->ASC = AbilitySystemComponent;
+	ListenForCooldownChange->CooldownTags = InCooldownTags;
+	ListenForCooldownChange->UseServerCooldown = InUseServerCooldown;
 
-if (!IsValid(AbilitySystemComponent) || InCooldownTags.Num() < 1)
-{
-	ListenForCooldownChange->EndTask();
-	return nullptr;
-}
+	if (!IsValid(AbilitySystemComponent) || InCooldownTags.Num() < 1)
+	{
+		ListenForCooldownChange->EndTask();
+		return nullptr;
+	}
 
-AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(ListenForCooldownChange, &UAsyncTaskCooldownChanged::OnActiveGameplayEffectAddedCallback);
+	AbilitySystemComponent->OnActiveGameplayEffectAddedDelegateToSelf.AddUObject(ListenForCooldownChange, &UAsyncTaskCooldownChanged::OnActiveGameplayEffectAddedCallback);
 
-TArray<FGameplayTag> CooldownTagArray;
-InCooldownTags.GetGameplayTagArray(CooldownTagArray);
+	TArray<FGameplayTag> CooldownTagArray;
+	InCooldownTags.GetGameplayTagArray(CooldownTagArray);
 
-for (FGameplayTag CooldownTag : CooldownTagArray)
-{
-	AbilitySystemComponent->RegisterGameplayTagEvent(CooldownTag, EGameplayTagEventType::NewOrRemoved).AddUObject(ListenForCooldownChange, &UAsyncTaskCooldownChanged::CooldownTagChanged);
-}
+	for (FGameplayTag CooldownTag : CooldownTagArray)
+	{
+		AbilitySystemComponent->RegisterGameplayTagEvent(CooldownTag, EGameplayTagEventType::NewOrRemoved).AddUObject(ListenForCooldownChange, &UAsyncTaskCooldownChanged::CooldownTagChanged);
+	}
 
-return ListenForCooldownChange;
+	return ListenForCooldownChange;
 }
 
 void UAsyncTaskCooldownChanged::EndTask()
