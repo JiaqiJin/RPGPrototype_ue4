@@ -7,10 +7,12 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "Abilities/GameplayAbility.h"
+#include "TitanSoul/Attributes/HeroAttributeSet.h"
+#include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
 #include "TitanSoulCharacter.generated.h"
 
-UCLASS(config=Game)
-class ATitanSoulCharacter : public ACharacter
+UCLASS()
+class ATitanSoulCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -22,7 +24,7 @@ class ATitanSoulCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 public:
-	ATitanSoulCharacter();
+	ATitanSoulCharacter(const class FObjectInitializer& InitializerObject);
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
@@ -32,11 +34,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	virtual void PossessedBy(AController* NewController) override;
+	virtual void UnPossessed() override;
+
+	/** The component used to handle ability system interactions */
+	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const { return AbilitySystemComponent; }
+
 protected:
-
-	/** Resets HMD orientation in VR. */
-	void OnResetVR();
-
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 
@@ -55,16 +59,18 @@ protected:
 	 */
 	void LookUpAtRate(float Rate);
 
-	/** Handler for when a touch input begins. */
-	void TouchStarted(ETouchIndex::Type FingerIndex, FVector Location);
-
-	/** Handler for when a touch input stops. */
-	void TouchStopped(ETouchIndex::Type FingerIndex, FVector Location);
-
-protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+
+protected:
+	/** The component used to handle ability system interactions */
+	UPROPERTY()
+	UHeroAbilitySystemComponent* AbilitySystemComponent;
+
+	/** List of attributes modified by the ability system */
+	UPROPERTY()
+	UHeroAttributeSet* AttributeSet;
 
 public:
 	/** Returns CameraBoom subobject **/
