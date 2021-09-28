@@ -17,4 +17,6 @@ class TITANSOUL_API UHeroAbilitySystemComponent : public UAbilitySystemComponent
 public:
 	// Constructors and overrides
 	UHeroAbilitySystemComponent();
+
+	static UHeroAbilitySystemComponent* GetAbilitySystemComponentFromActor(const AActor* Actor, bool LookForComponent = false);
 };
