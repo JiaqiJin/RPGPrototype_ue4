@@ -9,16 +9,23 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "AbilitySystemGlobals.h"
-
+#include "Player/HeroCharacterMovementComponent.h"
+#include "Player/HeroPlayerState.h"
+#include "AbilitySystem/HeroAbilitySystemComponent.h"
 //////////////////////////////////////////////////////////////////////////
 // ATitanSoulCharacter
 
 ATitanSoulCharacter::ATitanSoulCharacter(const class FObjectInitializer& InitializerObject)
-	:Super(InitializerObject)
+	: Super(InitializerObject.SetDefaultSubobjectClass<UHeroCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
+	//Super(InitializerObject)
 {
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	//PrimaryActorTick.bCanEverTick = false;
+
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
+	//bAlwaysRelevant = true;
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
 	BaseLookUpRate = 45.f;
@@ -44,21 +51,63 @@ ATitanSoulCharacter::ATitanSoulCharacter(const class FObjectInitializer& Initial
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
-	// Create the attribute set, this replicates by default
-	AttributeSet = CreateDefaultSubobject<UHeroAttributeSet>(TEXT("AttributeSet"));
-	
 }
 
 void ATitanSoulCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 	UE_LOG(LogTemp, Warning, TEXT("POSSES"));
+
+	AHeroPlayerState* PS = GetPlayerState<AHeroPlayerState>();
+	if (PS)
+	{
+		AbilitySystemComponent = Cast<UHeroAbilitySystemComponent>(PS->GetAbilitySystemComponent());
+		
+		// AI won't have PlayerControllers so we can init again here just to be sure. No harm in initing twice for heroes that have PlayerControllers.
+		PS->GetAbilitySystemComponent()->InitAbilityActorInfo(PS, this);
+
+		// Set the AttributeSetBase for convenience attribute functions
+		AttributeSet = PS->GetAttributeSetBase();
+
+		PS->InitializeAttributes();
+	}
 }
 
 void ATitanSoulCharacter::UnPossessed()
 {
 
+}
+
+//////////////// ---------------------------------------- /////////////////////
+float ATitanSoulCharacter::GetHealth() const
+{
+	if (!AttributeSet)
+		return 1.f;
+
+	return AttributeSet->GetHealth();
+}
+
+float ATitanSoulCharacter::GetMaxHealth() const
+{
+	return AttributeSet->GetMaxHealth();
+}
+
+float ATitanSoulCharacter::GetMana() const
+{
+	return AttributeSet->GetMana();
+}
+
+float ATitanSoulCharacter::GetMaxMana() const
+{
+	return AttributeSet->GetMaxMana();
+}
+
+float ATitanSoulCharacter::GetMoveSpeed() const
+{
+	if (AttributeSet)
+	{
+		return AttributeSet->GetMoveSpeedAttribute().GetGameplayAttributeData(AttributeSet)->GetBaseValue();
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////

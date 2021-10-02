@@ -23,6 +23,7 @@ class ATitanSoulCharacter : public ACharacter, public IAbilitySystemInterface
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
 public:
 	ATitanSoulCharacter(const class FObjectInitializer& InitializerObject);
 
@@ -39,6 +40,26 @@ public:
 
 	/** The component used to handle ability system interactions */
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const { return AbilitySystemComponent; }
+
+	/** Returns current health, will be 0 if dead */
+	UFUNCTION(BlueprintCallable)
+	virtual float GetHealth() const;
+
+	/** Returns maximum health, health will never be greater than this */
+	UFUNCTION(BlueprintCallable)
+	virtual float GetMaxHealth() const;
+
+	/** Returns current mana */
+	UFUNCTION(BlueprintCallable)
+	virtual float GetMana() const;
+
+	/** Returns maximum mana, mana will never be greater than this */
+	UFUNCTION(BlueprintCallable)
+	virtual float GetMaxMana() const;
+
+	/** Returns current movement speed */
+	UFUNCTION(BlueprintCallable)
+	virtual float GetMoveSpeed() const;
 
 protected:
 	/** Called for forwards/backward input */
