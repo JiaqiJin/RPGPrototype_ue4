@@ -30,4 +30,7 @@ protected:
 
 	UPROPERTY()
 	class UHeroAttributeSet* AttributeSetBase;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
+	class UDataTable* AttributeDataTable;
 };

@@ -12,6 +12,7 @@
 #include "Player/HeroCharacterMovementComponent.h"
 #include "Player/HeroPlayerState.h"
 #include "AbilitySystem/HeroAbilitySystemComponent.h"
+
 //////////////////////////////////////////////////////////////////////////
 // ATitanSoulCharacter
 
@@ -104,10 +105,7 @@ float ATitanSoulCharacter::GetMaxMana() const
 
 float ATitanSoulCharacter::GetMoveSpeed() const
 {
-	if (AttributeSet)
-	{
-		return AttributeSet->GetMoveSpeedAttribute().GetGameplayAttributeData(AttributeSet)->GetBaseValue();
-	}
+	return AttributeSet->GetPlayerMovementSpeed();
 }
 
 //////////////////////////////////////////////////////////////////////////

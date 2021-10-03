@@ -31,6 +31,16 @@ public:
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
+	// Movement Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, ReplicatedUsing = OnRep_MoveSpeed)
+	FGameplayAttributeData PlayerMovementSpeed;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, PlayerMovementSpeed);
+
+	// Movement Multiplier Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData PlayerMovementMultiplier;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, PlayerMovementMultiplier);
+
 	// Health
 	UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_Health)
 	FGameplayAttributeData Health;
@@ -40,6 +50,11 @@ public:
 	FGameplayAttributeData MaxHealth;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, MaxHealth);
 
+	// Health regen rate will passively increase Health every second
+	UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_HealthRegenRate)
+	FGameplayAttributeData HealthRegenRate;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, HealthRegenRate)
+
 	// Mana
 	UPROPERTY(BlueprintReadOnly, Category = "Mana", ReplicatedUsing = OnRep_Mana)
 	FGameplayAttributeData Mana;
@@ -48,6 +63,26 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Mana", ReplicatedUsing = OnRep_MaxMana)
 	FGameplayAttributeData MaxMana;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, MaxMana);
+
+	// Health regen rate will passively increase Health every second
+	UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_ManaRegenRate)
+	FGameplayAttributeData ManaRegenRate;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, ManaRegenRate)
+
+	// Current stamina, used to execute special abilities. Capped by MaxStamina.
+	UPROPERTY(BlueprintReadOnly, Category = "Stamina", ReplicatedUsing = OnRep_Stamina)
+	FGameplayAttributeData Stamina;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, Stamina)
+
+	// MaxStamina is its own attribute since GameplayEffects may modify it
+	UPROPERTY(BlueprintReadOnly, Category = "Stamina", ReplicatedUsing = OnRep_MaxStamina)
+	FGameplayAttributeData MaxStamina;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, MaxStamina)
+
+	// Stamina regen rate will passively increase Stamina every second
+	UPROPERTY(BlueprintReadOnly, Category = "Stamina", ReplicatedUsing = OnRep_StaminaRegenRate)
+	FGameplayAttributeData StaminaRegenRate;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, StaminaRegenRate)
 
 	// Attack Power
 	UPROPERTY(BlueprintReadOnly, Category = "Damage", ReplicatedUsing = OnRep_AttackPower)
@@ -59,15 +94,19 @@ public:
 	FGameplayAttributeData DefensePower;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, DefensePower);
 
-	// Movement Speed
-	UPROPERTY(BlueprintReadOnly, Category = "MoveSpeed", ReplicatedUsing = OnRep_MoveSpeed)
-	FGameplayAttributeData MoveSpeed;
-	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, MoveSpeed);
-
 	// Damage
 	UPROPERTY(BlueprintReadOnly, Category = "Damage");
 	FGameplayAttributeData Damage;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, Damage);
+
+	// Level
+	UPROPERTY(BlueprintReadOnly, Category = OnRep_CharacterLevel);
+	FGameplayAttributeData Level;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, Level);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Level");
+	FGameplayAttributeData MaxLevel;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, MaxLevel);
 
 protected:
 	// Helper function to proportionally adjust the value of an attribute when it's associated max attribute changes
@@ -75,23 +114,42 @@ protected:
 
 	// These OnRep functions exist to make sure that the ability system internal representations are synchronized properly during replication
 	UFUNCTION()
-	virtual void OnRep_Health();
+	virtual void OnRep_Health(const FGameplayAttributeData& OldHealth);
 
 	UFUNCTION()
-	virtual void OnRep_MaxHealth();
+	virtual void OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth);
 
 	UFUNCTION()
-	virtual void OnRep_Mana();
+	virtual void OnRep_HealthRegenRate(const FGameplayAttributeData& OldHealthRegenerate);
 
 	UFUNCTION()
-	virtual void OnRep_MaxMana();
+	virtual void OnRep_Stamina(const FGameplayAttributeData& OldStamina);
 
 	UFUNCTION()
-	virtual void OnRep_AttackPower();
+	virtual void OnRep_MaxStamina(const FGameplayAttributeData& OldMaxStamina);
 
 	UFUNCTION()
-	virtual void OnRep_DefensePower();
+	virtual void OnRep_StaminaRegenRate(const FGameplayAttributeData& OldStaminaRegenerate);
 
 	UFUNCTION()
-	virtual void OnRep_MoveSpeed();
+	virtual void OnRep_Mana(const FGameplayAttributeData& OldMana);
+
+	UFUNCTION()
+	virtual void OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana);
+
+	UFUNCTION()
+	virtual void OnRep_ManaRegenRate(const FGameplayAttributeData& OldManaRegenRate);
+
+	UFUNCTION()
+	virtual void OnRep_AttackPower(const FGameplayAttributeData& OdlAttackPower);
+
+	UFUNCTION()
+	virtual void OnRep_DefensePower(const FGameplayAttributeData& OldDefensePower);
+
+	UFUNCTION()
+	virtual void OnRep_MoveSpeed(const FGameplayAttributeData& OldMoveSpeed);
+
+	UFUNCTION()
+	virtual void OnRep_CharacterLevel(const FGameplayAttributeData& OldCharacterLevel);
+
 };

@@ -34,5 +34,8 @@ UHeroAttributeSet* AHeroPlayerState::GetAttributeSetBase() const
 
 void AHeroPlayerState::InitializeAttributes()
 {
-
+	if (AbilitySystemComponent && AttributeDataTable)
+	{
+		const UAttributeSet* Attributes = AbilitySystemComponent->InitStats(UHeroAttributeSet::StaticClass(), AttributeDataTable);
+	}
 }

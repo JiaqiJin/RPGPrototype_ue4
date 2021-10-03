@@ -13,7 +13,7 @@ UHeroAttributeSet::UHeroAttributeSet()
 	, MaxMana(0.f)
 	, AttackPower(1.0f)
 	, DefensePower(1.0f)
-	, MoveSpeed(1.0f)
+	, PlayerMovementSpeed(1.0f)
 	, Damage(0.0f)
 {
 
@@ -60,37 +60,67 @@ void UHeroAttributeSet::AdjustAttributeForMaxChange(FGameplayAttributeData& Affe
 	}
 }
 
-void UHeroAttributeSet::OnRep_Health()
+void UHeroAttributeSet::OnRep_Health(const FGameplayAttributeData& OldHealth)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Health);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Health, OldHealth);
 }
 
-void UHeroAttributeSet::OnRep_MaxHealth()
+void UHeroAttributeSet::OnRep_MaxHealth(const FGameplayAttributeData& OldMaxHealth)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MaxHealth);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MaxHealth, OldMaxHealth);
 }
 
-void UHeroAttributeSet::OnRep_Mana()
+void UHeroAttributeSet::OnRep_HealthRegenRate(const FGameplayAttributeData& OldHealthRegenerate)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Mana);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, HealthRegenRate, OldHealthRegenerate);
 }
 
-void UHeroAttributeSet::OnRep_MaxMana()
+void UHeroAttributeSet::OnRep_Stamina(const FGameplayAttributeData& OldStamina)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MaxMana);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Stamina, OldStamina);
 }
 
-void UHeroAttributeSet::OnRep_AttackPower()
+void UHeroAttributeSet::OnRep_MaxStamina(const FGameplayAttributeData& OldMaxStamina)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, AttackPower);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MaxStamina, OldMaxStamina);
 }
 
-void UHeroAttributeSet::OnRep_DefensePower()
+void UHeroAttributeSet::OnRep_StaminaRegenRate(const FGameplayAttributeData& OldStaminaRegenerate)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, DefensePower);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, StaminaRegenRate, OldStaminaRegenerate);
 }
 
-void UHeroAttributeSet::OnRep_MoveSpeed()
+void UHeroAttributeSet::OnRep_Mana(const FGameplayAttributeData& OldMana)
 {
-	//GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MoveSpeed);
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Mana, OldMana);
+}
+
+void UHeroAttributeSet::OnRep_MaxMana(const FGameplayAttributeData& OldMaxMana)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, MaxMana, OldMaxMana);
+}
+
+void UHeroAttributeSet::OnRep_ManaRegenRate(const FGameplayAttributeData& OldManaRegenRate)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, ManaRegenRate, OldManaRegenRate);
+}
+
+void UHeroAttributeSet::OnRep_AttackPower(const FGameplayAttributeData& OdlAttackPower)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, AttackPower, OdlAttackPower);
+}
+
+void UHeroAttributeSet::OnRep_DefensePower(const FGameplayAttributeData& OldDefensePower)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, DefensePower, OldDefensePower);
+}
+
+void UHeroAttributeSet::OnRep_MoveSpeed(const FGameplayAttributeData& OldMoveSpeed)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, PlayerMovementSpeed, OldMoveSpeed);
+}
+
+void UHeroAttributeSet::OnRep_CharacterLevel(const FGameplayAttributeData& OldCharacterLevel)
+{
+	GAMEPLAYATTRIBUTE_REPNOTIFY(UHeroAttributeSet, Level, OldCharacterLevel);
 }
