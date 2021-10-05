@@ -19,6 +19,11 @@ AHeroPlayerState::AHeroPlayerState()
 	// Adding it as a subobject of the owning actor of an AbilitySystemComponent
 	// automatically registers the AttributeSet with the AbilitySystemComponent
 	AttributeSetBase = CreateDefaultSubobject<UHeroAttributeSet>(TEXT("AttributeSetBase"));
+
+	// Set PlayerState's NetUpdateFrequency to the same as the Character.
+	// Default is very low for PlayerStates and introduces perceived lag in the ability system.
+	// 100 is probably way too high for a shipping game, you can adjust to fit your needs.
+	NetUpdateFrequency = 50.0f;
 }
 
 // Implement IAbilitySystemInterface
@@ -37,5 +42,15 @@ void AHeroPlayerState::InitializeAttributes()
 	if (AbilitySystemComponent && AttributeDataTable)
 	{
 		const UAttributeSet* Attributes = AbilitySystemComponent->InitStats(UHeroAttributeSet::StaticClass(), AttributeDataTable);
+	}
+}
+
+void AHeroPlayerState::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (AbilitySystemComponent)
+	{
+		
 	}
 }

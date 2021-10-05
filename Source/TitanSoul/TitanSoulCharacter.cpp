@@ -79,34 +79,6 @@ void ATitanSoulCharacter::UnPossessed()
 
 }
 
-//////////////// ---------------------------------------- /////////////////////
-float ATitanSoulCharacter::GetHealth() const
-{
-	if (!AttributeSet)
-		return 1.f;
-
-	return AttributeSet->GetHealth();
-}
-
-float ATitanSoulCharacter::GetMaxHealth() const
-{
-	return AttributeSet->GetMaxHealth();
-}
-
-float ATitanSoulCharacter::GetMana() const
-{
-	return AttributeSet->GetMana();
-}
-
-float ATitanSoulCharacter::GetMaxMana() const
-{
-	return AttributeSet->GetMaxMana();
-}
-
-float ATitanSoulCharacter::GetMoveSpeed() const
-{
-	return AttributeSet->GetPlayerMovementSpeed();
-}
 
 //////////////////////////////////////////////////////////////////////////
 // Input

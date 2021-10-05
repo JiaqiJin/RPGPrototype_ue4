@@ -4,6 +4,7 @@
 #include "HeroCharacterMovementComponent.h"
 #include "AbilitySystemComponent.h"
 #include "../TitanSoulCharacter.h"
+#include "TitanCharacterBase.h"
 #include "GameplayTagContainer.h"
 
 UHeroCharacterMovementComponent::UHeroCharacterMovementComponent()

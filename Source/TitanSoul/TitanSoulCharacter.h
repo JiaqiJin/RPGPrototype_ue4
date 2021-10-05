@@ -3,16 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
-#include "AbilitySystemInterface.h"
-#include "AbilitySystemComponent.h"
-#include "Abilities/GameplayAbility.h"
-#include "TitanSoul/Attributes/HeroAttributeSet.h"
-#include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
+#include "Player/TitanCharacterBase.h"
 #include "TitanSoulCharacter.generated.h"
 
 UCLASS()
-class ATitanSoulCharacter : public ACharacter, public IAbilitySystemInterface
+class ATitanSoulCharacter : public ATitanCharacterBase
 {
 	GENERATED_BODY()
 
@@ -38,29 +33,6 @@ public:
 	virtual void PossessedBy(AController* NewController) override;
 	virtual void UnPossessed() override;
 
-	/** The component used to handle ability system interactions */
-	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const { return AbilitySystemComponent; }
-
-	/** Returns current health, will be 0 if dead */
-	UFUNCTION(BlueprintCallable)
-	virtual float GetHealth() const;
-
-	/** Returns maximum health, health will never be greater than this */
-	UFUNCTION(BlueprintCallable)
-	virtual float GetMaxHealth() const;
-
-	/** Returns current mana */
-	UFUNCTION(BlueprintCallable)
-	virtual float GetMana() const;
-
-	/** Returns maximum mana, mana will never be greater than this */
-	UFUNCTION(BlueprintCallable)
-	virtual float GetMaxMana() const;
-
-	/** Returns current movement speed */
-	UFUNCTION(BlueprintCallable)
-	virtual float GetMoveSpeed() const;
-
 protected:
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -85,13 +57,13 @@ protected:
 	// End of APawn interface
 
 protected:
-	/** The component used to handle ability system interactions */
-	UPROPERTY()
-	UHeroAbilitySystemComponent* AbilitySystemComponent;
+	///** The component used to handle ability system interactions */
+	//UPROPERTY()
+	//TWeakObjectPtr<class UHeroAbilitySystemComponent> AbilitySystemComponent;
 
-	/** List of attributes modified by the ability system */
-	UPROPERTY()
-	UHeroAttributeSet* AttributeSet;
+	///** List of attributes modified by the ability system */
+	//UPROPERTY()
+	//UHeroAttributeSet* AttributeSet;
 
 public:
 	/** Returns CameraBoom subobject **/

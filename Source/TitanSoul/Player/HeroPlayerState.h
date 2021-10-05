@@ -33,4 +33,7 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
 	class UDataTable* AttributeDataTable;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 };
