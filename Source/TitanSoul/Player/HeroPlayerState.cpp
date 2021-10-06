@@ -2,6 +2,7 @@
 
 
 #include "HeroPlayerState.h"
+#include "../TitanSoulCharacter.h"
 #include "../Attributes/HeroAttributeSet.h"
 #include "../AbilitySystem/HeroAbilitySystemComponent.h"
 
@@ -45,12 +46,127 @@ void AHeroPlayerState::InitializeAttributes()
 	}
 }
 
+float AHeroPlayerState::GetHealth() const
+{
+	return AttributeSetBase->GetHealth();
+}
+
+float AHeroPlayerState::GetMaxHealth() const
+{
+	return AttributeSetBase->GetMaxHealth();
+}
+
+float AHeroPlayerState::GetHealthRegenRate() const
+{
+	return AttributeSetBase->GetHealthRegenRate();
+}
+
+float AHeroPlayerState::GetMana() const
+{
+	return AttributeSetBase->GetMana();
+}
+
+float AHeroPlayerState::GetMaxMana() const
+{
+	return AttributeSetBase->GetMaxMana();
+}
+
+float AHeroPlayerState::GetManaRegenRate() const
+{
+	return AttributeSetBase->GetManaRegenRate();
+}
+
+float AHeroPlayerState::GetStamina() const
+{
+	return AttributeSetBase->GetStamina();
+}
+
+float AHeroPlayerState::GetMaxStamina() const
+{
+	return AttributeSetBase->GetMaxStamina();
+}
+
+float AHeroPlayerState::GetStaminaRegenRate() const
+{
+	return AttributeSetBase->GetStaminaRegenRate();
+}
+
+float AHeroPlayerState::GetArmor() const
+{
+	return AttributeSetBase->GetDefensePower();
+}
+
+float AHeroPlayerState::GetMoveSpeed() const
+{
+	return AttributeSetBase->GetPlayerMovementSpeed();
+}
+
 void AHeroPlayerState::BeginPlay()
 {
 	Super::BeginPlay();
 
 	if (AbilitySystemComponent)
 	{
-		
+		// Attribute change callbacks, responding to Attribute Changes
+		HealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthAttribute()).AddUObject(this, &AHeroPlayerState::HealthChanged);
+		MaxHealthChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetMaxHealthAttribute()).AddUObject(this, &AHeroPlayerState::MaxHealthChanged);
+		HealthRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetHealthRegenRateAttribute()).AddUObject(this, &AHeroPlayerState::HealthRegenRateChanged);
+		ManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetManaAttribute()).AddUObject(this, &AHeroPlayerState::ManaChanged);
+		MaxManaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetMaxManaAttribute()).AddUObject(this, &AHeroPlayerState::MaxManaChanged);
+		ManaRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetManaRegenRateAttribute()).AddUObject(this, &AHeroPlayerState::ManaRegenRateChanged);
+		StaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetStaminaAttribute()).AddUObject(this, &AHeroPlayerState::StaminaChanged);
+		MaxStaminaChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetMaxStaminaAttribute()).AddUObject(this, &AHeroPlayerState::MaxStaminaChanged);
+		StaminaRegenRateChangedDelegateHandle = AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(AttributeSetBase->GetStaminaRegenRateAttribute()).AddUObject(this, &AHeroPlayerState::StaminaRegenRateChanged);
 	}
+}
+
+void AHeroPlayerState::HealthChanged(const FOnAttributeChangeData& Data)
+{
+	float Health = Data.NewValue;
+
+	ATitanSoulCharacter* Hero = Cast<ATitanSoulCharacter>(GetPawn());
+	if (Hero)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Kawaii HealthChanged"));
+	}
+}
+
+void AHeroPlayerState::MaxHealthChanged(const FOnAttributeChangeData& Data)
+{
+
+}
+
+void AHeroPlayerState::HealthRegenRateChanged(const FOnAttributeChangeData& Data)
+{
+	
+}
+
+void AHeroPlayerState::ManaChanged(const FOnAttributeChangeData& Data)
+{
+	
+}
+
+void AHeroPlayerState::MaxManaChanged(const FOnAttributeChangeData& Data)
+{
+
+}
+
+void AHeroPlayerState::ManaRegenRateChanged(const FOnAttributeChangeData& Data)
+{
+	
+}
+
+void AHeroPlayerState::StaminaChanged(const FOnAttributeChangeData& Data)
+{
+	
+}
+
+void AHeroPlayerState::MaxStaminaChanged(const FOnAttributeChangeData& Data)
+{
+	
+}
+
+void AHeroPlayerState::StaminaRegenRateChanged(const FOnAttributeChangeData& Data)
+{
+	
 }

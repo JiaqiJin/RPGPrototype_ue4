@@ -23,7 +23,58 @@ public:
 	class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	class UHeroAttributeSet* GetAttributeSetBase() const;
 
+	// Attribute Init
 	void InitializeAttributes();
+
+	// Getters for attributes
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetMaxHealth() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetHealthRegenRate() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetMana() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetMaxMana() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetManaRegenRate() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetMaxStamina() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetStaminaRegenRate() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetArmor() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
+	float GetMoveSpeed() const;
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// Attribute changed callbacks
+	virtual void HealthChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
+	virtual void HealthRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void ManaChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
+	virtual void ManaRegenRateChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaRegenRateChanged(const FOnAttributeChangeData& Data);
+
 protected:
 	UPROPERTY()
 	class UHeroAbilitySystemComponent* AbilitySystemComponent;
@@ -34,6 +85,13 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
 	class UDataTable* AttributeDataTable;
 
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	FDelegateHandle HealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthChangedDelegateHandle;
+	FDelegateHandle HealthRegenRateChangedDelegateHandle;
+	FDelegateHandle ManaChangedDelegateHandle;
+	FDelegateHandle MaxManaChangedDelegateHandle;
+	FDelegateHandle ManaRegenRateChangedDelegateHandle;
+	FDelegateHandle StaminaChangedDelegateHandle;
+	FDelegateHandle MaxStaminaChangedDelegateHandle;
+	FDelegateHandle StaminaRegenRateChangedDelegateHandle;
 };
