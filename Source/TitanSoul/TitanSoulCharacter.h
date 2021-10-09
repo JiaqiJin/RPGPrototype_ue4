@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Player/TitanCharacterBase.h"
+#include "Component/HeroHealthComponent.h"
 #include "TitanSoulCharacter.generated.h"
 
 UCLASS()
@@ -54,16 +55,14 @@ protected:
 
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
 	// End of APawn interface
+	FORCEINLINE class UHeroHealthComponent* GetHealthComponent() const { return HealthComponent; }
 
 protected:
-	///** The component used to handle ability system interactions */
-	//UPROPERTY()
-	//TWeakObjectPtr<class UHeroAbilitySystemComponent> AbilitySystemComponent;
 
-	///** List of attributes modified by the ability system */
-	//UPROPERTY()
-	//UHeroAttributeSet* AttributeSet;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UHeroHealthComponent* HealthComponent;
 
 public:
 	/** Returns CameraBoom subobject **/

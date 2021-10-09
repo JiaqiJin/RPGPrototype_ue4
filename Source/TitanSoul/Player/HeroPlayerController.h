@@ -18,4 +18,14 @@ public:
 	AHeroPlayerController(const class FObjectInitializer& InitializerObject);
 
 	virtual void BeginPlay() override;
+
+	class UMainHeroUIWidget* GetHeroCharacterUIMain() { return HeroMainWidget; }
+
+protected:
+	virtual void OnPossess(APawn* aPawn) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|UI|Main")
+	TSubclassOf<class UMainHeroUIWidget> HeroMainUI;
+
+	class UMainHeroUIWidget* HeroMainWidget;
 };
