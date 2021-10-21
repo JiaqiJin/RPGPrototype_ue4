@@ -14,4 +14,6 @@ class TITANSOUL_API UHeroGameplayEffect : public UGameplayEffect
 {
 	GENERATED_BODY()
 	
+public:
+	UHeroGameplayEffect();
 };

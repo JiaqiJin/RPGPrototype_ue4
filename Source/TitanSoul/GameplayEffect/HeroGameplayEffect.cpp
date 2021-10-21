@@ -3,3 +3,8 @@
 
 #include "HeroGameplayEffect.h"
 
+UHeroGameplayEffect::UHeroGameplayEffect()
+{
+
+}
+
