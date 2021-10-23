@@ -59,11 +59,14 @@ protected:
 	// End of APawn interface
 	FORCEINLINE class UHeroHealthComponent* GetHealthComponent() const { return HealthComponent; }
 
+	void BindASCInput();
+
 protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	class UHeroHealthComponent* HealthComponent;
 
+	bool ASCInputBound;
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }

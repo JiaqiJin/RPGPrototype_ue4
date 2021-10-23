@@ -3,6 +3,7 @@
 
 #include "TitanCharacterBase.h"
 #include "Components/CapsuleComponent.h"
+#include "TitanSoul/GameplayAbility/HeroGameplayAbility.h"
 #include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
 #include "TitanSoul/Player/HeroCharacterMovementComponent.h"
 // Sets default values
@@ -58,5 +59,15 @@ float ATitanCharacterBase::GetMoveSpeed() const
 	return AttributeSet->GetPlayerMovementSpeed();
 }
 
+void ATitanCharacterBase::AddCharacterAbilities()
+{
+	for (TSubclassOf<UHeroGameplayAbility>& StartupAbility : PlayerAbilities)
+	{
+		AbilitySystemComponent->GiveAbility(
+			FGameplayAbilitySpec(StartupAbility, 1, static_cast<int32>(StartupAbility.GetDefaultObject()->AbilityInputID), AbilitySystemComponent->GetOwner()));
+	}
+
+	AbilitySystemComponent->CharacterAbilitiesGiven = true;
+}
 
 

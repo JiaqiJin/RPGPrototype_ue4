@@ -44,12 +44,13 @@ public:
 	virtual float GetMoveSpeed() const;
 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Player|Abilities")
-	TSubclassOf<class UHeroGameplayAbility> PlayerAbilities;
+	TArray<TSubclassOf<class UHeroGameplayAbility>> PlayerAbilities;
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	virtual void AddCharacterAbilities();
 protected:
 
 	/** The component used to handle ability system interactions */

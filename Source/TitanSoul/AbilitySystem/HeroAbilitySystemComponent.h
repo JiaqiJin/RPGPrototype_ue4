@@ -15,6 +15,8 @@ class TITANSOUL_API UHeroAbilitySystemComponent : public UAbilitySystemComponent
 	GENERATED_BODY()
 	
 public:
+	bool CharacterAbilitiesGiven = false;
+
 	// Constructors and overrides
 	UHeroAbilitySystemComponent();
 

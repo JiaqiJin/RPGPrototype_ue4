@@ -12,6 +12,7 @@
 #include "Player/HeroCharacterMovementComponent.h"
 #include "Player/HeroPlayerState.h"
 #include "AbilitySystem/HeroAbilitySystemComponent.h"
+#include "TitanSoul.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ATitanSoulCharacter
@@ -73,6 +74,8 @@ void ATitanSoulCharacter::PossessedBy(AController* NewController)
 		AttributeSet = PS->GetAttributeSetBase();
 
 		PS->InitializeAttributes();
+
+		AddCharacterAbilities();
 	}
 }
 
@@ -102,6 +105,8 @@ void ATitanSoulCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	PlayerInputComponent->BindAxis("TurnRate", this, &ATitanSoulCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ATitanSoulCharacter::LookUpAtRate);
+
+	BindASCInput();
 }
 
 void ATitanSoulCharacter::TurnAtRate(float Rate)
@@ -142,5 +147,17 @@ void ATitanSoulCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+
+void ATitanSoulCharacter::BindASCInput()
+{
+	if (!ASCInputBound && AbilitySystemComponent.IsValid() && IsValid(InputComponent))
+	{
+		//UE_LOG(LogTemp, Warning, TEXT("BindASCInput"));
+		AbilitySystemComponent->BindAbilityActivationToInputComponent(InputComponent, FGameplayAbilityInputBinds(FString("ConfirmTarget"),
+			FString("CancelTarget"), FString("HeroAbilityInputID"), static_cast<int32>(HeroAbilityInputID::Confirm), static_cast<int32>(HeroAbilityInputID::Cancel)));
+
+		ASCInputBound = true;
 	}
 }
