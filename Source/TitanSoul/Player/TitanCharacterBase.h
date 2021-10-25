@@ -7,6 +7,7 @@
 #include "AbilitySystemInterface.h"
 #include "AbilitySystemComponent.h"
 #include "Abilities/GameplayAbility.h"
+#include "GameplayTagContainer.h"
 #include "TitanSoul/Attributes/HeroAttributeSet.h"
 #include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
 #include "TitanCharacterBase.generated.h"
@@ -22,6 +23,11 @@ public:
 
 	/** The component used to handle ability system interactions */
 	virtual class UAbilitySystemComponent* GetAbilitySystemComponent() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|HeroCharacter")
+	virtual bool IsAlive() const;
+
+	virtual void Die();
 
 	/** Returns current health, will be 0 if dead */
 	UFUNCTION(BlueprintCallable)
@@ -60,4 +66,7 @@ protected:
 	/** List of attributes modified by the ability system */
 	UPROPERTY()
 	UHeroAttributeSet* AttributeSet;
+
+	// Tags
+	FGameplayTag DeadTag;
 };

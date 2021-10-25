@@ -23,4 +23,11 @@ public:
 	virtual float GetMaxSpeed() const override;
 
 	uint8 RequestToStartSprinting : 1;
+
+public:
+	// Sprint
+	UFUNCTION(BlueprintCallable, Category = "Sprint")
+	void StartSprinting();
+	UFUNCTION(BlueprintCallable, Category = "Sprint")
+	void StopSprinting();
 };

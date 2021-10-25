@@ -16,6 +16,9 @@ ATitanCharacterBase::ATitanCharacterBase(const class FObjectInitializer& Initial
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECollisionChannel::ECC_Visibility, ECollisionResponse::ECR_Overlap);
 
 	bAlwaysRelevant = true;
+
+	// TAGS
+	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
 }
 
 // Called when the game starts or when spawned
@@ -28,6 +31,26 @@ void ATitanCharacterBase::BeginPlay()
 UAbilitySystemComponent* ATitanCharacterBase::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent.Get();
+}
+
+bool ATitanCharacterBase::IsAlive() const
+{
+	return GetHealth() > 0.0f;
+}
+
+void ATitanCharacterBase::Die()
+{
+	//
+	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GetCharacterMovement()->GravityScale = 0;
+	GetCharacterMovement()->Velocity = FVector(0);
+
+	// Delegate Die function
+
+	if (AbilitySystemComponent.IsValid())
+	{
+		AbilitySystemComponent->CancelAbilities();
+	}
 }
 
 //////////////// ---------------------------------------- /////////////////////

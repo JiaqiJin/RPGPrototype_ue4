@@ -28,3 +28,13 @@ float UHeroCharacterMovementComponent::GetMaxSpeed() const
 
 	return Owner->GetMoveSpeed();
 }
+
+void UHeroCharacterMovementComponent::StartSprinting()
+{
+	RequestToStartSprinting = true;
+}
+
+void UHeroCharacterMovementComponent::StopSprinting()
+{
+	RequestToStartSprinting = false;
+}
