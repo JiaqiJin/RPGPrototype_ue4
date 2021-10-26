@@ -10,6 +10,9 @@
 #include "GameplayTagContainer.h"
 #include "TitanSoul/Attributes/HeroAttributeSet.h"
 #include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
+#include "TitanSoul/Component/HeroHealthComponent.h"
+#include "TitanSoul/Component/HeroManaComponent.h"
+#include "TitanSoul/Component/HeroStaminaComponent.h"
 #include "TitanCharacterBase.generated.h"
 
 UCLASS()
@@ -52,6 +55,8 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Player|Abilities")
 	TArray<TSubclassOf<class UHeroGameplayAbility>> PlayerAbilities;
 
+	FORCEINLINE class UHeroHealthComponent* GetHealthComponent() const { return HealthComponent; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -69,4 +74,13 @@ protected:
 
 	// Tags
 	FGameplayTag DeadTag;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UHeroHealthComponent* HealthComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UHeroManaComponent* ManaComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	class UHeroStaminaComponent* StaminaComponent;
 };

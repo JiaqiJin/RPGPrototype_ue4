@@ -37,6 +37,21 @@ void UHeroAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 	{
 		AdjustAttributeForMaxChange(Mana, MaxMana, NewValue, GetManaAttribute());
 	}
+
+	if (Attribute == GetHealthRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetManaRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetStaminaRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
 }
 
 void UHeroAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)

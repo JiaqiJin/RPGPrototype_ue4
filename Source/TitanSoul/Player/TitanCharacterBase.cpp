@@ -19,6 +19,10 @@ ATitanCharacterBase::ATitanCharacterBase(const class FObjectInitializer& Initial
 
 	// TAGS
 	DeadTag = FGameplayTag::RequestGameplayTag(FName("State.Dead"));
+
+	HealthComponent = CreateDefaultSubobject<UHeroHealthComponent>(TEXT("Health Component"));
+	ManaComponent = CreateDefaultSubobject<UHeroManaComponent>(TEXT("Mana Component"));
+	StaminaComponent = CreateDefaultSubobject<UHeroStaminaComponent>(TEXT("Stamina Component"));
 }
 
 // Called when the game starts or when spawned

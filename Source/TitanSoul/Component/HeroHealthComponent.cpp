@@ -50,3 +50,34 @@ void UHeroHealthComponent::InitializeHealthAttribute()
 
 }
 
+
+void UHeroHealthComponent::BindHealthAttributeChange()
+{
+
+}
+
+void UHeroHealthComponent::UpdateHealthBarPercent()
+{
+
+}
+
+void UHeroHealthComponent::UpdateHealthBarText()
+{
+
+}
+
+void UHeroHealthComponent::UpdateHealthRegenerationBarText()
+{
+
+}
+
+void UHeroHealthComponent::UpdateRegenerationVisibility()
+{
+
+}
+
+void UHeroHealthComponent::RemoveHealthRegenerationEffect()
+{
+
+}
+

@@ -26,4 +26,29 @@ protected:
 	virtual void HealthRegenerationChanged(const FOnAttributeChangeData& Data);
 
 	void InitializeHealthAttribute();
+	void BindHealthAttributeChange();
+
+	void UpdateHealthBarPercent();
+	void UpdateHealthBarText();
+
+	void UpdateHealthRegenerationBarText();
+	void UpdateRegenerationVisibility();
+
+	void RemoveHealthRegenerationEffect();
+protected:
+	float Health = 0;
+	float MaxHealth = 0;
+	float HealthRegenerationValue = 0.0f;
+
+protected:
+	TWeakObjectPtr<class UHeroAttributeSet> PlayerAttributeSet;
+	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY(EditAnywhere, Category = "HealthData")
+	class UHealthDataAsset* HealthData;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Hero|UI")
+	TWeakObjectPtr<class UHeroHealthWidget> HeroHealthMenu;
+	
+
 };

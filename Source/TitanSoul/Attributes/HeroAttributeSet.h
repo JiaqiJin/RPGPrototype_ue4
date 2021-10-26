@@ -55,6 +55,10 @@ public:
 	FGameplayAttributeData HealthRegenRate;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, HealthRegenRate)
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HealthRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, HealthRegenerationActivationDelay);
+
 	// Mana
 	UPROPERTY(BlueprintReadOnly, Category = "Mana", ReplicatedUsing = OnRep_Mana)
 	FGameplayAttributeData Mana;
@@ -68,6 +72,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Health", ReplicatedUsing = OnRep_ManaRegenRate)
 	FGameplayAttributeData ManaRegenRate;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, ManaRegenRate)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData ManaRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, ManaRegenerationActivationDelay);
 
 	// Current stamina, used to execute special abilities. Capped by MaxStamina.
 	UPROPERTY(BlueprintReadOnly, Category = "Stamina", ReplicatedUsing = OnRep_Stamina)
@@ -83,6 +91,10 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Stamina", ReplicatedUsing = OnRep_StaminaRegenRate)
 	FGameplayAttributeData StaminaRegenRate;
 	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, StaminaRegenRate)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData StaminaRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroAttributeSet, StaminaRegenerationActivationDelay);
 
 	// Attack Power
 	UPROPERTY(BlueprintReadOnly, Category = "Damage", ReplicatedUsing = OnRep_AttackPower)
