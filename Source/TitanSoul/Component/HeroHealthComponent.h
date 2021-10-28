@@ -17,6 +17,7 @@ public:
 	// Sets default values for this component's properties
 	UHeroHealthComponent();
 
+	FORCEINLINE class UHealthDataAsset* GetHealthDataAssert() const { return HealthData; }
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -25,8 +26,8 @@ protected:
 	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
 	virtual void HealthRegenerationChanged(const FOnAttributeChangeData& Data);
 
-	void InitializeHealthAttribute();
-	void BindHealthAttributeChange();
+	void InitializeHealthAttribute(class AHeroPlayerState* HeroPlayerState);
+	void BindHealthAttributeChange(class ATitanSoulCharacter* PlayerCharacter);
 
 	void UpdateHealthBarPercent();
 	void UpdateHealthBarText();
@@ -34,7 +35,7 @@ protected:
 	void UpdateHealthRegenerationBarText();
 	void UpdateRegenerationVisibility();
 
-	void RemoveHealthRegenerationEffect();
+	void RemoveHealthRegenerationEffect(class ATitanSoulCharacter* HeroCharacter);
 protected:
 	float Health = 0;
 	float MaxHealth = 0;
@@ -49,6 +50,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Hero|UI")
 	TWeakObjectPtr<class UHeroHealthWidget> HeroHealthMenu;
-	
 
+	class UHeroHealthWidget* PlayerHealthWidget;
+
+	FDelegateHandle HealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthChangedDelegateHandle;
+	FDelegateHandle MaxHealthRegChangedDelegateHandle;
 };

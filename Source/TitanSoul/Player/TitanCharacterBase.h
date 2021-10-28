@@ -13,6 +13,7 @@
 #include "TitanSoul/Component/HeroHealthComponent.h"
 #include "TitanSoul/Component/HeroManaComponent.h"
 #include "TitanSoul/Component/HeroStaminaComponent.h"
+#include "TitanSoul/Datas/DamageDataAsset.h"
 #include "TitanCharacterBase.generated.h"
 
 UCLASS()
@@ -52,17 +53,23 @@ public:
 	UFUNCTION(BlueprintCallable)
 	virtual float GetMoveSpeed() const;
 
+	UFUNCTION(BlueprintPure, Category = "Player | HeroCharacter")
+	float GetCurrentLevel() const;
+
+
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Player|Abilities")
 	TArray<TSubclassOf<class UHeroGameplayAbility>> PlayerAbilities;
 
 	FORCEINLINE class UHeroHealthComponent* GetHealthComponent() const { return HealthComponent; }
-
+	FORCEINLINE class UDamageDataAsset* GetDamageData() const { return DamageData; }
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 	virtual void AddCharacterAbilities();
 protected:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
+	UDamageDataAsset* DamageData;
 
 	/** The component used to handle ability system interactions */
 	UPROPERTY()

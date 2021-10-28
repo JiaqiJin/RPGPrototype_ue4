@@ -86,6 +86,11 @@ float ATitanCharacterBase::GetMoveSpeed() const
 	return AttributeSet->GetPlayerMovementSpeed();
 }
 
+float ATitanCharacterBase::GetCurrentLevel() const
+{
+	return 1.0f;
+}
+
 void ATitanCharacterBase::AddCharacterAbilities()
 {
 	for (TSubclassOf<UHeroGameplayAbility>& StartupAbility : PlayerAbilities)
