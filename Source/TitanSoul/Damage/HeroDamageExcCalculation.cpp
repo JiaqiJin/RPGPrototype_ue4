@@ -63,7 +63,7 @@ void UHeroDamageExcCalculation::Execute_Implementation(const FGameplayEffectCust
 	//float Damage = FMath::Max(<float>(Spec.Get))
 	float Damage = 0.0f;
 	Damage += FMath::Max<float>(Spec.GetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag(DamageTag), false, -1.0f), 0.0f);
-
+	//UE_LOG(LogTemp, Warning, TEXT("Damage Value,%f"), Damage);
 	if (Damage > 0.0f)
 	{
 		// Set the Target's damage meta attribute

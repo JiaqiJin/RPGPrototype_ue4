@@ -2,12 +2,13 @@
 
 
 #include "HeroPlayerController.h"
+#include "../FunctionLibrary/HeroCheatManager.h"
 #include "../UI/MainHeroUIWidget.h"
 
 AHeroPlayerController::AHeroPlayerController(const class FObjectInitializer& InitializerObject)
 	: Super(InitializerObject)
 {
-
+	CheatClass = UHeroCheatManager::StaticClass();
 }
 
 void AHeroPlayerController::BeginPlay()

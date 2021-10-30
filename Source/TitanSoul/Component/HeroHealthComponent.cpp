@@ -56,6 +56,7 @@ void UHeroHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 			RemoveHealthRegenerationEffect(PlayerCharacter);
 		}
 	}
+	//UE_LOG(LogTemp, Warning, TEXT("Max New value = %f | Max Old value = %f"), NewValue, OldValue);
 }
 
 void UHeroHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)

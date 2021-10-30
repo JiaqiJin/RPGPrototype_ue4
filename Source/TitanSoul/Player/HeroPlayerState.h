@@ -60,20 +60,25 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|Attributes")
 	float GetMoveSpeed() const;
 
+	FORCEINLINE bool GetIgnoreAbilityCooldown() { return bIgnoreAbilityCooldown; }
+	FORCEINLINE bool GetIgnoreAbilityManaCost() { return bIgnoreAbilityManaCost; }
+
+	void ToggleIgnoreAbilityCooldown(bool bToggle) { bIgnoreAbilityCooldown = bToggle; }
+	void ToggleIgnoreAbilityManaCost(bool bToggle) { bIgnoreAbilityManaCost = bToggle; }
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Attribute changed callbacks
-	virtual void HealthChanged(const FOnAttributeChangeData& Data);
-	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
-	virtual void HealthRegenRateChanged(const FOnAttributeChangeData& Data);
-	virtual void ManaChanged(const FOnAttributeChangeData& Data);
-	virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
-	virtual void ManaRegenRateChanged(const FOnAttributeChangeData& Data);
-	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
-	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
-	virtual void StaminaRegenRateChanged(const FOnAttributeChangeData& Data);
+	//// Attribute changed callbacks
+	//virtual void HealthChanged(const FOnAttributeChangeData& Data);
+	//virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
+	//virtual void HealthRegenRateChanged(const FOnAttributeChangeData& Data);
+	//virtual void ManaChanged(const FOnAttributeChangeData& Data);
+	//virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
+	//virtual void ManaRegenRateChanged(const FOnAttributeChangeData& Data);
+	//virtual void StaminaChanged(const FOnAttributeChangeData& Data);
+	//virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
+	//virtual void StaminaRegenRateChanged(const FOnAttributeChangeData& Data);
 
 protected:
 	UPROPERTY()
@@ -94,4 +99,8 @@ protected:
 	FDelegateHandle StaminaChangedDelegateHandle;
 	FDelegateHandle MaxStaminaChangedDelegateHandle;
 	FDelegateHandle StaminaRegenRateChangedDelegateHandle;
+
+private:
+	bool bIgnoreAbilityCooldown;
+	bool bIgnoreAbilityManaCost;
 };
