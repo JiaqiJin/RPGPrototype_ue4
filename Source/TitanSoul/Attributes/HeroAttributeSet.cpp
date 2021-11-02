@@ -3,6 +3,7 @@
 
 #include "HeroAttributeSet.h"
 #include "TitanSoul/AbilitySystem/HeroAbilitySystemComponent.h"
+#include "TitanSoul/TitanSoulCharacter.h"
 #include "GameplayEffect.h"
 #include "GameplayEffectExtension.h"
 
@@ -24,6 +25,7 @@ void UHeroAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Ou
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 }
 
+// To respond to changes to an Attribute's CurrentValue() before the change happens
 void UHeroAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue)
 {
 	// This is called whenever attributes change
@@ -54,9 +56,78 @@ void UHeroAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 	}
 }
 
+// Called just before a GameplayEffect is executed to modify the base value of an attribute.
 void UHeroAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data)
 {
 	Super::PostGameplayEffectExecute(Data);
+
+	FGameplayEffectContextHandle Context = Data.EffectSpec.GetContext();
+	UAbilitySystemComponent* Source = Context.GetOriginalInstigatorAbilitySystemComponent();
+
+	// Get Actor which should be owner
+	AActor* TargetActor = nullptr;
+	AController* TargetController = nullptr;
+	ATitanSoulCharacter* TargetCharacter = nullptr;
+	
+	if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
+	{
+		TargetActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
+		TargetController = Data.Target.AbilityActorInfo->PlayerController.Get();
+		TargetCharacter = Cast<ATitanSoulCharacter>(TargetActor);
+	}
+
+	// Get the Source actor
+	AActor* SourceActor = nullptr;
+	AController* SourceController = nullptr;
+	ATitanSoulCharacter* SourceCharacter = nullptr;
+
+	if (Source && Source->AbilityActorInfo.IsValid() && Source->AbilityActorInfo->AvatarActor.IsValid())
+	{
+		SourceActor = Source->AbilityActorInfo->AvatarActor.Get();
+		SourceController = Source->AbilityActorInfo->PlayerController.Get();
+		if (SourceController == nullptr && SourceActor != nullptr)
+		{
+			if (APawn* Pawn = Cast<APawn>(SourceActor))
+			{
+				SourceController = Pawn->GetController();
+			}
+		}
+		// USe the controller to find source pawn
+		if (SourceController)
+		{
+			SourceCharacter = Cast<ATitanSoulCharacter>(SourceController->GetPawn());
+		}
+		else
+		{
+			SourceCharacter = Cast<ATitanSoulCharacter>(SourceActor);
+		}
+		// Set the causer actor based on context if it's set
+		if (Context.GetEffectCauser())
+		{
+			SourceActor = Context.GetEffectCauser();
+		}
+	}
+
+	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
+	{
+		// Try to extract a hit result
+		FHitResult HitResult;
+		if (Context.GetHitResult())
+		{
+			HitResult = *Context.GetHitResult();
+		}
+
+		// Store a local copy of the amount of damage done and clear the damage attribute
+		const float LocalDamageDone = GetDamage();
+		SetDamage(0.0f);
+
+		if (LocalDamageDone > 0.0f)
+		{
+			// Apply the health change and then clamp it
+			const float NewHealth = GetHealth() - LocalDamageDone;
+			SetHealth(FMath::Clamp(NewHealth, 0.0f, GetMaxHealth()));
+		}
+	}
 }
 
 void UHeroAttributeSet::AdjustAttributeForMaxChange(FGameplayAttributeData& AffectedAttribute, const FGameplayAttributeData& MaxAttribute, float NewMaxValue, 

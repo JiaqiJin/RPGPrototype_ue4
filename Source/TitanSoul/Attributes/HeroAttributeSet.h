@@ -15,7 +15,7 @@
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
 /**
- * 
+ * An Attributes composed of 2 values : BaseValue(permanent Value) and CurrentValue(BaseValue plus temporary modifications from GEs)
  */
 UCLASS()
 class TITANSOUL_API UHeroAttributeSet : public UAttributeSet
@@ -26,8 +26,9 @@ public:
 	// Constructor and overrides
 	UHeroAttributeSet();
 
-	// To respond to changes to an Attribute's CurrentValue before the change happens
+	// To respond to changes to an Attribute's CurrentValue() before the change happens
 	virtual void PreAttributeChange(const FGameplayAttribute& Attribute, float& NewValue) override;
+	// To respond after changes to the BaseValue of an Attribute from instant GE.
 	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
