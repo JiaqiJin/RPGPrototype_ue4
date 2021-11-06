@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "GameplayEffectTypes.h"
 #include "HeroStaminaComponent.generated.h"
 
 
@@ -20,9 +21,32 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	virtual void InitializeStaminaAttribute(class AHeroPlayerState* HeroPlayerState);
+	virtual void BindStaminaAttributeChange(class ATitanSoulCharacter* Character);
 
+	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaRegenerationChanged(const FOnAttributeChangeData& Data);
+
+	virtual void UpdateStaminaBarPercent();
+	virtual void UpdateStaminahBarText();
+	virtual void UpdateStaminaRegenerationBarText();
+
+	virtual void RemoveStaminaRegenerationEffect(class ATitanSoulCharacter* Character);
+private:
+	float Stamina = 0.0f;
+	float MaxStamina = 0.0f;
+	float StaminaRegenerationValue = 0.0f;
+
+protected:
+	TWeakObjectPtr<class UHeroAttributeSet> PlayerAttributes;
+	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY(EditAnywhere, Category = "Stamina")
+		class UStaminaDataAsset* StaminaData;
+
+	FDelegateHandle StaminaChangedDelegateHandle;
+	FDelegateHandle MaxStaminaChangedDelegateHandle;
+	FDelegateHandle MaxStaminaRegChangedDelegateHandle;
 		
 };

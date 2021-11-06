@@ -38,7 +38,7 @@ void AHeroItemBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* 
 		FGameplayEffectContextHandle ContextHandle;
 		FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(PotionHealthEffect, Player->GetCurrentLevel(), ContextHandle);
 		FGameplayEffectSpec* Spec = SpecHandle.Data.Get();
-		Spec->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag("Data.HealthPotion"), 5.0f);
+		//Spec->SetSetByCallerMagnitude(FGameplayTag::RequestGameplayTag("Data.HealthPotion"), 5.0f);
 		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
 	}
 }
