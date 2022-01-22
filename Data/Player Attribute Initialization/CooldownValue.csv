@@ -1,3 +1,0 @@
-Name,BaseValue,MinValue,MaxValue,DerivedAttributeInfo,bCanStack
-UHeroCooldownAttributeSet.PlayerGlobalCooldownMultiplier,1,0,10,,TRUE
-UHeroCooldownAttributeSet.PlayerFeatherFallAbilityCooldownMultiplier,1,0,10,,TRUE

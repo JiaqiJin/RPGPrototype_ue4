@@ -46,6 +46,7 @@ SourceArt/**/*.png
 SourceArt/**/*.tga
 
 # Binary Files
+Excalibur/Binaries/*
 Binaries/*
 Plugins/*/Binaries/*
 

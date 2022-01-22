@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "Excalibur",
+			"Path": "E:\\Unreal\\ActionRPG_ue4\\Excalibur\\Source\\Excalibur.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ExcaliburEditor",
+			"Path": "E:\\Unreal\\ActionRPG_ue4\\Excalibur\\Source\\ExcaliburEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

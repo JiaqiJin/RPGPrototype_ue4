@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"E:\\Unreal\\ActionRPG_ue4\\Excalibur\\Source\\Excalibur\\Excalibur.Build.cs",
+		"E:\\Unreal\\ActionRPG_ue4\\Excalibur\\Source\\Excalibur.Target.cs",
+		"E:\\Unreal\\ActionRPG_ue4\\Excalibur\\Source\\ExcaliburEditor.Target.cs"
+	],
+	"EngineVersion": "4.26.2"
+}
