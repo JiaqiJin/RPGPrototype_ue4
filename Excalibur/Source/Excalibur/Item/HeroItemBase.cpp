@@ -46,5 +46,7 @@ void AHeroItemBase::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* 
 		UE_LOG(LogTemp, Error, TEXT("%s() Hero Item Base OnOverlapBegin Error (ADD UGameplayEffect PLS)."),
 			*FString(__FUNCTION__), *GetName());
 	}
+
+	Destroy();
 }
 
