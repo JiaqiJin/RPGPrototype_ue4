@@ -38,35 +38,10 @@ public:
 	// Only called on the Server. Calls before Server's AcknowledgePossession.
 	virtual void PossessedBy(AController* NewController) override;
 
-	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
-
-public:
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetMovementSpeed() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetMovementSpeedBaseValue() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetMovementSpeedMultiplier() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetMovementSpeedMultiplierBase() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetJumpHeight() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetJumpHeightMultiplier() const;
-
-	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
-	float GetAirControl() const;
-
 	UFUNCTION(BlueprintPure, Category = "Player|Component|MovementComponent")
 	bool IsHeroSprinting() const;
 
-	UFUNCTION(BlueprintPure, Category = "Player|Component|MovementComponent")
-	float GetCurrentLevel() const;
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
 
 	UFUNCTION(BlueprintPure, Category = "Player|Component|MovementComponent")
 	class UHeroCharacterMovementComponent* GetHeroCharacterMovementComponent() const;
@@ -102,6 +77,9 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
+	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
+	FORCEINLINE class UManaComponent* GetManaComponent() const { return ManaComponent; }
+	FORCEINLINE class UStaminaComponent* GetStaminaComponent() const { return StaminaComponent; }
 protected:
 	// The core ActorComponent for interfacing with the GameplayAbilities System
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;

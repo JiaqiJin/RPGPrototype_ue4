@@ -4,6 +4,7 @@
 #include "HeroDamageExcutionCalculation.h"
 #include "Excalibur/Data/HeroDamageDataAsset.h"
 #include "Excalibur/Attributes/HeroPlayerAttributeSet.h"
+#include "Excalibur/Character/HeroPlayerCharacter.h"
 
 struct HeroDamageStatics
 {
@@ -36,8 +37,8 @@ void UHeroDamageExcutionCalculation::Execute_Implementation(const FGameplayEffec
 	UAbilitySystemComponent* TargetAbilitySysComponent = ExecutionParams.GetTargetAbilitySystemComponent();
 	UAbilitySystemComponent* SourceAbilitySysComponent = ExecutionParams.GetSourceAbilitySystemComponent();
 
-	AActor* TargetActor = TargetAbilitySysComponent ? TargetAbilitySysComponent->AvatarActor : nullptr;
-	AActor* SourcetActor = SourceAbilitySysComponent ? SourceAbilitySysComponent->AvatarActor : nullptr;
+	AActor* TargetActor = TargetAbilitySysComponent ? TargetAbilitySysComponent->GetAvatarActor() : nullptr;
+	AActor* SourcetActor = SourceAbilitySysComponent ? SourceAbilitySysComponent->GetAvatarActor() : nullptr;
 
 
 	const FGameplayEffectSpec& Spec = ExecutionParams.GetOwningSpec();
@@ -65,7 +66,20 @@ void UHeroDamageExcutionCalculation::Execute_Implementation(const FGameplayEffec
 	{
 		// Set the Target's damage meta attribute
 		OutExecutionOutput.AddOutputModifier(FGameplayModifierEvaluatedData(DamageStatics().DamageProperty, EGameplayModOp::Additive, Damage));
-		//ApplyHealthRegenerationPreventionEffect(TargetActor);
+		ApplyHealthRegenerationPreventionEffect(TargetActor);
 	}
 }
 
+void UHeroDamageExcutionCalculation::ApplyHealthRegenerationPreventionEffect(AActor* TargetActor) const
+{
+	AHeroPlayerCharacter* Character = Cast<AHeroPlayerCharacter>(TargetActor);
+	UAbilitySystemComponent* AbilitySystemComponent = Character->GetAbilitySystemComponent();
+	if (Character && DamageData)
+	{
+		UHealthComponent* HealthComponent = Character->GetHealthComponent();
+		if (HealthComponent)
+		{
+			FGameplayEffectContextHandle ContextHandle;
+		}
+	}
+}

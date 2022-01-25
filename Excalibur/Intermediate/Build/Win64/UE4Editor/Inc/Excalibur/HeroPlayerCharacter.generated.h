@@ -14,8 +14,30 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define EXCALIBUR_HeroPlayerCharacter_generated_h
 
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_SPARSE_DATA
-#define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS
-#define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execGetCurrentLevel); \
+	DECLARE_FUNCTION(execGetAirControl); \
+	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
+	DECLARE_FUNCTION(execGetJumpHeight); \
+	DECLARE_FUNCTION(execGetMovementSpeedMultiplierBase); \
+	DECLARE_FUNCTION(execGetMovementSpeedMultiplier); \
+	DECLARE_FUNCTION(execGetMovementSpeedBaseValue); \
+	DECLARE_FUNCTION(execGetMovementSpeed);
+
+
+#define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execGetCurrentLevel); \
+	DECLARE_FUNCTION(execGetAirControl); \
+	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
+	DECLARE_FUNCTION(execGetJumpHeight); \
+	DECLARE_FUNCTION(execGetMovementSpeedMultiplierBase); \
+	DECLARE_FUNCTION(execGetMovementSpeedMultiplier); \
+	DECLARE_FUNCTION(execGetMovementSpeedBaseValue); \
+	DECLARE_FUNCTION(execGetMovementSpeed);
+
+
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAHeroPlayerCharacter(); \

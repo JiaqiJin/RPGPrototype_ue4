@@ -192,3 +192,5 @@ E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Component/ManaComponent.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\ManaComponent.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Component/StaminaComponent.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\StaminaComponent.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Attributes/HeroPlayerAttributeSet.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerAttributeSet.generated.h

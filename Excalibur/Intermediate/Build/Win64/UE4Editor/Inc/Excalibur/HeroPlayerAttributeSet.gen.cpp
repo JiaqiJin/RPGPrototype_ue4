@@ -69,6 +69,10 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HealthRegeneration;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HealthRegenerationActivationDelay_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_HealthRegenerationActivationDelay;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Mana_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Mana;
@@ -85,6 +89,10 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ManaRegenerationRate;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ManaRegenerationActivationDelay_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_ManaRegenerationActivationDelay;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_Stamina_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_Stamina;
@@ -100,6 +108,10 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaminaRegenerationRate_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StaminaRegenerationRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaminaRegenerationActivationDelay_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_StaminaRegenerationActivationDelay;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HeroLevel_MetaData[];
 #endif
@@ -204,6 +216,13 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegeneration = { "HealthRegeneration", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, HealthRegeneration), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegeneration_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegeneration_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationActivationDelay_MetaData[] = {
+		{ "Category", "Player|Character|Attributes" },
+		{ "ModuleRelativePath", "Attributes/HeroPlayerAttributeSet.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationActivationDelay = { "HealthRegenerationActivationDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, HealthRegenerationActivationDelay), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationActivationDelay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationActivationDelay_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Mana_MetaData[] = {
 		{ "Category", "Player|Character|Attributes" },
 		{ "Comment", "// Mana Attribute\n" },
@@ -234,11 +253,18 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationRate = { "ManaRegenerationRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, ManaRegenerationRate), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationRate_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationActivationDelay_MetaData[] = {
+		{ "Category", "Player|Character|Attributes" },
+		{ "ModuleRelativePath", "Attributes/HeroPlayerAttributeSet.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationActivationDelay = { "ManaRegenerationActivationDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, ManaRegenerationActivationDelay), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationActivationDelay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationActivationDelay_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Stamina_MetaData[] = {
 		{ "Category", "Player|Character|Attributes" },
-		{ "Comment", "// Mana Attribute\n" },
+		{ "Comment", "// Stamina Attribute\n" },
 		{ "ModuleRelativePath", "Attributes/HeroPlayerAttributeSet.h" },
-		{ "ToolTip", "Mana Attribute" },
+		{ "ToolTip", "Stamina Attribute" },
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Stamina = { "Stamina", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, Stamina), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Stamina_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Stamina_MetaData)) };
@@ -263,6 +289,13 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 	};
 #endif
 	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationRate = { "StaminaRegenerationRate", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, StaminaRegenerationRate), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationRate_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationActivationDelay_MetaData[] = {
+		{ "Category", "Player|Character|Attributes" },
+		{ "ModuleRelativePath", "Attributes/HeroPlayerAttributeSet.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationActivationDelay = { "StaminaRegenerationActivationDelay", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroPlayerAttributeSet, StaminaRegenerationActivationDelay), Z_Construct_UScriptStruct_FGameplayAttributeData, METADATA_PARAMS(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationActivationDelay_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationActivationDelay_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HeroLevel_MetaData[] = {
 		{ "Category", "Player|Character|Attributes" },
@@ -299,14 +332,17 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_MaxHealth,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegeneration,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HealthRegenerationActivationDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Mana,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_MaxMana,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegeneration,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_ManaRegenerationActivationDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Stamina,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_MaxStamina,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegeneration,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_StaminaRegenerationActivationDelay,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HeroLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_HeroMaxLevel,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroPlayerAttributeSet_Statics::NewProp_Damage,
@@ -338,7 +374,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerAttributeSet() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UHeroPlayerAttributeSet, 2983751583);
+	IMPLEMENT_CLASS(UHeroPlayerAttributeSet, 3952107792);
 	template<> EXCALIBUR_API UClass* StaticClass<UHeroPlayerAttributeSet>()
 	{
 		return UHeroPlayerAttributeSet::StaticClass();

@@ -30,6 +30,32 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	FORCEINLINE UHeroDamageDataAsset* GetDamageData() const { return DamageDataAsset; }
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetMovementSpeed() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetMovementSpeedBaseValue() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetMovementSpeedMultiplier() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetMovementSpeedMultiplierBase() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetJumpHeight() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetJumpHeightMultiplier() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Player|Character|Attributes")
+	float GetAirControl() const;
+
+	UFUNCTION(BlueprintPure, Category = "Player|Component|MovementComponent")
+	float GetCurrentLevel() const;
+
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroDamageDataAsset* DamageDataAsset;

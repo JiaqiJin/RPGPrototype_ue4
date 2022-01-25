@@ -18,29 +18,13 @@ class UHeroCharacterMovementComponent;
 #define Excalibur_Source_Excalibur_ExcaliburCharacter_h_16_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execGetHeroCharacterMovementComponent); \
-	DECLARE_FUNCTION(execGetCurrentLevel); \
-	DECLARE_FUNCTION(execIsHeroSprinting); \
-	DECLARE_FUNCTION(execGetAirControl); \
-	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
-	DECLARE_FUNCTION(execGetJumpHeight); \
-	DECLARE_FUNCTION(execGetMovementSpeedMultiplierBase); \
-	DECLARE_FUNCTION(execGetMovementSpeedMultiplier); \
-	DECLARE_FUNCTION(execGetMovementSpeedBaseValue); \
-	DECLARE_FUNCTION(execGetMovementSpeed);
+	DECLARE_FUNCTION(execIsHeroSprinting);
 
 
 #define Excalibur_Source_Excalibur_ExcaliburCharacter_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetHeroCharacterMovementComponent); \
-	DECLARE_FUNCTION(execGetCurrentLevel); \
-	DECLARE_FUNCTION(execIsHeroSprinting); \
-	DECLARE_FUNCTION(execGetAirControl); \
-	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
-	DECLARE_FUNCTION(execGetJumpHeight); \
-	DECLARE_FUNCTION(execGetMovementSpeedMultiplierBase); \
-	DECLARE_FUNCTION(execGetMovementSpeedMultiplier); \
-	DECLARE_FUNCTION(execGetMovementSpeedBaseValue); \
-	DECLARE_FUNCTION(execGetMovementSpeed);
+	DECLARE_FUNCTION(execIsHeroSprinting);
 
 
 #define Excalibur_Source_Excalibur_ExcaliburCharacter_h_16_INCLASS_NO_PURE_DECLS \

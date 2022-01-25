@@ -23,4 +23,6 @@ public:
 
 private:
 	class UHeroDamageDataAsset* DamageData;
+
+	void ApplyHealthRegenerationPreventionEffect(AActor* TargetActor) const;
 };

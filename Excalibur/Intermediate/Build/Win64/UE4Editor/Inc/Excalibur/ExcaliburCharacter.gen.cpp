@@ -35,13 +35,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		*(UHeroCharacterMovementComponent**)Z_Param__Result=P_THIS->GetHeroCharacterMovementComponent();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetCurrentLevel)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetCurrentLevel();
-		P_NATIVE_END;
-	}
 	DEFINE_FUNCTION(AExcaliburCharacter::execIsHeroSprinting)
 	{
 		P_FINISH;
@@ -49,137 +42,14 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		*(bool*)Z_Param__Result=P_THIS->IsHeroSprinting();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetAirControl)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetAirControl();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetJumpHeightMultiplier)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetJumpHeightMultiplier();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetJumpHeight)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetJumpHeight();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetMovementSpeedMultiplierBase)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetMovementSpeedMultiplierBase();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetMovementSpeedMultiplier)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetMovementSpeedMultiplier();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetMovementSpeedBaseValue)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetMovementSpeedBaseValue();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(AExcaliburCharacter::execGetMovementSpeed)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		*(float*)Z_Param__Result=P_THIS->GetMovementSpeed();
-		P_NATIVE_END;
-	}
 	void AExcaliburCharacter::StaticRegisterNativesAExcaliburCharacter()
 	{
 		UClass* Class = AExcaliburCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
-			{ "GetAirControl", &AExcaliburCharacter::execGetAirControl },
-			{ "GetCurrentLevel", &AExcaliburCharacter::execGetCurrentLevel },
 			{ "GetHeroCharacterMovementComponent", &AExcaliburCharacter::execGetHeroCharacterMovementComponent },
-			{ "GetJumpHeight", &AExcaliburCharacter::execGetJumpHeight },
-			{ "GetJumpHeightMultiplier", &AExcaliburCharacter::execGetJumpHeightMultiplier },
-			{ "GetMovementSpeed", &AExcaliburCharacter::execGetMovementSpeed },
-			{ "GetMovementSpeedBaseValue", &AExcaliburCharacter::execGetMovementSpeedBaseValue },
-			{ "GetMovementSpeedMultiplier", &AExcaliburCharacter::execGetMovementSpeedMultiplier },
-			{ "GetMovementSpeedMultiplierBase", &AExcaliburCharacter::execGetMovementSpeedMultiplierBase },
 			{ "IsHeroSprinting", &AExcaliburCharacter::execIsHeroSprinting },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics
-	{
-		struct ExcaliburCharacter_eventGetAirControl_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetAirControl_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetAirControl", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetAirControl_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetAirControl()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetAirControl_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics
-	{
-		struct ExcaliburCharacter_eventGetCurrentLevel_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetCurrentLevel_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Component|MovementComponent" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetCurrentLevel", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetCurrentLevel_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AExcaliburCharacter_GetHeroCharacterMovementComponent_Statics
 	{
@@ -219,204 +89,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetHeroCharacterMovementComponent_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics
-	{
-		struct ExcaliburCharacter_eventGetJumpHeight_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetJumpHeight_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetJumpHeight", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetJumpHeight_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics
-	{
-		struct ExcaliburCharacter_eventGetJumpHeightMultiplier_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetJumpHeightMultiplier_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetJumpHeightMultiplier", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetJumpHeightMultiplier_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics
-	{
-		struct ExcaliburCharacter_eventGetMovementSpeed_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetMovementSpeed_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetMovementSpeed", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetMovementSpeed_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics
-	{
-		struct ExcaliburCharacter_eventGetMovementSpeedBaseValue_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetMovementSpeedBaseValue_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetMovementSpeedBaseValue", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetMovementSpeedBaseValue_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics
-	{
-		struct ExcaliburCharacter_eventGetMovementSpeedMultiplier_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetMovementSpeedMultiplier_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetMovementSpeedMultiplier", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetMovementSpeedMultiplier_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics
-	{
-		struct ExcaliburCharacter_eventGetMovementSpeedMultiplierBase_Parms
-		{
-			float ReturnValue;
-		};
-		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
-		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ExcaliburCharacter_eventGetMovementSpeedMultiplierBase_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::NewProp_ReturnValue,
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::Function_MetaDataParams[] = {
-		{ "Category", "Player|Character|Attributes" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AExcaliburCharacter, nullptr, "GetMovementSpeedMultiplierBase", nullptr, nullptr, sizeof(ExcaliburCharacter_eventGetMovementSpeedMultiplierBase_Parms), Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -515,15 +187,7 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Excalibur,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AExcaliburCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetAirControl, "GetAirControl" }, // 3378041834
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetCurrentLevel, "GetCurrentLevel" }, // 1449533477
 		{ &Z_Construct_UFunction_AExcaliburCharacter_GetHeroCharacterMovementComponent, "GetHeroCharacterMovementComponent" }, // 1937011544
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeight, "GetJumpHeight" }, // 2598329330
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetJumpHeightMultiplier, "GetJumpHeightMultiplier" }, // 49752989
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeed, "GetMovementSpeed" }, // 2756112308
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedBaseValue, "GetMovementSpeedBaseValue" }, // 753266599
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplier, "GetMovementSpeedMultiplier" }, // 3158195052
-		{ &Z_Construct_UFunction_AExcaliburCharacter_GetMovementSpeedMultiplierBase, "GetMovementSpeedMultiplierBase" }, // 4244014402
 		{ &Z_Construct_UFunction_AExcaliburCharacter_IsHeroSprinting, "IsHeroSprinting" }, // 4097657820
 	};
 #if WITH_METADATA
@@ -660,7 +324,7 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AExcaliburCharacter, 26833576);
+	IMPLEMENT_CLASS(AExcaliburCharacter, 1398715654);
 	template<> EXCALIBUR_API UClass* StaticClass<AExcaliburCharacter>()
 	{
 		return AExcaliburCharacter::StaticClass();

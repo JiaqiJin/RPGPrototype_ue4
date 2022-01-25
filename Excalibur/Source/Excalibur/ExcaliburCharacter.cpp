@@ -95,80 +95,6 @@ void AExcaliburCharacter::ApplyDefaultAbilities()
 	}
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Getters
-
-UAbilitySystemComponent* AExcaliburCharacter::GetAbilitySystemComponent() const
-{
-	if (AbilitySystemComponent.Get())
-		return AbilitySystemComponent.Get();
-
-	return nullptr;
-}
-
-float AExcaliburCharacter::GetMovementSpeed() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerMovementSpeed();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetMovementSpeedBaseValue() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerMovementSpeedAttribute().GetGameplayAttributeData(PlayerAttributes.Get())->GetBaseValue();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetMovementSpeedMultiplier() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerMovementMultiplier();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetMovementSpeedMultiplierBase() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerMovementMultiplierAttribute().GetGameplayAttributeData(PlayerAttributes.Get())->GetBaseValue();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetJumpHeight() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerJumpHeight();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetJumpHeightMultiplier() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerJumpHeightMultiplier();
-	}
-	return 0.0f;
-}
-
-float AExcaliburCharacter::GetAirControl() const
-{
-	if (PlayerAttributes.IsValid())
-	{
-		return PlayerAttributes->GetPlayerAirControl();
-	}
-	return 0.0f;
-}
-
 bool AExcaliburCharacter::IsHeroSprinting() const
 {
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
@@ -180,9 +106,16 @@ bool AExcaliburCharacter::IsHeroSprinting() const
 	return false;
 }
 
-float AExcaliburCharacter::GetCurrentLevel() const
+
+//////////////////////////////////////////////////////////////////////////
+// Getters
+
+UAbilitySystemComponent* AExcaliburCharacter::GetAbilitySystemComponent() const
 {
-	return 1.0f;
+	if (AbilitySystemComponent.Get())
+		return AbilitySystemComponent.Get();
+
+	return nullptr;
 }
 
 UHeroCharacterMovementComponent* AExcaliburCharacter::GetHeroCharacterMovementComponent() const

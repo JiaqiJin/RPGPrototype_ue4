@@ -78,6 +78,10 @@ public:
 	FGameplayAttributeData HealthRegeneration;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegeneration);
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData HealthRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, HealthRegenerationActivationDelay);
+
 	// Mana Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData Mana;
@@ -95,7 +99,11 @@ public:
 	FGameplayAttributeData ManaRegenerationRate;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, ManaRegenerationRate);
 
-	// Mana Attribute
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData ManaRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, ManaRegenerationActivationDelay);
+
+	// Stamina Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData Stamina;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, Stamina);
@@ -111,6 +119,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
 	FGameplayAttributeData StaminaRegenerationRate;
 	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, StaminaRegenerationRate);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")
+	FGameplayAttributeData StaminaRegenerationActivationDelay;
+	ATTRIBUTE_ACCESSORS(UHeroPlayerAttributeSet, StaminaRegenerationActivationDelay);
 
 	// Level Attribute
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Player|Character|Attributes")

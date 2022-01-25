@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\Excalibur.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{7194A5A0-CB7F-4E47-AA47-1603AAC9A27F}</UniqueIdentifier>
+      <UniqueIdentifier>{8C5ADCAA-6DEB-43F4-9CA6-CFB2F81EEF81}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Excalibur.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{3CC6429B-9767-4DC4-B63C-87ECF059C41E}</UniqueIdentifier>
+      <UniqueIdentifier>{BF645A8B-4749-4321-86EE-E1DB1D921172}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -33,7 +33,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\Excalibur">
-      <UniqueIdentifier>{4F32F4DA-0DDB-4AD1-B280-E8E5056DFDA3}</UniqueIdentifier>
+      <UniqueIdentifier>{81E11845-D114-4119-85E7-191EEFF6A2DC}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\Excalibur\Excalibur.Build.cs">
       <Filter>Source\Excalibur</Filter>
@@ -57,7 +57,7 @@
       <Filter>Source\Excalibur</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Ability">
-      <UniqueIdentifier>{74597352-C04A-4BAC-A628-44BD901242A3}</UniqueIdentifier>
+      <UniqueIdentifier>{202F2D58-B242-4CA9-9748-90480C032504}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Ability\HeroGA_CharacterJump.cpp">
       <Filter>Source\Excalibur\Ability</Filter>
@@ -66,7 +66,7 @@
       <Filter>Source\Excalibur\Ability</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Attributes">
-      <UniqueIdentifier>{F6A9C7F1-02A5-49D2-A7C4-3F2D136E088D}</UniqueIdentifier>
+      <UniqueIdentifier>{EFDE74FE-A19C-4E8F-9905-C40685A35463}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Attributes\HeroPlayerAttributeSet.cpp">
       <Filter>Source\Excalibur\Attributes</Filter>
@@ -75,7 +75,7 @@
       <Filter>Source\Excalibur\Attributes</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Character">
-      <UniqueIdentifier>{7CB1CCE2-A487-484B-8613-1C0BE6573DDD}</UniqueIdentifier>
+      <UniqueIdentifier>{B1A966D7-1FDB-4DDE-8FB8-FCD9CDB84323}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Character\HeroPlayerCharacter.cpp">
       <Filter>Source\Excalibur\Character</Filter>
@@ -96,7 +96,7 @@
       <Filter>Source\Excalibur\Character</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Character\MovementComp">
-      <UniqueIdentifier>{2752DC1A-EE21-4DCC-B054-11C4DFBFCCC9}</UniqueIdentifier>
+      <UniqueIdentifier>{28003ADA-8998-4E6A-A420-D1845557C88C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Character\MovementComp\HeroCharacterMovementComponent.cpp">
       <Filter>Source\Excalibur\Character\MovementComp</Filter>
@@ -105,12 +105,18 @@
       <Filter>Source\Excalibur\Character\MovementComp</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Component">
-      <UniqueIdentifier>{D3746B7D-674D-4C78-9B19-AEA38635B0A7}</UniqueIdentifier>
+      <UniqueIdentifier>{DC71F373-1AD1-43E1-8F84-73F9E85D6854}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Component\HealthComponent.cpp">
       <Filter>Source\Excalibur\Component</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\Excalibur\Component\HealthComponent.h">
+      <Filter>Source\Excalibur\Component</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Excalibur\Component\HeroInventoryComponent.cpp">
+      <Filter>Source\Excalibur\Component</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Excalibur\Component\HeroInventoryComponent.h">
       <Filter>Source\Excalibur\Component</Filter>
     </ClInclude>
     <ClCompile Include="..\..\Source\Excalibur\Component\ManaComponent.cpp">
@@ -126,7 +132,7 @@
       <Filter>Source\Excalibur\Component</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Damage">
-      <UniqueIdentifier>{14CFC443-4C1D-4167-B20D-80A52A6C5FED}</UniqueIdentifier>
+      <UniqueIdentifier>{2DC47258-6146-4581-92D5-72A456B7696A}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Damage\HeroDamageExcutionCalculation.cpp">
       <Filter>Source\Excalibur\Damage</Filter>
@@ -135,7 +141,7 @@
       <Filter>Source\Excalibur\Damage</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Data">
-      <UniqueIdentifier>{18B5138C-7130-49D5-9702-2ECCBAB1F083}</UniqueIdentifier>
+      <UniqueIdentifier>{045E9991-00A5-4682-9ADC-BA1BCC3AA290}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Data\HeroAbilityDataAsset.cpp">
       <Filter>Source\Excalibur\Data</Filter>
@@ -156,7 +162,7 @@
       <Filter>Source\Excalibur\Data</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\FunctionLibrary">
-      <UniqueIdentifier>{B849DD8C-14F7-4F38-B41D-CB92ED806CBA}</UniqueIdentifier>
+      <UniqueIdentifier>{30A0BA70-0AB9-4D17-B9B6-211D83A4EAC8}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\FunctionLibrary\HeroGameplayStatics.cpp">
       <Filter>Source\Excalibur\FunctionLibrary</Filter>
@@ -165,7 +171,7 @@
       <Filter>Source\Excalibur\FunctionLibrary</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\GameMode">
-      <UniqueIdentifier>{7811AACD-43C4-46D4-8EA2-DB42849496A4}</UniqueIdentifier>
+      <UniqueIdentifier>{2C03D398-8497-475E-B507-CEF82A1CB10B}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\GameMode\HeroGameModeBase.cpp">
       <Filter>Source\Excalibur\GameMode</Filter>
@@ -174,7 +180,7 @@
       <Filter>Source\Excalibur\GameMode</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\GameplayEffect">
-      <UniqueIdentifier>{0F37DC7E-B6CE-4271-89AE-22063C697DF8}</UniqueIdentifier>
+      <UniqueIdentifier>{D6F1E895-353F-42E8-B159-C387EF3206E0}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\GameplayEffect\HeroGameplayAbility.cpp">
       <Filter>Source\Excalibur\GameplayEffect</Filter>
@@ -189,7 +195,7 @@
       <Filter>Source\Excalibur\GameplayEffect</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\Item">
-      <UniqueIdentifier>{6D68F632-1E9C-4057-A107-5215D0A72E01}</UniqueIdentifier>
+      <UniqueIdentifier>{3E255D20-8485-45B5-8EAB-D834E0BF69DF}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\Item\HeroItemBase.cpp">
       <Filter>Source\Excalibur\Item</Filter>
@@ -198,7 +204,7 @@
       <Filter>Source\Excalibur\Item</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\UI">
-      <UniqueIdentifier>{A25634B9-4DA2-4AAA-BE05-6194E780E131}</UniqueIdentifier>
+      <UniqueIdentifier>{DB6EDB00-8060-4AC4-8447-BEABDBBC758C}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\UI\HeroCharacterUIMain.cpp">
       <Filter>Source\Excalibur\UI</Filter>
@@ -207,7 +213,7 @@
       <Filter>Source\Excalibur\UI</Filter>
     </ClInclude>
     <Filter Include="Source\Excalibur\UI\Component">
-      <UniqueIdentifier>{40FDD37C-320B-46B5-A4C0-067F93359429}</UniqueIdentifier>
+      <UniqueIdentifier>{4A13E99A-7E2F-4399-923B-7F2795EC5E3F}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\Excalibur\UI\Component\CharacterHealthWidget.cpp">
       <Filter>Source\Excalibur\UI\Component</Filter>
