@@ -3,6 +3,8 @@
 
 #include "HeroDamageExcutionCalculation.h"
 #include "Excalibur/Data/HeroDamageDataAsset.h"
+#include "Excalibur/Data/HeroHealthData.h"
+#include "Excalibur/Component/HealthComponent.h"
 #include "Excalibur/Attributes/HeroPlayerAttributeSet.h"
 #include "Excalibur/Character/HeroPlayerCharacter.h"
 
@@ -74,12 +76,14 @@ void UHeroDamageExcutionCalculation::ApplyHealthRegenerationPreventionEffect(AAc
 {
 	AHeroPlayerCharacter* Character = Cast<AHeroPlayerCharacter>(TargetActor);
 	UAbilitySystemComponent* AbilitySystemComponent = Character->GetAbilitySystemComponent();
-	if (Character && DamageData)
+	UHealthComponent* HealthComponent = Character->GetHealthComponent();
+	UHeroHealthData* HeroHealthData = HealthComponent->HealthData;
+	if (Character && HeroHealthData)
 	{
-		UHealthComponent* HealthComponent = Character->GetHealthComponent();
-		if (HealthComponent)
-		{
-			FGameplayEffectContextHandle ContextHandle;
-		}
+		FGameplayEffectContextHandle ContextHandle;
+		FGameplayEffectSpecHandle SpecHandle = AbilitySystemComponent->MakeOutgoingSpec(HeroHealthData->HealthRegenerationPreventionEffect,
+			Character->GetCurrentLevel(), ContextHandle);
+		FGameplayEffectSpec* Spec = SpecHandle.Data.Get();
+		AbilitySystemComponent->ApplyGameplayEffectSpecToSelf(*Spec);
 	}
 }

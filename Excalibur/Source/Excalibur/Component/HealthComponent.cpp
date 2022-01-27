@@ -9,6 +9,7 @@
 #include "../Attributes/HeroPlayerAttributeSet.h"
 #include "../Character/HeroPlayerController.h"
 #include "../UI/HeroCharacterUIMain.h"
+#include "../Data/HeroHealthData.h"
 
 // Sets default values for this component's properties
 UHealthComponent::UHealthComponent()
@@ -50,6 +51,16 @@ void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 	UpdateHealthBarText();
 
 	//UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
+	AHeroPlayerCharacter* Character = Cast<AHeroPlayerCharacter>(GetOwner());
+	if (Character)
+	{
+		AHeroPlayerState* PS = Cast<AHeroPlayerState>(Character->GetPlayerState());
+		PlayerAttributes = PS->GetAttributeSetBase();
+		if (Health == PlayerAttributes->GetMaxHealth() && PlayerAttributes.IsValid())
+		{
+			RemoveHealthRegenerationEffect();
+		}
+	}
 }
 
 void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
@@ -81,6 +92,15 @@ void UHealthComponent::InitializeHealthAttribute(class AHeroPlayerState* PS)
 			UpdateHealthRegenerationBarText();
 			UpdateRegenerationVisibility();
 		}
+	}
+}
+
+void UHealthComponent::RemoveHealthRegenerationEffect()
+{
+	if (AbilitySystemComponent.IsValid() && HealthData)
+	{
+		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(HealthData->HealthRegenerationPreventionEffect,
+			AbilitySystemComponent.Get());
 	}
 }
 

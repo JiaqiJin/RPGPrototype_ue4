@@ -27,10 +27,6 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
 	TSubclassOf<class UGameplayEffect> DamageOverTimeGameplayEffect;
 
-	// Health Regeneration Prevention GE
-	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
-	TSubclassOf<class UGameplayEffect> HealthRegenerationPreventionEffect;
-
 	UFUNCTION()
 	FName GetDataTag();
 };

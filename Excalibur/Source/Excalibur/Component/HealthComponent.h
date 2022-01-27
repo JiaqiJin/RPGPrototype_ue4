@@ -18,6 +18,8 @@ public:
 	// Sets default values for this component's properties
 	UHealthComponent();
 
+	UPROPERTY(EditAnywhere, Category = "Health Data")
+	class UHeroHealthData* HealthData;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -42,6 +44,8 @@ protected:
 
 	void UpdateHealthRegenerationBarText();
 	void UpdateRegenerationVisibility();
+
+	void RemoveHealthRegenerationEffect();
 
 protected:
 	class AHeroPlayerCharacter* PlayerCharacter;

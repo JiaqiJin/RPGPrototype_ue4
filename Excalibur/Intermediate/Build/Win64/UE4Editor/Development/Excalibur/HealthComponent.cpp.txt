@@ -180,3 +180,5 @@ E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Component\../Character/HeroPl
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Character\../UI/HeroCharacterUIMain.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroCharacterUIMain.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerController.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Component\../Data/HeroHealthData.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroHealthData.generated.h

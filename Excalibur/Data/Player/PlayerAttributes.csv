@@ -14,3 +14,6 @@ HeroPlayerAttributeSet.StaminaRegeneration,1,0,100,,TRUE
 HeroPlayerAttributeSet.MaxStamina,100,0,100,,TRUE
 HeroPlayerAttributeSet.PlayerJumpHeight,420,0,420,,TRUE
 HeroPlayerAttributeSet.PlayerJumpHeightMultiplier,1,1,100,,TRUE
+HeroPlayerAttributeSet.HealthRegenerationActivationDelay,1.5,0.01,10,,TRUE
+HeroPlayerAttributeSet.ManaRegenerationActivationDelay,1.5,0.01,10,,TRUE
+HeroPlayerAttributeSet.StaminaRegenerationActivationDelay,1.5,0.01,10,,TRUE

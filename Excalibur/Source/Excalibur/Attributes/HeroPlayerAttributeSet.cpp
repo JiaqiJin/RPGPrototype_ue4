@@ -15,7 +15,7 @@ UHeroPlayerAttributeSet::UHeroPlayerAttributeSet()
 void UHeroPlayerAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
 {
 	Super::PostGameplayEffectExecute(Data);
-	UE_LOG(LogTemp, Warning, TEXT("Init PostGameplayEffectExecute"));
+	//UE_LOG(LogTemp, Warning, TEXT("Init PostGameplayEffectExecute"));
 
 	FGameplayEffectContextHandle Context = Data.EffectSpec.GetContext();
 	UAbilitySystemComponent* Source = Context.GetOriginalInstigatorAbilitySystemComponent();
@@ -134,6 +134,7 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 		NewValue = FMath::Clamp<float>(NewValue, 0.0f, 1.0f);
 	}
 
+	// Health
 	if (Attribute == GetHealthAttribute())
 	{
 		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxHealthAttribute().GetNumericValue(this));
@@ -142,6 +143,68 @@ void UHeroPlayerAttributeSet::PreAttributeChange(const FGameplayAttribute& Attri
 	if (Attribute == GetMaxHealthAttribute())
 	{
 		NewValue = FMath::Clamp<float>(NewValue, 0.001f, 10000.0f);
+	}
+
+	if (Attribute == GetHealthRegenerationAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxHealth());
+	}
+
+	if (Attribute == GetHealthRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	// Mana
+	if (Attribute == GetManaAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxManaAttribute().GetNumericValue(this));
+	}
+
+	if (Attribute == GetMaxManaAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.001f, 10000.0f);
+	}
+
+	if (Attribute == GetManaRegenerationAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxMana());
+	}
+
+	if (Attribute == GetManaRegenerationRateAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetManaRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	// Stamina
+	if (Attribute == GetStaminaAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxStaminaAttribute().GetNumericValue(this));
+	}
+
+	if (Attribute == GetMaxStaminaAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.001f, 10000.0f);
+	}
+
+	if (Attribute == GetStaminaRegenerationAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.0f, GetMaxStamina());
+	}
+
+	if (Attribute == GetStaminaRegenerationRateAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
+	}
+
+	if (Attribute == GetStaminaRegenerationActivationDelayAttribute())
+	{
+		NewValue = FMath::Clamp<float>(NewValue, 0.01f, 10.0f);
 	}
 
 	if (Attribute == GetHeroLevelAttribute())

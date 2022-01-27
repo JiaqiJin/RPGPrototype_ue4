@@ -91,10 +91,6 @@ void EmptyLinkFunctionForGeneratedCodeHeroDamageDataAsset() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageOverTimeGameplayEffect_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FClassPropertyParams NewProp_DamageOverTimeGameplayEffect;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HealthRegenerationPreventionEffect_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FClassPropertyParams NewProp_HealthRegenerationPreventionEffect;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -138,20 +134,10 @@ void EmptyLinkFunctionForGeneratedCodeHeroDamageDataAsset() {}
 	};
 #endif
 	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageOverTimeGameplayEffect = { "DamageOverTimeGameplayEffect", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroDamageDataAsset, DamageOverTimeGameplayEffect), Z_Construct_UClass_UGameplayEffect_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageOverTimeGameplayEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageOverTimeGameplayEffect_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_HealthRegenerationPreventionEffect_MetaData[] = {
-		{ "Category", "Gameplay Effects" },
-		{ "Comment", "// Health Regeneration Prevention GE\n" },
-		{ "ModuleRelativePath", "Data/HeroDamageDataAsset.h" },
-		{ "ToolTip", "Health Regeneration Prevention GE" },
-	};
-#endif
-	const UE4CodeGen_Private::FClassPropertyParams Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_HealthRegenerationPreventionEffect = { "HealthRegenerationPreventionEffect", nullptr, (EPropertyFlags)0x0014000000010001, UE4CodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroDamageDataAsset, HealthRegenerationPreventionEffect), Z_Construct_UClass_UGameplayEffect_NoRegister, Z_Construct_UClass_UClass, METADATA_PARAMS(Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_HealthRegenerationPreventionEffect_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_HealthRegenerationPreventionEffect_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UHeroDamageDataAsset_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageTag,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageGameplayEffect,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_DamageOverTimeGameplayEffect,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroDamageDataAsset_Statics::NewProp_HealthRegenerationPreventionEffect,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UHeroDamageDataAsset_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UHeroDamageDataAsset>::IsAbstract,
@@ -180,7 +166,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroDamageDataAsset() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UHeroDamageDataAsset, 1378328216);
+	IMPLEMENT_CLASS(UHeroDamageDataAsset, 1524639560);
 	template<> EXCALIBUR_API UClass* StaticClass<UHeroDamageDataAsset>()
 	{
 		return UHeroDamageDataAsset::StaticClass();
