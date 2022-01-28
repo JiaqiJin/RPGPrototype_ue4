@@ -49,6 +49,8 @@ void UStaminaComponent::StaminaChanged(const FOnAttributeChangeData& Data)
 	Stamina = NewValue;
 	UpdateStaminaBarPercent();
 	UpdateStaminaBarText();
+	UpdateStaminaRegenerationBarText();
+	UpdateRegenerationVisibility();
 
 	UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
 }
@@ -64,6 +66,15 @@ void UStaminaComponent::MaxStaminaChanged(const FOnAttributeChangeData& Data)
 
 }
 
+void UStaminaComponent::StaminaRegenerationChanged(const FOnAttributeChangeData& Data)
+{
+	float NewValue = Data.NewValue;
+	float OldValue = Data.OldValue;
+
+	StaminaRegenerationValue = NewValue;
+	UpdateStaminaRegenerationBarText();
+}
+
 void UStaminaComponent::InitializeStaminaAttribute(class AHeroPlayerState* PS)
 {
 	if (PS)
@@ -74,7 +85,7 @@ void UStaminaComponent::InitializeStaminaAttribute(class AHeroPlayerState* PS)
 			MaxStamina = PlayerAttributes->GetMaxStamina();
 			Stamina = MaxStamina;
 			PlayerAttributes->InitStamina(Stamina);
-
+			StaminaRegenerationValue = PlayerAttributes->GetStaminaRegeneration();
 			//UE_LOG(LogTemp, Warning, TEXT("Max Stamina : %f, Stamina : %f"), MaxStamina, Stamina);
 
 			UpdateStaminaBarPercent();
@@ -96,6 +107,9 @@ void UStaminaComponent::BindStaminaAttributeChange()
 
 			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetMaxStaminaAttribute()).AddUObject(this,
 				&UStaminaComponent::MaxStaminaChanged);
+
+			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetStaminaRegenerationAttribute()).AddUObject(this,
+				&UStaminaComponent::StaminaRegenerationChanged);
 		}
 	}
 }
@@ -134,12 +148,20 @@ void UStaminaComponent::UpdateStaminaRegenerationBarText()
 		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
 		if (MainUI)
 		{
-			MainUI->SetStaminaRegenerationVisibility(Stamina != MaxStamina);
+			MainUI->SetStaminaRegenerationValue(StaminaRegenerationValue);
 		}
 	}
 }
 
 void UStaminaComponent::UpdateRegenerationVisibility()
 {
-
+	AHeroPlayerController* HeroController = Cast<AHeroPlayerController>(PlayerCharacter->GetController());
+	if (HeroController)
+	{
+		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
+		if (MainUI)
+		{
+			MainUI->SetStaminaRegenerationVisibility(Stamina != MaxStamina);
+		}
+	}
 }

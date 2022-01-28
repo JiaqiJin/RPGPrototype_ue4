@@ -24,6 +24,7 @@ protected:
 private:
 	float Stamina = 0;
 	float MaxStamina = 0;
+	float StaminaRegenerationValue = 0;
 
 	FDelegateHandle StaminaChangedDelegateHandle;
 protected:
@@ -32,6 +33,7 @@ protected:
 
 	virtual void StaminaChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxStaminaChanged(const FOnAttributeChangeData& Data);
+	virtual void StaminaRegenerationChanged(const FOnAttributeChangeData& Data);
 
 	void InitializeStaminaAttribute(class AHeroPlayerState* PS);
 	void BindStaminaAttributeChange();

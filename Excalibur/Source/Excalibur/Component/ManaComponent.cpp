@@ -48,7 +48,9 @@ void UManaComponent::ManaChanged(const FOnAttributeChangeData& Data)
 	Mana = NewValue;
 	UpdateManaBarPercent();
 	UpdateManaBarText();
-
+	UpdateManaRegenerationBarText();
+	UpdateRegenerationVisibility();
+	
 	UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
 }
 
@@ -63,6 +65,15 @@ void UManaComponent::MaxManaChanged(const FOnAttributeChangeData& Data)
 
 }
 
+void UManaComponent::ManaRegenerationChanged(const FOnAttributeChangeData& Data)
+{
+	float NewValue = Data.NewValue;
+	float OldValue = Data.OldValue;
+
+	ManaRegenerationValue = NewValue;
+	UpdateManaRegenerationBarText();
+}
+
 void UManaComponent::InitializeManaAttribute(class AHeroPlayerState* PS)
 {
 	if (PS)
@@ -73,7 +84,7 @@ void UManaComponent::InitializeManaAttribute(class AHeroPlayerState* PS)
 			MaxMana = PlayerAttributes->GetMaxMana();
 			Mana = MaxMana;
 			PlayerAttributes->InitMana(Mana);
-
+			ManaRegenerationValue = PlayerAttributes->GetManaRegeneration();
 			//UE_LOG(LogTemp, Warning, TEXT("Max Mana : %f, Mana : %f"), MaxMana, Mana);
 
 			UpdateManaBarPercent();
@@ -95,6 +106,9 @@ void UManaComponent::BindManaAttributeChange()
 
 			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetMaxManaAttribute()).AddUObject(this,
 				&UManaComponent::MaxManaChanged);
+
+			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetManaRegenerationAttribute()).AddUObject(this,
+				&UManaComponent::ManaRegenerationChanged);
 		}
 	}
 }
@@ -133,13 +147,21 @@ void UManaComponent::UpdateManaRegenerationBarText()
 		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
 		if (MainUI)
 		{
-			MainUI->SetManaRegenerationVisibility(Mana != MaxMana);
+			MainUI->SetManaRegenerationValue(ManaRegenerationValue);
 		}
 	}
 }
 
 void UManaComponent::UpdateRegenerationVisibility()
 {
-
+	AHeroPlayerController* HeroController = Cast<AHeroPlayerController>(PlayerCharacter->GetController());
+	if (HeroController)
+	{
+		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
+		if (MainUI)
+		{
+			MainUI->SetManaRegenerationVisibility(Mana != MaxMana);
+		}
+	}
 }
 

@@ -24,6 +24,7 @@ protected:
 private:
 	float Mana = 0;
 	float MaxMana = 0;
+	float ManaRegenerationValue = 0;
 
 	FDelegateHandle ManaChangedDelegateHandle;
 protected:
@@ -32,6 +33,7 @@ protected:
 
 	virtual void ManaChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxManaChanged(const FOnAttributeChangeData& Data);
+	virtual void ManaRegenerationChanged(const FOnAttributeChangeData& Data);
 
 	void InitializeManaAttribute(class AHeroPlayerState* PS);
 	void BindManaAttributeChange();

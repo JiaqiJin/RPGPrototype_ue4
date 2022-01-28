@@ -27,6 +27,7 @@ protected:
 private:
 	float Health = 0;
 	float MaxHealth = 0;
+	float HealthRegenerationValue = 0;
 
 	FDelegateHandle HealthChangedDelegateHandle;
 protected:
@@ -35,6 +36,7 @@ protected:
 
 	virtual void HealthChanged(const FOnAttributeChangeData& Data);
 	virtual void MaxHealthChanged(const FOnAttributeChangeData& Data);
+	virtual void HealthRegenerationChanged(const FOnAttributeChangeData& Data);
 
 	void InitializeHealthAttribute(class AHeroPlayerState* PS);
 	void BindHealthAttributeChange();

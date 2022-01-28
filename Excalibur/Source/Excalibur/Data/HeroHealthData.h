@@ -19,4 +19,7 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
 	TSubclassOf<class UGameplayEffect> HealthRegenerationPreventionEffect;
 
+	// Health Regeneration Prevention GE
+	UPROPERTY(EditDefaultsOnly, Category = "Gameplay Effects")
+	TSubclassOf<class UGameplayEffect> HealthRegenerationEffect;
 };

@@ -49,6 +49,8 @@ void UHealthComponent::HealthChanged(const FOnAttributeChangeData& Data)
 	Health = NewValue;
 	UpdateHealthBarPercent();
 	UpdateHealthBarText();
+	UpdateHealthRegenerationBarText();
+	UpdateRegenerationVisibility();
 
 	//UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
 	AHeroPlayerCharacter* Character = Cast<AHeroPlayerCharacter>(GetOwner());
@@ -74,6 +76,15 @@ void UHealthComponent::MaxHealthChanged(const FOnAttributeChangeData& Data)
 
 }
 
+void UHealthComponent::HealthRegenerationChanged(const FOnAttributeChangeData& Data)
+{
+	float NewValue = Data.NewValue;
+	float OldValue = Data.OldValue;
+
+	HealthRegenerationValue = NewValue;
+	UpdateHealthRegenerationBarText();
+}
+
 void UHealthComponent::InitializeHealthAttribute(class AHeroPlayerState* PS)
 {
 	if (PS)
@@ -84,7 +95,7 @@ void UHealthComponent::InitializeHealthAttribute(class AHeroPlayerState* PS)
 			MaxHealth = PlayerAttributes->GetMaxHealth();
 			Health = MaxHealth;
 			PlayerAttributes->InitHealth(Health);
-
+			HealthRegenerationValue = PlayerAttributes->GetHealthRegeneration();
 			//UE_LOG(LogTemp, Warning, TEXT("Max health : %f, Health : %f"), MaxHealth, Health);
 
 			UpdateHealthBarPercent();
@@ -99,7 +110,7 @@ void UHealthComponent::RemoveHealthRegenerationEffect()
 {
 	if (AbilitySystemComponent.IsValid() && HealthData)
 	{
-		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(HealthData->HealthRegenerationPreventionEffect,
+		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(HealthData->HealthRegenerationEffect,
 			AbilitySystemComponent.Get());
 	}
 }
@@ -115,6 +126,9 @@ void UHealthComponent::BindHealthAttributeChange()
 
 			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetMaxHealthAttribute()).AddUObject(this,
 				&UHealthComponent::MaxHealthChanged);
+
+			AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(PlayerAttributes->GetHealthRegenerationAttribute()).AddUObject(this,
+				&UHealthComponent::HealthRegenerationChanged);
 		}
 	}
 }
@@ -153,12 +167,20 @@ void UHealthComponent::UpdateHealthRegenerationBarText()
 		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
 		if (MainUI)
 		{
-			MainUI->SetHealthRegenerationVisibility(Health != MaxHealth);
+			MainUI->SetHealthRegenerationValue(HealthRegenerationValue);
 		}
 	}
 }
 
 void UHealthComponent::UpdateRegenerationVisibility()
 {
-
+	AHeroPlayerController* HeroController = Cast<AHeroPlayerController>(PlayerCharacter->GetController());
+	if (HeroController)
+	{
+		class UHeroCharacterUIMain* MainUI = HeroController->GetHeroCharacterUIMain();
+		if (MainUI)
+		{
+			MainUI->SetHealthRegenerationVisibility(Health != MaxHealth);
+		}
+	}
 }
