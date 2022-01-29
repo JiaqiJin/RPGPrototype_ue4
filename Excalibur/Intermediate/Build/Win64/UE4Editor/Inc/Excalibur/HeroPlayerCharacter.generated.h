@@ -81,6 +81,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AHeroPlayerCharacter); \
 
 
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__HealthComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, HealthComponent); } \
+	FORCEINLINE static uint32 __PPO__ManaComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, ManaComponent); } \
+	FORCEINLINE static uint32 __PPO__StaminaComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, StaminaComponent); } \
 	FORCEINLINE static uint32 __PPO__DamageDataAsset() { return STRUCT_OFFSET(AHeroPlayerCharacter, DamageDataAsset); }
 
 

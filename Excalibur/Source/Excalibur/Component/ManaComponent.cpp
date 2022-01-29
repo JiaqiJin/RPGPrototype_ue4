@@ -9,6 +9,7 @@
 #include "../Attributes/HeroPlayerAttributeSet.h"
 #include "../Character/HeroPlayerController.h"
 #include "../UI/HeroCharacterUIMain.h"
+#include "../Data/HeroManaData.h"
 
 // Sets default values for this component's properties
 UManaComponent::UManaComponent()
@@ -51,7 +52,14 @@ void UManaComponent::ManaChanged(const FOnAttributeChangeData& Data)
 	UpdateManaRegenerationBarText();
 	UpdateRegenerationVisibility();
 	
-	UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
+	AHeroPlayerState* PS = Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState());
+	PlayerAttributes = PS->GetAttributeSetBase();
+	if (Mana == PlayerAttributes->GetMaxMana() && PlayerAttributes.IsValid())
+	{
+		RemoveManaRegenerationEffect();
+	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
 }
 
 void UManaComponent::MaxManaChanged(const FOnAttributeChangeData& Data)
@@ -165,3 +173,11 @@ void UManaComponent::UpdateRegenerationVisibility()
 	}
 }
 
+void UManaComponent::RemoveManaRegenerationEffect()
+{
+	if (AbilitySystemComponent.IsValid() && ManaData)
+	{
+		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(ManaData->ManaRegenerationEffect,
+			AbilitySystemComponent.Get());
+	}
+}

@@ -17,10 +17,11 @@ public:
 	// Sets default values for this component's properties
 	UManaComponent();
 
+	UPROPERTY(EditAnywhere, Category = "Mana Data")
+	class UHeroManaData* ManaData;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
 private:
 	float Mana = 0;
 	float MaxMana = 0;
@@ -44,6 +45,7 @@ protected:
 	void UpdateManaRegenerationBarText();
 	void UpdateRegenerationVisibility();
 
+	void RemoveManaRegenerationEffect();
 protected:
 	class AHeroPlayerCharacter* PlayerCharacter;
 };

@@ -78,6 +78,17 @@ void EmptyLinkFunctionForGeneratedCodeHeroGameplayAbility() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bAutoApplyCost_MetaData[];
+#endif
+		static void NewProp_bAutoApplyCost_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bAutoApplyCost;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bAutoApplyCooldown_MetaData[];
+#endif
+		static void NewProp_bAutoApplyCooldown_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bAutoApplyCooldown;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -95,6 +106,34 @@ void EmptyLinkFunctionForGeneratedCodeHeroGameplayAbility() {}
 		{ "ModuleRelativePath", "GameplayEffect/HeroGameplayAbility.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost_MetaData[] = {
+		{ "Category", "HerogameplayAbility" },
+		{ "DisplayName", "Auto Apply Cost" },
+		{ "ModuleRelativePath", "GameplayEffect/HeroGameplayAbility.h" },
+	};
+#endif
+	void Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost_SetBit(void* Obj)
+	{
+		((UHeroGameplayAbility*)Obj)->bAutoApplyCost = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost = { "bAutoApplyCost", nullptr, (EPropertyFlags)0x00200c0000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UHeroGameplayAbility), &Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost_SetBit, METADATA_PARAMS(Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown_MetaData[] = {
+		{ "Category", "HerogameplayAbility" },
+		{ "DisplayName", "Auto Apply Cooldown" },
+		{ "ModuleRelativePath", "GameplayEffect/HeroGameplayAbility.h" },
+	};
+#endif
+	void Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown_SetBit(void* Obj)
+	{
+		((UHeroGameplayAbility*)Obj)->bAutoApplyCooldown = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown = { "bAutoApplyCooldown", nullptr, (EPropertyFlags)0x00200c0000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(UHeroGameplayAbility), &Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown_SetBit, METADATA_PARAMS(Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UHeroGameplayAbility_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCost,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroGameplayAbility_Statics::NewProp_bAutoApplyCooldown,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UHeroGameplayAbility_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UHeroGameplayAbility>::IsAbstract,
 	};
@@ -104,11 +143,11 @@ void EmptyLinkFunctionForGeneratedCodeHeroGameplayAbility() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		FuncInfo,
-		nullptr,
+		Z_Construct_UClass_UHeroGameplayAbility_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		UE_ARRAY_COUNT(FuncInfo),
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UHeroGameplayAbility_Statics::PropPointers),
 		0,
 		0x001000A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UHeroGameplayAbility_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroGameplayAbility_Statics::Class_MetaDataParams))
@@ -122,7 +161,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroGameplayAbility() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UHeroGameplayAbility, 806699473);
+	IMPLEMENT_CLASS(UHeroGameplayAbility, 794657741);
 	template<> EXCALIBUR_API UClass* StaticClass<UHeroGameplayAbility>()
 	{
 		return UHeroGameplayAbility::StaticClass();

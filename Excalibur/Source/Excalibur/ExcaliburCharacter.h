@@ -76,10 +76,6 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-
-	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
-	FORCEINLINE class UManaComponent* GetManaComponent() const { return ManaComponent; }
-	FORCEINLINE class UStaminaComponent* GetStaminaComponent() const { return StaminaComponent; }
 protected:
 	// The core ActorComponent for interfacing with the GameplayAbilities System
 	TWeakObjectPtr<class UAbilitySystemComponent> AbilitySystemComponent;
@@ -94,16 +90,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;
-
-	// Components
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component, meta = (AllowPrivateAccess = "true"))
-	class UHealthComponent* HealthComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component, meta = (AllowPrivateAccess = "true"))
-	class UManaComponent* ManaComponent;
-
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Component, meta = (AllowPrivateAccess = "true"))
-	class UStaminaComponent* StaminaComponent;
 protected:
 	void ApplyDefaultAbilities();
 	void GrantAbilityToPlayer(FGameplayAbilitySpec Ability);

@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x81849C26,
-				0x56FBE737,
+				0x72C819EC,
+				0x9B9F5A13,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

@@ -17,6 +17,9 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 	EXCALIBUR_API UClass* Z_Construct_UClass_AHeroPlayerCharacter();
 	EXCALIBUR_API UClass* Z_Construct_UClass_AExcaliburCharacter();
 	UPackage* Z_Construct_UPackage__Script_Excalibur();
+	EXCALIBUR_API UClass* Z_Construct_UClass_UHealthComponent_NoRegister();
+	EXCALIBUR_API UClass* Z_Construct_UClass_UManaComponent_NoRegister();
+	EXCALIBUR_API UClass* Z_Construct_UClass_UStaminaComponent_NoRegister();
 	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroDamageDataAsset_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AHeroPlayerCharacter::execGetCurrentLevel)
@@ -366,6 +369,18 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HealthComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HealthComponent;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ManaComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ManaComponent;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaminaComponent_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StaminaComponent;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageDataAsset_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DamageDataAsset;
@@ -396,6 +411,35 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 	};
 #endif
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Component" },
+		{ "Comment", "// Components\n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+		{ "ToolTip", "Components" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent = { "HealthComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHeroPlayerCharacter, HealthComponent), Z_Construct_UClass_UHealthComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Component" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent = { "ManaComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHeroPlayerCharacter, ManaComponent), Z_Construct_UClass_UManaComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "Component" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent = { "StaminaComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHeroPlayerCharacter, StaminaComponent), Z_Construct_UClass_UStaminaComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset_MetaData[] = {
 		{ "Category", "Player|Data" },
 		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
@@ -403,6 +447,9 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset = { "DamageDataAsset", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHeroPlayerCharacter, DamageDataAsset), Z_Construct_UClass_UHeroDamageDataAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHeroPlayerCharacter_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AHeroPlayerCharacter_Statics::StaticCppClassTypeInfo = {
@@ -432,7 +479,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHeroPlayerCharacter, 1469105169);
+	IMPLEMENT_CLASS(AHeroPlayerCharacter, 2622520286);
 	template<> EXCALIBUR_API UClass* StaticClass<AHeroPlayerCharacter>()
 	{
 		return AHeroPlayerCharacter::StaticClass();

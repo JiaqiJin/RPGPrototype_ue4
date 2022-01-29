@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeStaminaComponent() {}
 	EXCALIBUR_API UClass* Z_Construct_UClass_UStaminaComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_Excalibur();
+	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroStaminaData_NoRegister();
 // End Cross Module References
 	void UStaminaComponent::StaticRegisterNativesUStaminaComponent()
 	{
@@ -31,6 +32,11 @@ void EmptyLinkFunctionForGeneratedCodeStaminaComponent() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaminaData_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StaminaData;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -46,6 +52,16 @@ void EmptyLinkFunctionForGeneratedCodeStaminaComponent() {}
 		{ "ModuleRelativePath", "Component/StaminaComponent.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UStaminaComponent_Statics::NewProp_StaminaData_MetaData[] = {
+		{ "Category", "Stamina Data" },
+		{ "ModuleRelativePath", "Component/StaminaComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UStaminaComponent_Statics::NewProp_StaminaData = { "StaminaData", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UStaminaComponent, StaminaData), Z_Construct_UClass_UHeroStaminaData_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UStaminaComponent_Statics::NewProp_StaminaData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UStaminaComponent_Statics::NewProp_StaminaData_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UStaminaComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UStaminaComponent_Statics::NewProp_StaminaData,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UStaminaComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UStaminaComponent>::IsAbstract,
 	};
@@ -55,11 +71,11 @@ void EmptyLinkFunctionForGeneratedCodeStaminaComponent() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UStaminaComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UStaminaComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_UStaminaComponent_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UStaminaComponent_Statics::Class_MetaDataParams))
@@ -73,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeStaminaComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UStaminaComponent, 1446574263);
+	IMPLEMENT_CLASS(UStaminaComponent, 3419702482);
 	template<> EXCALIBUR_API UClass* StaticClass<UStaminaComponent>()
 	{
 		return UStaminaComponent::StaticClass();

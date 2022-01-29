@@ -9,6 +9,7 @@
 #include "../Attributes/HeroPlayerAttributeSet.h"
 #include "../Character/HeroPlayerController.h"
 #include "../UI/HeroCharacterUIMain.h"
+#include "../Data/HeroStaminaData.h"
 
 // Sets default values for this component's properties
 UStaminaComponent::UStaminaComponent()
@@ -52,7 +53,13 @@ void UStaminaComponent::StaminaChanged(const FOnAttributeChangeData& Data)
 	UpdateStaminaRegenerationBarText();
 	UpdateRegenerationVisibility();
 
-	UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
+	AHeroPlayerState* PS = Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState());
+	PlayerAttributes = PS->GetAttributeSetBase();
+	if (Stamina == PlayerAttributes->GetMaxStamina() && PlayerAttributes.IsValid())
+	{
+		RemoveStaminaRegenerationEffect();
+	}
+	//UE_LOG(LogTemp, Warning, TEXT("New Value : %f, Old Value : %f"), NewValue, OldValue)
 }
 
 void UStaminaComponent::MaxStaminaChanged(const FOnAttributeChangeData& Data)
@@ -163,5 +170,14 @@ void UStaminaComponent::UpdateRegenerationVisibility()
 		{
 			MainUI->SetStaminaRegenerationVisibility(Stamina != MaxStamina);
 		}
+	}
+}
+
+void UStaminaComponent::RemoveStaminaRegenerationEffect()
+{
+	if (AbilitySystemComponent.IsValid() && StaminaData)
+	{
+		AbilitySystemComponent->RemoveActiveGameplayEffectBySourceEffect(StaminaData->StaminaRegenerationEffect,
+			AbilitySystemComponent.Get());
 	}
 }

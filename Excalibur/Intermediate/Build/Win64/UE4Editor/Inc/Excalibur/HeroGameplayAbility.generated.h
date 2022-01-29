@@ -67,7 +67,11 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHeroGameplayAbility); \
 	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UHeroGameplayAbility)
 
 
-#define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_PRIVATE_PROPERTY_OFFSET
+#define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__bAutoApplyCost() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCost); } \
+	FORCEINLINE static uint32 __PPO__bAutoApplyCooldown() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCooldown); }
+
+
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_12_PROLOG
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \

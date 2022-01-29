@@ -2,10 +2,10 @@
 
 
 #include "HeroPlayerCharacter.h"
-#include "MovementComp/HeroCharacterMovementComponent.h"
 #include "Excalibur/Component/HealthComponent.h"
 #include "Excalibur/Component/ManaComponent.h"
 #include "Excalibur/Component/StaminaComponent.h"
+#include "MovementComp/HeroCharacterMovementComponent.h"
 #include "MovementComp/HeroCharacterMovementComponent.h"
 #include "Excalibur/Attributes/HeroPlayerAttributeSet.h"
 
@@ -13,7 +13,8 @@
 AHeroPlayerCharacter::AHeroPlayerCharacter(const class FObjectInitializer& InitializerObject)
 	: Super(InitializerObject.SetDefaultSubobjectClass<UHeroCharacterMovementComponent>(ACharacter::CharacterMovementComponentName))
 {
-	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("HealthComponent"));
+	
+	HealthComponent = CreateDefaultSubobject<UHealthComponent>(TEXT("Health Component"));
 	ManaComponent = CreateDefaultSubobject<UManaComponent>(TEXT("ManaComponent"));
 	StaminaComponent = CreateDefaultSubobject<UStaminaComponent>(TEXT("StaminaComponent"));
 }

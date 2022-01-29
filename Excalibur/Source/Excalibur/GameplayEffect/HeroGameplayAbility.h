@@ -35,4 +35,10 @@ protected:
 	/** The last chance to fail before committing, this will usually be the same as CanActivateAbility. Some abilities may need to do extra checks here if they are consuming extra stuff in CommitExecute */
 	virtual bool CommitCheck(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, OUT FGameplayTagContainer* OptionalRelevantTags = nullptr) override;
 
+protected:
+	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Auto Apply Cost"), AdvancedDisplay)
+	bool bAutoApplyCost;
+
+	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Auto Apply Cooldown"), AdvancedDisplay)
+	bool bAutoApplyCooldown;
 };

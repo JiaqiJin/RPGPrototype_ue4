@@ -178,3 +178,5 @@ E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\Widge
 E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\UMG\UserWidget.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroCharacterUIMain.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerController.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Component\../Data/HeroManaData.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroManaData.generated.h

@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeManaComponent() {}
 	EXCALIBUR_API UClass* Z_Construct_UClass_UManaComponent();
 	ENGINE_API UClass* Z_Construct_UClass_UActorComponent();
 	UPackage* Z_Construct_UPackage__Script_Excalibur();
+	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroManaData_NoRegister();
 // End Cross Module References
 	void UManaComponent::StaticRegisterNativesUManaComponent()
 	{
@@ -31,6 +32,11 @@ void EmptyLinkFunctionForGeneratedCodeManaComponent() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ManaData_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ManaData;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -46,6 +52,16 @@ void EmptyLinkFunctionForGeneratedCodeManaComponent() {}
 		{ "ModuleRelativePath", "Component/ManaComponent.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UManaComponent_Statics::NewProp_ManaData_MetaData[] = {
+		{ "Category", "Mana Data" },
+		{ "ModuleRelativePath", "Component/ManaComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UManaComponent_Statics::NewProp_ManaData = { "ManaData", nullptr, (EPropertyFlags)0x0010000000000001, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UManaComponent, ManaData), Z_Construct_UClass_UHeroManaData_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UManaComponent_Statics::NewProp_ManaData_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UManaComponent_Statics::NewProp_ManaData_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UManaComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UManaComponent_Statics::NewProp_ManaData,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UManaComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UManaComponent>::IsAbstract,
 	};
@@ -55,11 +71,11 @@ void EmptyLinkFunctionForGeneratedCodeManaComponent() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UManaComponent_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UManaComponent_Statics::PropPointers),
 		0,
 		0x00B000A4u,
 		METADATA_PARAMS(Z_Construct_UClass_UManaComponent_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UManaComponent_Statics::Class_MetaDataParams))
@@ -73,7 +89,7 @@ void EmptyLinkFunctionForGeneratedCodeManaComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UManaComponent, 275713547);
+	IMPLEMENT_CLASS(UManaComponent, 727749220);
 	template<> EXCALIBUR_API UClass* StaticClass<UManaComponent>()
 	{
 		return UManaComponent::StaticClass();

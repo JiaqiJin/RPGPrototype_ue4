@@ -32,6 +32,7 @@ void UHeroGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo* ActorInf
 void UHeroGameplayAbility::ApplyCost(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 	const FGameplayAbilityActivationInfo ActivationInfo) const
 {
+	//UE_LOG(LogTemp, Warning, TEXT("ApplyCost"));
 	Super::ApplyCost(Handle, ActorInfo, ActivationInfo);
 }
 
@@ -44,17 +45,57 @@ void UHeroGameplayAbility::ApplyCooldown(const FGameplayAbilitySpecHandle Handle
 bool UHeroGameplayAbility::CommitAbilityCost(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 	const FGameplayAbilityActivationInfo ActivationInfo, OUT FGameplayTagContainer* OptionalRelevantTags)
 {
-	return Super::CommitAbilityCost(Handle, ActorInfo, ActivationInfo);
+	//UE_LOG(LogTemp, Warning, TEXT("CommitAbilityCost"));
+	Super::CommitAbilityCost(Handle, ActorInfo, ActivationInfo);
+	return true;
 }
 
 bool UHeroGameplayAbility::CommitAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 	const FGameplayAbilityActivationInfo ActivationInfo, OUT FGameplayTagContainer* OptionalRelevantTags)
 {
+	//UE_LOG(LogTemp, Warning, TEXT("CommitAbility"));
+	// Last chance to fail (maybe we no longer have resources to commit since we after we started this ability activation)
+	if (!CommitCheck(Handle, ActorInfo, ActivationInfo, OptionalRelevantTags))
+	{
+		return false;
+	}
+
+	if (bAutoApplyCooldown)
+	{
+		ApplyCooldown(Handle, ActorInfo, ActivationInfo);
+
+	}
+
+	if (bAutoApplyCost)
+	{
+		ApplyCost(Handle, ActorInfo, ActivationInfo);
+	}
+
+	CommitExecute(Handle, ActorInfo, ActivationInfo);
+
+	// Fixme: Should we always call this or only if it is implemented? A noop may not hurt but could be bad for perf (storing a HasBlueprintCommit per instance isn't good either)
+	K2_CommitExecute();
+
+	// Broadcast this commitment
+	ActorInfo->AbilitySystemComponent->NotifyAbilityCommit(this);
+
 	return true;
 }
 
 bool UHeroGameplayAbility::CommitCheck(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo,
 	const FGameplayAbilityActivationInfo ActivationInfo, OUT FGameplayTagContainer* OptionalRelevantTags)
 {
+	//UE_LOG(LogTemp, Warning, TEXT("CommitCheck"));
+	if (bAutoApplyCooldown)
+	{
+		ApplyCooldown(Handle, ActorInfo, ActivationInfo);
+
+	}
+
+	if (bAutoApplyCost)
+	{
+		ApplyCost(Handle, ActorInfo, ActivationInfo);
+	}
+
 	return Super::CommitCheck(Handle, ActorInfo, ActivationInfo);
 }

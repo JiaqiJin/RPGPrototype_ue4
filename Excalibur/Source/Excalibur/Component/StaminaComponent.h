@@ -17,6 +17,8 @@ public:
 	// Sets default values for this component's properties
 	UStaminaComponent();
 
+	UPROPERTY(EditAnywhere, Category = "Stamina Data")
+	class UHeroStaminaData* StaminaData;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
@@ -44,6 +46,7 @@ protected:
 	void UpdateStaminaRegenerationBarText();
 	void UpdateRegenerationVisibility();
 
+	void RemoveStaminaRegenerationEffect();
 protected:
 	class AHeroPlayerCharacter* PlayerCharacter;
 };

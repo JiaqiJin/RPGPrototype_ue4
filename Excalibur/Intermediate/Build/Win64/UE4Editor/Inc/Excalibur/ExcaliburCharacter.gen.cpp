@@ -23,9 +23,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroAbilityDataAsset_NoRegister();
-	EXCALIBUR_API UClass* Z_Construct_UClass_UHealthComponent_NoRegister();
-	EXCALIBUR_API UClass* Z_Construct_UClass_UManaComponent_NoRegister();
-	EXCALIBUR_API UClass* Z_Construct_UClass_UStaminaComponent_NoRegister();
 	GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
 // End Cross Module References
 	DEFINE_FUNCTION(AExcaliburCharacter::execGetHeroCharacterMovementComponent)
@@ -165,18 +162,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DefaultAbilities_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DefaultAbilities;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HealthComponent_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HealthComponent;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ManaComponent_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ManaComponent;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaminaComponent_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StaminaComponent;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const UE4CodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
@@ -254,35 +239,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_DefaultAbilities = { "DefaultAbilities", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AExcaliburCharacter, DefaultAbilities), Z_Construct_UClass_UHeroAbilityDataAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_DefaultAbilities_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_DefaultAbilities_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_HealthComponent_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Component" },
-		{ "Comment", "// Components\n" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-		{ "ToolTip", "Components" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_HealthComponent = { "HealthComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AExcaliburCharacter, HealthComponent), Z_Construct_UClass_UHealthComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_HealthComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_HealthComponent_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_ManaComponent_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Component" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_ManaComponent = { "ManaComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AExcaliburCharacter, ManaComponent), Z_Construct_UClass_UManaComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_ManaComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_ManaComponent_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_StaminaComponent_MetaData[] = {
-		{ "AllowPrivateAccess", "true" },
-		{ "Category", "Component" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "ExcaliburCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_StaminaComponent = { "StaminaComponent", nullptr, (EPropertyFlags)0x00200800000a001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AExcaliburCharacter, StaminaComponent), Z_Construct_UClass_UStaminaComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_StaminaComponent_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_StaminaComponent_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AExcaliburCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_FollowCamera,
@@ -290,9 +246,6 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_BaseLookUpRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_DefaultAttributes,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_DefaultAbilities,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_HealthComponent,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_ManaComponent,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AExcaliburCharacter_Statics::NewProp_StaminaComponent,
 	};
 		const UE4CodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_AExcaliburCharacter_Statics::InterfaceParams[] = {
 			{ Z_Construct_UClass_UAbilitySystemInterface_NoRegister, (int32)VTABLE_OFFSET(AExcaliburCharacter, IAbilitySystemInterface), false },
@@ -324,7 +277,7 @@ void EmptyLinkFunctionForGeneratedCodeExcaliburCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AExcaliburCharacter, 1398715654);
+	IMPLEMENT_CLASS(AExcaliburCharacter, 2346391164);
 	template<> EXCALIBUR_API UClass* StaticClass<AExcaliburCharacter>()
 	{
 		return AExcaliburCharacter::StaticClass();

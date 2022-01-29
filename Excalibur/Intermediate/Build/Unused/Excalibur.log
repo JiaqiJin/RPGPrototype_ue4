@@ -1,20 +1,13 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal\ActionRPG_ue4).
-  Parsing headers for ExcaliburEditor
-    Running UnrealHeaderTool "E:\Unreal\ActionRPG_ue4\Excalibur\Excalibur.uproject" "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\ExcaliburEditor\Development\ExcaliburEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Usuario\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ExcaliburEditor in 4,284374 seconds
   Building ExcaliburEditor...
   Using Visual Studio 2019 14.29.30136 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 9 actions with 12 processes...
-    [1/9] StaminaComponent.gen.cpp
-    [2/9] ManaComponent.gen.cpp
-    [3/9] HeroPlayerCharacter.cpp
-    [4/9] ManaComponent.cpp
-    [5/9] HealthComponent.cpp
-    [6/9] StaminaComponent.cpp
-    [7/9] UE4Editor-Excalibur-0029.lib
-       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0029.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0029.exp
-    [8/9] UE4Editor-Excalibur-0029.dll
-       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0029.suppressed.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0029.suppressed.exp
-    [9/9] ExcaliburEditor.target
-  Total time in Parallel executor: 20,88 seconds
-  Total execution time: 25,97 seconds
+  Building 5 actions with 12 processes...
+    [1/5] ManaComponent.cpp
+    [2/5] StaminaComponent.cpp
+    [3/5] UE4Editor-Excalibur-0002.lib
+       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0002.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0002.exp
+    [4/5] UE4Editor-Excalibur-0002.dll
+       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0002.suppressed.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0002.suppressed.exp
+    [5/5] ExcaliburEditor.target
+  Total time in Parallel executor: 6,49 seconds
+  Total execution time: 7,26 seconds

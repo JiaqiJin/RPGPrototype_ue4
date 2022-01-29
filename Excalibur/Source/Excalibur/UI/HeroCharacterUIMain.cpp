@@ -47,17 +47,17 @@ void UHeroCharacterUIMain::SetManaBarPercentage(float value)
 	HeroMana->SetManaBarPercentage(FMath::Clamp<float>(value, 0.0f, 1.0f));
 }
 
-void UHeroCharacterUIMain::SetManaTextBlock(float health, float MaxHealth)
+void UHeroCharacterUIMain::SetManaTextBlock(float Mana, float MaxMana)
 {
-	uint32 ManaInterger = FMath::RoundHalfFromZero(health);
-	uint32 MaxManaInterger = FMath::RoundHalfFromZero(MaxHealth);
+	uint32 ManaInterger = FMath::RoundHalfFromZero(Mana);
+	uint32 MaxManaInterger = FMath::RoundHalfFromZero(MaxMana);
 	HeroMana->SetManaTextBlock(FText::FromString(FString::Printf(TEXT("%i / %i"), ManaInterger, MaxManaInterger)));
 }
 
-void UHeroCharacterUIMain::SetManaRegenerationValue(float HealthRegeneration)
+void UHeroCharacterUIMain::SetManaRegenerationValue(float ManaRegeneration)
 {
 	FString ManaRegString = "+";
-	ManaRegString += FString::SanitizeFloat(HealthRegeneration);
+	ManaRegString += FString::SanitizeFloat(ManaRegeneration);
 	//float HealthRegInterger = FMath::RoundHalfFromZero(HealthRegeneration);
 	HeroMana->SetManaRegenerationValue(FText::FromString(ManaRegString));
 }
@@ -70,20 +70,20 @@ void UHeroCharacterUIMain::SetManaRegenerationVisibility(bool Visible)
 // Stamina
 void UHeroCharacterUIMain::SetStaminaBarPercentage(float value)
 {
-	HeroHealth->SetHealthBarPercentage(FMath::Clamp<float>(value, 0.0f, 1.0f));
+	HeroStamina->SetStaminaBarPercentage(FMath::Clamp<float>(value, 0.0f, 1.0f));
 }
 
-void UHeroCharacterUIMain::SetStaminaTextBlock(float health, float MaxHealth)
+void UHeroCharacterUIMain::SetStaminaTextBlock(float stamina, float MaxStamina)
 {
-	uint32 StaminaInterger = FMath::RoundHalfFromZero(health);
-	uint32 MaxStaminaInterger = FMath::RoundHalfFromZero(MaxHealth);
+	uint32 StaminaInterger = FMath::RoundHalfFromZero(stamina);
+	uint32 MaxStaminaInterger = FMath::RoundHalfFromZero(MaxStamina);
 	HeroStamina->SetStaminaTextBlock(FText::FromString(FString::Printf(TEXT("%i / %i"), StaminaInterger, MaxStaminaInterger)));
 }
 
-void UHeroCharacterUIMain::SetStaminaRegenerationValue(float HealthRegeneration)
+void UHeroCharacterUIMain::SetStaminaRegenerationValue(float StaminaRegeneration)
 {
 	FString StaminaRegString = "+";
-	StaminaRegString += FString::SanitizeFloat(HealthRegeneration);
+	StaminaRegString += FString::SanitizeFloat(StaminaRegeneration);
 	//float HealthRegInterger = FMath::RoundHalfFromZero(HealthRegeneration);
 	HeroStamina->SetStaminaRegenerationValue(FText::FromString(StaminaRegString));
 }
