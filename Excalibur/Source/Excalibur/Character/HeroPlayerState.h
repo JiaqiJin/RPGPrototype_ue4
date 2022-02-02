@@ -24,15 +24,26 @@ public:
 
 	class UHeroPlayerAttributeSet* GetAttributeSetBase() const;
 
+	class UHeroAbilityCooldownAttribute* GetCooldownAttribute() const;
+
 	void InitializeAttributes();
+	void InitializeCooldownAttributes();
 
 protected:
 	// Ability System Componenet
 	class UAbilitySystemComponent* AbilitySystemComponent;
+
 	// Player Attributes
 	class UHeroPlayerAttributeSet* AttributeSetBase;
+
+	// Player Cooldown Attributes
+	class UHeroAbilityCooldownAttribute* AttributeCooldown;
 
 	// Player Attribute Table
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
 	class UDataTable* AttributeDataTable;
+
+	// Player Attribute Table
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
+	class UDataTable* AttributeCooldownDataTable;
 };

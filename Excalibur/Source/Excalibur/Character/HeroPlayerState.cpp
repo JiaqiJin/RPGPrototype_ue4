@@ -4,6 +4,7 @@
 #include "HeroPlayerState.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Excalibur/Attributes/HeroPlayerAttributeSet.h"
+#include "Excalibur/Attributes/HeroAbilityCooldownAttribute.h"
 #include "Excalibur/Character/HeroPlayerCharacter.h"
 
 AHeroPlayerState::AHeroPlayerState()
@@ -12,6 +13,7 @@ AHeroPlayerState::AHeroPlayerState()
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	
 	AttributeSetBase = CreateDefaultSubobject<UHeroPlayerAttributeSet>(TEXT("AttributeSetBase"));
+	AttributeCooldown = CreateDefaultSubobject<UHeroAbilityCooldownAttribute>(TEXT("AttributeCooldown"));
 }
 
 void AHeroPlayerState::InitializeAttributes()
@@ -23,6 +25,14 @@ void AHeroPlayerState::InitializeAttributes()
 	}
 }
 
+void AHeroPlayerState::InitializeCooldownAttributes()
+{
+	if (AbilitySystemComponent && AttributeCooldownDataTable)
+	{
+		const UAttributeSet* Attributes = AbilitySystemComponent->InitStats(UHeroAbilityCooldownAttribute::StaticClass(), AttributeCooldownDataTable);
+	}
+}
+
 UAbilitySystemComponent* AHeroPlayerState::GetAbilitySystemComponent() const
 {
 	return AbilitySystemComponent;
@@ -31,4 +41,9 @@ UAbilitySystemComponent* AHeroPlayerState::GetAbilitySystemComponent() const
 UHeroPlayerAttributeSet* AHeroPlayerState::GetAttributeSetBase() const
 {
 	return AttributeSetBase;
+}
+
+UHeroAbilityCooldownAttribute* AHeroPlayerState::GetCooldownAttribute() const
+{
+	return AttributeCooldown;
 }

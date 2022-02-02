@@ -89,6 +89,8 @@ E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Spri
 E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Attributes/HeroPlayerAttributeSet.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerAttributeSet.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Attributes/HeroAbilityCooldownAttribute.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroAbilityCooldownAttribute.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/HeroPlayerState.h
 E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerState.h
 E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerState.generated.h

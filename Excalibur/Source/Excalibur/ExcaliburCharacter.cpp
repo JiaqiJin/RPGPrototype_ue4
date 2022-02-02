@@ -8,6 +8,7 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Excalibur/Attributes/HeroPlayerAttributeSet.h"
+#include "Excalibur/Attributes/HeroAbilityCooldownAttribute.h"
 #include "Excalibur/Character/HeroPlayerState.h"
 #include "Character/MovementComp/HeroCharacterMovementComponent.h"
 
@@ -68,6 +69,9 @@ void AExcaliburCharacter::PossessedBy(AController* NewController)
 
 		PlayerAttributes = PS->GetAttributeSetBase();
 		PS->InitializeAttributes();
+
+		PlayerCooldownAttributes = PS->GetCooldownAttribute();
+		PS->InitializeCooldownAttributes();
 
 		ApplyDefaultAbilities();
 

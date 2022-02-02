@@ -78,6 +78,8 @@ E:\UnrealEngine4\UE_4.26\Engine\Plugins\Runtime\GameplayAbilities\Intermediate\B
 E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Net\Core\Public\Net/Core/PushModel/PushModel.h
 E:\UnrealEngine4\UE_4.26\Engine\Plugins\Runtime\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Inc\GameplayAbilities\AbilitySystemComponent.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerAttributeSet.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Attributes/HeroAbilityCooldownAttribute.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroAbilityCooldownAttribute.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/HeroPlayerCharacter.h
 E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/Character.h
 E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h

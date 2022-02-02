@@ -83,6 +83,9 @@ protected:
 	// Player Attribute Set
 	TWeakObjectPtr<class UHeroPlayerAttributeSet> PlayerAttributes;
 
+	// Player Cooldown Attribute Set
+	TWeakObjectPtr<class UHeroAbilityCooldownAttribute> PlayerCooldownAttributes;
+
 	// Default attributes for a character for initializing on spawn/respawn.
 	// This is an instant GE that overrides the values for attributes that get reset on spawn/respawn.
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Player|Abilities")

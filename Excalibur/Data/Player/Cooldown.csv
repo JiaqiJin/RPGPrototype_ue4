@@ -1,0 +1,2 @@
+Name,BaseValue,MinValue,MaxValue,DerivedAttributeInfo,bCanStack
+HeroAbilityCooldownAttribute.PlayerGlobalCooldownMultiplier,1,0,1000,,TRUE
