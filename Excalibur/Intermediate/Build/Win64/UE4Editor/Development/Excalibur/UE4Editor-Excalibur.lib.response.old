@@ -7,16 +7,8 @@
 /IGNORE:4221
 /NODEFAULTLIB
 "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\ExcaliburEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroAbilityTask.cpp.obj"
 "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroPlayMontageandWait.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroAbilityCooldownAttribute.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroPlayerState.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\ExcaliburCharacter.cpp.obj"
 "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Module.Excalibur.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Excalibur.init.gen.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroAbilityCooldownAttribute.gen.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroAbilityTask.gen.cpp.obj"
-"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\HeroPlayerState.gen.cpp.obj"
 "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Module.Excalibur.gen.cpp.obj"
 "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Default.rc2.res"
 /OUT:"E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur.lib"

@@ -185,7 +185,15 @@ E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalib
 E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HealthComponent.gen.cpp
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Component/HealthComponent.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HealthComponent.generated.h
+E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroAbilityCooldownAttribute.gen.cpp
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Attributes/HeroAbilityCooldownAttribute.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroAbilityCooldownAttribute.generated.h
 E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroAbilityDataAsset.gen.cpp
+E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroAbilityTask.gen.cpp
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/AbilityTask/HeroAbilityTask.h
+E:\UnrealEngine4\UE_4.26\Engine\Plugins\Runtime\GameplayAbilities\Source\GameplayAbilities\Public\Abilities/Tasks/AbilityTask.h
+E:\UnrealEngine4\UE_4.26\Engine\Plugins\Runtime\GameplayAbilities\Intermediate\Build\Win64\UE4Editor\Inc\GameplayAbilities\AbilityTask.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroAbilityTask.generated.h
 E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroCharacterMovementComponent.gen.cpp
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/MovementComp/HeroCharacterMovementComponent.h
 E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/CharacterMovementComponent.h
@@ -261,6 +269,11 @@ E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalib
 E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroPlayerController.gen.cpp
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/HeroPlayerController.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerController.generated.h
+E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroPlayerState.gen.cpp
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/HeroPlayerState.h
+E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\Engine\Classes\GameFramework/PlayerState.h
+E:\UnrealEngine4\UE_4.26\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\PlayerState.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerState.generated.h
 E:/Unreal/ActionRPG_ue4/Excalibur/Intermediate/Build/Win64/UE4Editor/Inc/Excalibur/HeroStaminaData.gen.cpp
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Data/HeroStaminaData.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroStaminaData.generated.h

@@ -12,6 +12,7 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeExcalibur_init() {}
 	EXCALIBUR_API UFunction* Z_Construct_UDelegateFunction_Excalibur_HeroPlayMontageAndWaitForEventDelegate__DelegateSignature();
+	EXCALIBUR_API UFunction* Z_Construct_UDelegateFunction_Excalibur_UHeroPlayMontageNotify__DelegateSignature();
 	UPackage* Z_Construct_UPackage__Script_Excalibur()
 	{
 		static UPackage* ReturnPackage = nullptr;
@@ -19,14 +20,15 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur_init() {}
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
 				(UObject* (*)())Z_Construct_UDelegateFunction_Excalibur_HeroPlayMontageAndWaitForEventDelegate__DelegateSignature,
+				(UObject* (*)())Z_Construct_UDelegateFunction_Excalibur_UHeroPlayMontageNotify__DelegateSignature,
 			};
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/Excalibur",
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x45F14458,
-				0xFE683F56,
+				0x935E5A6B,
+				0x170A5661,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);
