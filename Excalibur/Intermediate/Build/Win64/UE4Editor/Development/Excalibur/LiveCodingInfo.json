@@ -4,11 +4,11 @@
 		"Module.Excalibur.cpp.obj": [
 			"HeroGA_CharacterJump.cpp.obj",
 			"HeroAbilityTask.cpp.obj",
+			"HeroPlayMontageandWait.cpp.obj",
 			"HeroAbilityCooldownAttribute.cpp.obj",
 			"HeroPlayerAttributeSet.cpp.obj",
 			"HeroPlayerCharacter.cpp.obj",
 			"HeroPlayerController.cpp.obj",
-			"HeroPlayerState.cpp.obj",
 			"HeroCharacterMovementComponent.cpp.obj",
 			"HealthComponent.cpp.obj",
 			"HeroInventoryComponent.cpp.obj",
@@ -26,14 +26,16 @@
 			"ExcaliburGameMode.cpp.obj",
 			"HeroGameplayStatics.cpp.obj",
 			"HeroGameModeBase.cpp.obj",
-			"HeroGameplayAbility.cpp.obj",
 			"HeroGameplayEffect.cpp.obj",
 			"HeroItemBase.cpp.obj",
 			"CharacterHealthWidget.cpp.obj",
 			"CharacterManaWidget.cpp.obj",
 			"CharacterStaminaWidget.cpp.obj",
 			"HeroCharacterUIMain.cpp.obj",
-			"HeroPlayMontageandWait.cpp.obj"
+			"AsyncTaskCooldownChanged.cpp.obj",
+			"HeroPlayerState.cpp.obj",
+			"HeroGameplayAbility.cpp.obj",
+			"HeroAbilityWidget.cpp.obj"
 		],
 		"Module.Excalibur.gen.cpp.obj": [
 			"CharacterHealthWidget.gen.cpp.obj",
@@ -53,7 +55,6 @@
 			"HeroDamageExcutionCalculation.gen.cpp.obj",
 			"HeroGA_CharacterJump.gen.cpp.obj",
 			"HeroGameModeBase.gen.cpp.obj",
-			"HeroGameplayAbility.gen.cpp.obj",
 			"HeroGameplayEffect.gen.cpp.obj",
 			"HeroGameplayStatics.gen.cpp.obj",
 			"HeroHealthData.gen.cpp.obj",
@@ -64,11 +65,14 @@
 			"HeroPlayerCharacter.gen.cpp.obj",
 			"HeroPlayerController.gen.cpp.obj",
 			"HeroPlayerState.gen.cpp.obj",
+			"HeroPlayMontageandWait.gen.cpp.obj",
 			"HeroStaminaData.gen.cpp.obj",
 			"ManaComponent.gen.cpp.obj",
 			"StaminaComponent.gen.cpp.obj",
+			"AsyncTaskCooldownChanged.gen.cpp.obj",
 			"Excalibur.init.gen.cpp.obj",
-			"HeroPlayMontageandWait.gen.cpp.obj"
+			"HeroAbilityWidget.gen.cpp.obj",
+			"HeroGameplayAbility.gen.cpp.obj"
 		]
 	}
 }

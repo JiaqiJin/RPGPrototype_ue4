@@ -47,3 +47,18 @@ UHeroAbilityCooldownAttribute* AHeroPlayerState::GetCooldownAttribute() const
 {
 	return AttributeCooldown;
 }
+
+void AHeroPlayerState::ToggleIgnoreAbilityCooldown(bool bToggle)
+{
+	bIgnoreAbilityCooldown = bToggle;
+}
+
+void AHeroPlayerState::ToggleIgnoreAbilityManaCost(bool bToggle)
+{
+	bIgnoreAbilityManaCost = bToggle;
+}
+
+void AHeroPlayerState::ToggleIgnoreAbilityStaminaCost(bool bToggle)
+{
+	bIgnoreAbilityStaminaCost = bToggle;
+}

@@ -27,8 +27,8 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x935E5A6B,
-				0x170A5661,
+				0xEC9D5424,
+				0xAB93496E,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

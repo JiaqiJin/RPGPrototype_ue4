@@ -8,6 +8,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AHeroPlayerState;
 class AExcaliburCharacter;
 #ifdef EXCALIBUR_HeroGameplayAbility_generated_h
 #error "HeroGameplayAbility.generated.h already included, missing '#pragma once' in HeroGameplayAbility.h"
@@ -17,11 +18,13 @@ class AExcaliburCharacter;
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_SPARSE_DATA
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execGetOwningHeroPlayerState); \
 	DECLARE_FUNCTION(execGetOwningHeroCharacter);
 
 
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetOwningHeroPlayerState); \
 	DECLARE_FUNCTION(execGetOwningHeroCharacter);
 
 
@@ -69,7 +72,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHeroGameplayAbility); \
 
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__bAutoApplyCost() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCost); } \
-	FORCEINLINE static uint32 __PPO__bAutoApplyCooldown() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCooldown); }
+	FORCEINLINE static uint32 __PPO__bAutoApplyCooldown() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCooldown); } \
+	FORCEINLINE static uint32 __PPO__AbilityIcon() { return STRUCT_OFFSET(UHeroGameplayAbility, AbilityIcon); }
 
 
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_12_PROLOG

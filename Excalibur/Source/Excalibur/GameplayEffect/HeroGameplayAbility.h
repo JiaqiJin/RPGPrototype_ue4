@@ -20,6 +20,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Ability)
 	class AExcaliburCharacter* GetOwningHeroCharacter() const;
 
+	UFUNCTION(BlueprintCallable, Category = Ability)
+	class AHeroPlayerState* GetOwningHeroPlayerState() const;
 protected:
 
 	virtual void OnAvatarSet(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) override;
@@ -41,4 +43,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Auto Apply Cooldown"), AdvancedDisplay)
 	bool bAutoApplyCooldown;
+
+	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Ability Icon"), AdvancedDisplay)
+	class UTexture* AbilityIcon;
 };

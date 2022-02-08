@@ -29,6 +29,13 @@ public:
 	void InitializeAttributes();
 	void InitializeCooldownAttributes();
 
+	FORCEINLINE bool GetIgnoreAbilityCooldown() { return bIgnoreAbilityCooldown; }
+	FORCEINLINE bool GetIgnoreAbilityManaCost() { return bIgnoreAbilityManaCost; }
+	FORCEINLINE bool GetIgnoreAbilityStaminaCost() { return bIgnoreAbilityStaminaCost; }
+
+	void ToggleIgnoreAbilityCooldown(bool bToggle);
+	void ToggleIgnoreAbilityManaCost(bool bToggle);
+	void ToggleIgnoreAbilityStaminaCost(bool bToggle);
 protected:
 	// Ability System Componenet
 	class UAbilitySystemComponent* AbilitySystemComponent;
@@ -46,4 +53,9 @@ protected:
 	// Player Attribute Table
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Player|Abilities")
 	class UDataTable* AttributeCooldownDataTable;
+
+private:
+	bool bIgnoreAbilityCooldown;
+	bool bIgnoreAbilityManaCost;
+	bool bIgnoreAbilityStaminaCost;
 };

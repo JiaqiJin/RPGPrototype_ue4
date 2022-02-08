@@ -1,19 +1,17 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal\ActionRPG_ue4).
-  Parsing headers for ExcaliburEditor
-    Running UnrealHeaderTool "E:\Unreal\ActionRPG_ue4\Excalibur\Excalibur.uproject" "E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\ExcaliburEditor\Development\ExcaliburEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Usuario\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  Reflection code generated for ExcaliburEditor in 3,412098 seconds
+  Invalidating makefile for ExcaliburEditor (working set of source files changed)
   Building ExcaliburEditor...
   Using Visual Studio 2019 14.29.30136 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  [Adaptive unity build] Excluded from Excalibur unity file: HeroPlayMontageandWait.cpp
-  [Adaptive unity build] Excluded from Excalibur.gen unity file: Excalibur.init.gen.cpp, HeroPlayMontageandWait.gen.cpp
+  [Adaptive unity build] Excluded from Excalibur unity file: AsyncTaskCooldownChanged.cpp, HeroPlayerState.cpp, HeroGameplayAbility.cpp, HeroAbilityWidget.cpp
+  [Adaptive unity build] Excluded from Excalibur.gen unity file: AsyncTaskCooldownChanged.gen.cpp, Excalibur.init.gen.cpp, HeroAbilityWidget.gen.cpp, HeroGameplayAbility.gen.cpp
   Building 6 actions with 12 processes...
-    [1/6] Excalibur.init.gen.cpp
-    [2/6] HeroPlayMontageandWait.gen.cpp
-    [3/6] HeroPlayMontageandWait.cpp
-    [4/6] UE4Editor-Excalibur.lib
-       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur.exp
-    [5/6] UE4Editor-Excalibur.dll
-       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur.suppressed.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur.suppressed.exp
+    [1/6] AsyncTaskCooldownChanged.cpp
+    [2/6] AsyncTaskCooldownChanged.gen.cpp
+    [3/6] Module.Excalibur.gen.cpp
+    [4/6] UE4Editor-Excalibur-0008.lib
+       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0008.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0008.exp
+    [5/6] UE4Editor-Excalibur-0008.dll
+       Creating library E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0008.suppressed.lib and object E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\UE4Editor-Excalibur-0008.suppressed.exp
     [6/6] ExcaliburEditor.target
-  Total time in Parallel executor: 4,56 seconds
-  Total execution time: 8,61 seconds
+  Total time in Parallel executor: 8,63 seconds
+  Total execution time: 10,90 seconds
