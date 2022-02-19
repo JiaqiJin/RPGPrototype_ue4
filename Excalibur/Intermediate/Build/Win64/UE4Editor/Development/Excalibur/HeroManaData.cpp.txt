@@ -1,3 +1,0 @@
-E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Definitions.Excalibur.h
-E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Data\HeroManaData.h
-E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroManaData.generated.h

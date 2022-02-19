@@ -9,7 +9,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AHeroPlayerState;
-class AExcaliburCharacter;
+class AHeroPlayerCharacter;
 #ifdef EXCALIBUR_HeroGameplayAbility_generated_h
 #error "HeroGameplayAbility.generated.h already included, missing '#pragma once' in HeroGameplayAbility.h"
 #endif
@@ -73,7 +73,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHeroGameplayAbility); \
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_15_PRIVATE_PROPERTY_OFFSET \
 	FORCEINLINE static uint32 __PPO__bAutoApplyCost() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCost); } \
 	FORCEINLINE static uint32 __PPO__bAutoApplyCooldown() { return STRUCT_OFFSET(UHeroGameplayAbility, bAutoApplyCooldown); } \
-	FORCEINLINE static uint32 __PPO__AbilityIcon() { return STRUCT_OFFSET(UHeroGameplayAbility, AbilityIcon); }
+	FORCEINLINE static uint32 __PPO__AbilityIcon() { return STRUCT_OFFSET(UHeroGameplayAbility, AbilityIcon); } \
+	FORCEINLINE static uint32 __PPO__bIsActiveAbility() { return STRUCT_OFFSET(UHeroGameplayAbility, bIsActiveAbility); }
 
 
 #define Excalibur_Source_Excalibur_GameplayEffect_HeroGameplayAbility_h_12_PROLOG

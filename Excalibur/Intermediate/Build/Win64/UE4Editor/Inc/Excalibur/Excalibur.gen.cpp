@@ -30,7 +30,7 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur() {}
 		return EHeroAbilityInputID_StaticEnum();
 	}
 	static FCompiledInDeferEnum Z_CompiledInDeferEnum_UEnum_EHeroAbilityInputID(EHeroAbilityInputID_StaticEnum, TEXT("/Script/Excalibur"), TEXT("EHeroAbilityInputID"), false, nullptr, nullptr);
-	uint32 Get_Z_Construct_UEnum_Excalibur_EHeroAbilityInputID_Hash() { return 986084141U; }
+	uint32 Get_Z_Construct_UEnum_Excalibur_EHeroAbilityInputID_Hash() { return 3688201931U; }
 	UEnum* Z_Construct_UEnum_Excalibur_EHeroAbilityInputID()
 	{
 #if WITH_HOT_RELOAD
@@ -56,6 +56,7 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur() {}
 				{ "EHeroAbilityInputID::RightSideStep", (int64)EHeroAbilityInputID::RightSideStep },
 				{ "EHeroAbilityInputID::FeatherFall", (int64)EHeroAbilityInputID::FeatherFall },
 				{ "EHeroAbilityInputID::Crouch", (int64)EHeroAbilityInputID::Crouch },
+				{ "EHeroAbilityInputID::Equip", (int64)EHeroAbilityInputID::Equip },
 			};
 #if WITH_METADATA
 			const UE4CodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
@@ -88,6 +89,10 @@ void EmptyLinkFunctionForGeneratedCodeExcalibur() {}
 				{ "Crouch.DisplayName", "Crouch" },
 				{ "Crouch.Name", "EHeroAbilityInputID::Crouch" },
 				{ "Crouch.ToolTip", "Ctr" },
+				{ "Equip.Comment", "// R\n" },
+				{ "Equip.DisplayName", "Equip" },
+				{ "Equip.Name", "EHeroAbilityInputID::Equip" },
+				{ "Equip.ToolTip", "R" },
 				{ "Evade.Comment", "// Space\n" },
 				{ "Evade.DisplayName", "Evade" },
 				{ "Evade.Name", "EHeroAbilityInputID::Evade" },

@@ -69,3 +69,7 @@ E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur\Data/HeroAbilityDataAsset.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Excalibur.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroAbilityDataAsset.generated.h
 E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\ExcaliburCharacter.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Character/HeroPlayerCharacter.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Data/HeroDamageDataAsset.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroDamageDataAsset.generated.h
+E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroPlayerCharacter.generated.h

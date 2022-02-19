@@ -22,6 +22,21 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 	EXCALIBUR_API UClass* Z_Construct_UClass_UStaminaComponent_NoRegister();
 	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroDamageDataAsset_NoRegister();
 // End Cross Module References
+	DEFINE_FUNCTION(AHeroPlayerCharacter::execUpdateHeroEquipmentState)
+	{
+		P_GET_UBOOL(Z_Param_value);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->UpdateHeroEquipmentState(Z_Param_value);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(AHeroPlayerCharacter::execIsHeroEquipWeapon)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsHeroEquipWeapon();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AHeroPlayerCharacter::execGetCurrentLevel)
 	{
 		P_FINISH;
@@ -90,6 +105,8 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 			{ "GetMovementSpeedBaseValue", &AHeroPlayerCharacter::execGetMovementSpeedBaseValue },
 			{ "GetMovementSpeedMultiplier", &AHeroPlayerCharacter::execGetMovementSpeedMultiplier },
 			{ "GetMovementSpeedMultiplierBase", &AHeroPlayerCharacter::execGetMovementSpeedMultiplierBase },
+			{ "IsHeroEquipWeapon", &AHeroPlayerCharacter::execIsHeroEquipWeapon },
+			{ "UpdateHeroEquipmentState", &AHeroPlayerCharacter::execUpdateHeroEquipmentState },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -357,6 +374,91 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics
+	{
+		struct HeroPlayerCharacter_eventIsHeroEquipWeapon_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((HeroPlayerCharacter_eventIsHeroEquipWeapon_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(HeroPlayerCharacter_eventIsHeroEquipWeapon_Parms), &Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player|States" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHeroPlayerCharacter, nullptr, "IsHeroEquipWeapon", nullptr, nullptr, sizeof(HeroPlayerCharacter_eventIsHeroEquipWeapon_Parms), Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics
+	{
+		struct HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms
+		{
+			bool value;
+			bool ReturnValue;
+		};
+		static void NewProp_value_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_value;
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_value_SetBit(void* Obj)
+	{
+		((HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms*)Obj)->value = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_value = { "value", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms), &Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_value_SetBit, METADATA_PARAMS(nullptr, 0) };
+	void Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms), &Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_value,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Player|States" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHeroPlayerCharacter, nullptr, "UpdateHeroEquipmentState", nullptr, nullptr, sizeof(HeroPlayerCharacter_eventUpdateHeroEquipmentState_Parms), Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_AHeroPlayerCharacter_NoRegister()
 	{
 		return AHeroPlayerCharacter::StaticClass();
@@ -384,6 +486,11 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DamageDataAsset_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_DamageDataAsset;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsEquip_MetaData[];
+#endif
+		static void NewProp_bIsEquip_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsEquip;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
@@ -401,6 +508,8 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		{ &Z_Construct_UFunction_AHeroPlayerCharacter_GetMovementSpeedBaseValue, "GetMovementSpeedBaseValue" }, // 2346408321
 		{ &Z_Construct_UFunction_AHeroPlayerCharacter_GetMovementSpeedMultiplier, "GetMovementSpeedMultiplier" }, // 1075369956
 		{ &Z_Construct_UFunction_AHeroPlayerCharacter_GetMovementSpeedMultiplierBase, "GetMovementSpeedMultiplierBase" }, // 3840634571
+		{ &Z_Construct_UFunction_AHeroPlayerCharacter_IsHeroEquipWeapon, "IsHeroEquipWeapon" }, // 1599445038
+		{ &Z_Construct_UFunction_AHeroPlayerCharacter_UpdateHeroEquipmentState, "UpdateHeroEquipmentState" }, // 2500203918
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::Class_MetaDataParams[] = {
@@ -446,11 +555,23 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset = { "DamageDataAsset", nullptr, (EPropertyFlags)0x0020080000000015, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AHeroPlayerCharacter, DamageDataAsset), Z_Construct_UClass_UHeroDamageDataAsset_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip_MetaData[] = {
+		{ "Category", "Player" },
+		{ "ModuleRelativePath", "Character/HeroPlayerCharacter.h" },
+	};
+#endif
+	void Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip_SetBit(void* Obj)
+	{
+		((AHeroPlayerCharacter*)Obj)->bIsEquip = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip = { "bIsEquip", nullptr, (EPropertyFlags)0x0020080000000001, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(AHeroPlayerCharacter), &Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip_SetBit, METADATA_PARAMS(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHeroPlayerCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_HealthComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_ManaComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_StaminaComponent,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_DamageDataAsset,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHeroPlayerCharacter_Statics::NewProp_bIsEquip,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AHeroPlayerCharacter_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AHeroPlayerCharacter>::IsAbstract,
@@ -479,7 +600,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroPlayerCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHeroPlayerCharacter, 2622520286);
+	IMPLEMENT_CLASS(AHeroPlayerCharacter, 2559133629);
 	template<> EXCALIBUR_API UClass* StaticClass<AHeroPlayerCharacter>()
 	{
 		return AHeroPlayerCharacter::StaticClass();

@@ -31,5 +31,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(EHeroAbilityInputID::LeftSideStep) \
 	op(EHeroAbilityInputID::RightSideStep) \
 	op(EHeroAbilityInputID::FeatherFall) \
-	op(EHeroAbilityInputID::Crouch) 
+	op(EHeroAbilityInputID::Crouch) \
+	op(EHeroAbilityInputID::Equip) 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

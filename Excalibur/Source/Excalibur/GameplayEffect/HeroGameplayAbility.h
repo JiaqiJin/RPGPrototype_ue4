@@ -18,7 +18,7 @@ public:
 	UHeroGameplayAbility();
 
 	UFUNCTION(BlueprintCallable, Category = Ability)
-	class AExcaliburCharacter* GetOwningHeroCharacter() const;
+	class AHeroPlayerCharacter* GetOwningHeroCharacter() const;
 
 	UFUNCTION(BlueprintCallable, Category = Ability)
 	class AHeroPlayerState* GetOwningHeroPlayerState() const;
@@ -46,4 +46,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Ability Icon"), AdvancedDisplay)
 	class UTexture* AbilityIcon;
+
+	// If true show the ability Icon
+	UPROPERTY(EditAnywhere, Category = "HerogameplayAbility", meta = (DisplayName = "Is Active Ability"), AdvancedDisplay)
+	bool bIsActiveAbility;
 };

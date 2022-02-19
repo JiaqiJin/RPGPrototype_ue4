@@ -3,12 +3,14 @@
 	{
 		"Module.Excalibur.cpp.obj": [
 			"HeroGA_CharacterJump.cpp.obj",
+			"AsyncTaskCooldownChanged.cpp.obj",
 			"HeroAbilityTask.cpp.obj",
 			"HeroPlayMontageandWait.cpp.obj",
 			"HeroAbilityCooldownAttribute.cpp.obj",
 			"HeroPlayerAttributeSet.cpp.obj",
 			"HeroPlayerCharacter.cpp.obj",
 			"HeroPlayerController.cpp.obj",
+			"HeroPlayerState.cpp.obj",
 			"HeroCharacterMovementComponent.cpp.obj",
 			"HealthComponent.cpp.obj",
 			"HeroInventoryComponent.cpp.obj",
@@ -22,7 +24,6 @@
 			"HeroManaData.cpp.obj",
 			"HeroStaminaData.cpp.obj",
 			"Excalibur.cpp.obj",
-			"ExcaliburCharacter.cpp.obj",
 			"ExcaliburGameMode.cpp.obj",
 			"HeroGameplayStatics.cpp.obj",
 			"HeroGameModeBase.cpp.obj",
@@ -32,22 +33,26 @@
 			"CharacterManaWidget.cpp.obj",
 			"CharacterStaminaWidget.cpp.obj",
 			"HeroCharacterUIMain.cpp.obj",
-			"AsyncTaskCooldownChanged.cpp.obj",
-			"HeroPlayerState.cpp.obj",
+			"ExcaliburCharacter.cpp.obj",
 			"HeroGameplayAbility.cpp.obj",
+			"HeroAbilitiesBar.cpp.obj",
 			"HeroAbilityWidget.cpp.obj"
 		],
 		"Module.Excalibur.gen.cpp.obj": [
+			"HeroAbilitiesBar.gen.cpp.obj",
+			"AsyncTaskCooldownChanged.gen.cpp.obj",
 			"CharacterHealthWidget.gen.cpp.obj",
 			"CharacterManaWidget.gen.cpp.obj",
 			"CharacterStaminaWidget.gen.cpp.obj",
 			"Excalibur.gen.cpp.obj",
+			"Excalibur.init.gen.cpp.obj",
 			"ExcaliburCharacter.gen.cpp.obj",
 			"ExcaliburGameMode.gen.cpp.obj",
 			"HealthComponent.gen.cpp.obj",
 			"HeroAbilityCooldownAttribute.gen.cpp.obj",
 			"HeroAbilityDataAsset.gen.cpp.obj",
 			"HeroAbilityTask.gen.cpp.obj",
+			"HeroAbilityWidget.gen.cpp.obj",
 			"HeroCharacterMovementComponent.gen.cpp.obj",
 			"HeroCharacterUIMain.gen.cpp.obj",
 			"HeroCheatManager.gen.cpp.obj",
@@ -55,6 +60,7 @@
 			"HeroDamageExcutionCalculation.gen.cpp.obj",
 			"HeroGA_CharacterJump.gen.cpp.obj",
 			"HeroGameModeBase.gen.cpp.obj",
+			"HeroGameplayAbility.gen.cpp.obj",
 			"HeroGameplayEffect.gen.cpp.obj",
 			"HeroGameplayStatics.gen.cpp.obj",
 			"HeroHealthData.gen.cpp.obj",
@@ -68,11 +74,7 @@
 			"HeroPlayMontageandWait.gen.cpp.obj",
 			"HeroStaminaData.gen.cpp.obj",
 			"ManaComponent.gen.cpp.obj",
-			"StaminaComponent.gen.cpp.obj",
-			"AsyncTaskCooldownChanged.gen.cpp.obj",
-			"Excalibur.init.gen.cpp.obj",
-			"HeroAbilityWidget.gen.cpp.obj",
-			"HeroGameplayAbility.gen.cpp.obj"
+			"StaminaComponent.gen.cpp.obj"
 		]
 	}
 }

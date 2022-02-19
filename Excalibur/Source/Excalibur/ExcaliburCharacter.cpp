@@ -4,6 +4,7 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -30,6 +31,12 @@ AExcaliburCharacter::AExcaliburCharacter(const class FObjectInitializer& Initial
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
 
+	Shield = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Shield"));
+	Shield->SetupAttachment(GetMesh(), TEXT("Shield_2"));
+
+	Weapon = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon"));
+	Weapon->SetupAttachment(GetMesh(), TEXT("Sword_2"));
+	
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
 	if (MovementComponent)
 	{

@@ -40,5 +40,7 @@ namespace EHeroAbilityInputID
 		FeatherFall	    UMETA(DisplayName = "FeatherFall"),
 		// Ctr
 		Crouch			UMETA(DisplayName = "Crouch"),
+		// R
+		Equip			UMETA(DisplayName = "Equip"),
 	};
 }

@@ -14,4 +14,12 @@ class EXCALIBUR_API UHeroAbilityWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
+public:
+	bool Initialize() override;
+
+	UPROPERTY(meta = (BindWidget))
+	class UImage* AbilityIcon;
+
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* AbilityCooldown;
 };

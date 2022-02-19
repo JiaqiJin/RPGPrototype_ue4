@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeHeroAbilityWidget() {}
 	EXCALIBUR_API UClass* Z_Construct_UClass_UHeroAbilityWidget();
 	UMG_API UClass* Z_Construct_UClass_UUserWidget();
 	UPackage* Z_Construct_UPackage__Script_Excalibur();
+	UMG_API UClass* Z_Construct_UClass_UImage_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 // End Cross Module References
 	void UHeroAbilityWidget::StaticRegisterNativesUHeroAbilityWidget()
 	{
@@ -31,6 +33,15 @@ void EmptyLinkFunctionForGeneratedCodeHeroAbilityWidget() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AbilityIcon_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AbilityIcon;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_AbilityCooldown_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_AbilityCooldown;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UE4CodeGen_Private::FClassParams ClassParams;
 	};
@@ -45,6 +56,26 @@ void EmptyLinkFunctionForGeneratedCodeHeroAbilityWidget() {}
 		{ "ModuleRelativePath", "UI/Ability/HeroAbilityWidget.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityIcon_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/Ability/HeroAbilityWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityIcon = { "AbilityIcon", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroAbilityWidget, AbilityIcon), Z_Construct_UClass_UImage_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityIcon_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityIcon_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityCooldown_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "UI/Ability/HeroAbilityWidget.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityCooldown = { "AbilityCooldown", nullptr, (EPropertyFlags)0x0010000000080008, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(UHeroAbilityWidget, AbilityCooldown), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityCooldown_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityCooldown_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UHeroAbilityWidget_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityIcon,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UHeroAbilityWidget_Statics::NewProp_AbilityCooldown,
+	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UHeroAbilityWidget_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UHeroAbilityWidget>::IsAbstract,
 	};
@@ -54,11 +85,11 @@ void EmptyLinkFunctionForGeneratedCodeHeroAbilityWidget() {}
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		nullptr,
+		Z_Construct_UClass_UHeroAbilityWidget_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_UHeroAbilityWidget_Statics::PropPointers),
 		0,
 		0x00B010A0u,
 		METADATA_PARAMS(Z_Construct_UClass_UHeroAbilityWidget_Statics::Class_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UClass_UHeroAbilityWidget_Statics::Class_MetaDataParams))
@@ -72,7 +103,7 @@ void EmptyLinkFunctionForGeneratedCodeHeroAbilityWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UHeroAbilityWidget, 1890856742);
+	IMPLEMENT_CLASS(UHeroAbilityWidget, 2149100193);
 	template<> EXCALIBUR_API UClass* StaticClass<UHeroAbilityWidget>()
 	{
 		return UHeroAbilityWidget::StaticClass();

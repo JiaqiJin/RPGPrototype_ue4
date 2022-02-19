@@ -75,7 +75,9 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AExcaliburCharacter); \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(AExcaliburCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(AExcaliburCharacter, FollowCamera); } \
 	FORCEINLINE static uint32 __PPO__DefaultAttributes() { return STRUCT_OFFSET(AExcaliburCharacter, DefaultAttributes); } \
-	FORCEINLINE static uint32 __PPO__DefaultAbilities() { return STRUCT_OFFSET(AExcaliburCharacter, DefaultAbilities); }
+	FORCEINLINE static uint32 __PPO__DefaultAbilities() { return STRUCT_OFFSET(AExcaliburCharacter, DefaultAbilities); } \
+	FORCEINLINE static uint32 __PPO__Shield() { return STRUCT_OFFSET(AExcaliburCharacter, Shield); } \
+	FORCEINLINE static uint32 __PPO__Weapon() { return STRUCT_OFFSET(AExcaliburCharacter, Weapon); }
 
 
 #define Excalibur_Source_Excalibur_ExcaliburCharacter_h_13_PROLOG

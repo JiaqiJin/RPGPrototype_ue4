@@ -56,6 +56,11 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Player|Component|MovementComponent")
 	float GetCurrentLevel() const;
 
+	UFUNCTION(BlueprintPure, Category = "Player|States")
+	FORCEINLINE bool IsHeroEquipWeapon() { return bIsEquip; }
+
+	UFUNCTION(BlueprintCallable, Category = "Player|States")
+	bool UpdateHeroEquipmentState(bool value) { bIsEquip = value; return bIsEquip; }
 
 	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
 	FORCEINLINE class UManaComponent* GetManaComponent() const { return ManaComponent; }
@@ -73,4 +78,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroDamageDataAsset* DamageDataAsset;
+
+	UPROPERTY(EditAnywhere, Category = "Player")
+	bool bIsEquip;
 };

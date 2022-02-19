@@ -26,7 +26,4 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Shipping|x64'">
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
-  <PropertyGroup>
-    <ShowAllFiles>false</ShowAllFiles>
-  </PropertyGroup>
 </Project>

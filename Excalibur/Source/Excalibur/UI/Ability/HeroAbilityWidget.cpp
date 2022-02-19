@@ -3,3 +3,11 @@
 
 #include "HeroAbilityWidget.h"
 
+bool UHeroAbilityWidget::Initialize()
+{
+	bool Success = Super::Initialize();
+
+	if (!Success) { return false; }
+
+	return true;
+}

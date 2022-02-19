@@ -40,9 +40,12 @@ void EmptyLinkFunctionForGeneratedCodeAsyncTaskCooldownChanged() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAsyncTaskCooldownChanged_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "BlueprintType", "true" },
+		{ "Comment", "/**\n * Blueprint node to automatically register a listener for changes (Begin and End) to an array of Cooldown tags.\n * Useful to use in UI.\n */" },
+		{ "ExposedAsyncProxy", "AsyncTask" },
 		{ "IncludePath", "AbilityTask/AsyncTaskCooldownChanged.h" },
 		{ "ModuleRelativePath", "AbilityTask/AsyncTaskCooldownChanged.h" },
+		{ "ToolTip", "Blueprint node to automatically register a listener for changes (Begin and End) to an array of Cooldown tags.\nUseful to use in UI." },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UAsyncTaskCooldownChanged_Statics::StaticCppClassTypeInfo = {
@@ -72,7 +75,7 @@ void EmptyLinkFunctionForGeneratedCodeAsyncTaskCooldownChanged() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UAsyncTaskCooldownChanged, 4234335071);
+	IMPLEMENT_CLASS(UAsyncTaskCooldownChanged, 1048160201);
 	template<> EXCALIBUR_API UClass* StaticClass<UAsyncTaskCooldownChanged>()
 	{
 		return UAsyncTaskCooldownChanged::StaticClass();

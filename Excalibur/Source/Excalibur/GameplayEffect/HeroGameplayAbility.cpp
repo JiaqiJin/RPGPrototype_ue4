@@ -4,19 +4,21 @@
 #include "HeroGameplayAbility.h"
 #include "Excalibur/Character/HeroPlayerState.h"
 #include "Excalibur/ExcaliburCharacter.h"
+#include "Excalibur/Character/HeroPlayerCharacter.h"
 
 UHeroGameplayAbility::UHeroGameplayAbility()
 {
 	// Default to Instance Per Actor
 	InstancingPolicy = EGameplayAbilityInstancingPolicy::InstancedPerActor;
+	bIsActiveAbility = true;
 }
 
-AExcaliburCharacter* UHeroGameplayAbility::GetOwningHeroCharacter() const
+AHeroPlayerCharacter* UHeroGameplayAbility::GetOwningHeroCharacter() const
 {
 	AHeroPlayerState* PS = Cast<AHeroPlayerState>(GetOwningActorFromActorInfo());
 	if (PS)
 	{
-		AExcaliburCharacter* ExCharacter = Cast<AExcaliburCharacter>(PS->GetPawn());
+		AHeroPlayerCharacter* ExCharacter = Cast<AHeroPlayerCharacter>(PS->GetPawn());
 		if (ExCharacter)
 			return ExCharacter;
 	}
@@ -25,7 +27,7 @@ AExcaliburCharacter* UHeroGameplayAbility::GetOwningHeroCharacter() const
 
 AHeroPlayerState* UHeroGameplayAbility::GetOwningHeroPlayerState() const
 {
-	AExcaliburCharacter* PlayerCharacter = GetOwningHeroCharacter();
+	AHeroPlayerCharacter* PlayerCharacter = GetOwningHeroCharacter();
 	if (PlayerCharacter)
 	{
 		return (PlayerCharacter->GetPlayerState()) ? Cast<AHeroPlayerState>(PlayerCharacter->GetPlayerState()) : nullptr;

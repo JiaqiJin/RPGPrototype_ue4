@@ -9,7 +9,7 @@
 #include "Abilities/GameplayAbility.h"
 #include "Data/HeroAbilityDataAsset.h"
 #include "ExcaliburCharacter.generated.h"
-
+//57
 UCLASS()
 class EXCALIBUR_API AExcaliburCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -93,6 +93,12 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character, meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent* Shield;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character, meta = (AllowPrivateAccess = "true"))
+	USkeletalMeshComponent* Weapon;
 protected:
 	void ApplyDefaultAbilities();
 	void GrantAbilityToPlayer(FGameplayAbilitySpec Ability);

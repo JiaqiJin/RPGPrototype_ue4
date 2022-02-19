@@ -16,6 +16,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_SPARSE_DATA
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execUpdateHeroEquipmentState); \
+	DECLARE_FUNCTION(execIsHeroEquipWeapon); \
 	DECLARE_FUNCTION(execGetCurrentLevel); \
 	DECLARE_FUNCTION(execGetAirControl); \
 	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
@@ -28,6 +30,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execUpdateHeroEquipmentState); \
+	DECLARE_FUNCTION(execIsHeroEquipWeapon); \
 	DECLARE_FUNCTION(execGetCurrentLevel); \
 	DECLARE_FUNCTION(execGetAirControl); \
 	DECLARE_FUNCTION(execGetJumpHeightMultiplier); \
@@ -84,7 +88,8 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AHeroPlayerCharacter); \
 	FORCEINLINE static uint32 __PPO__HealthComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, HealthComponent); } \
 	FORCEINLINE static uint32 __PPO__ManaComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, ManaComponent); } \
 	FORCEINLINE static uint32 __PPO__StaminaComponent() { return STRUCT_OFFSET(AHeroPlayerCharacter, StaminaComponent); } \
-	FORCEINLINE static uint32 __PPO__DamageDataAsset() { return STRUCT_OFFSET(AHeroPlayerCharacter, DamageDataAsset); }
+	FORCEINLINE static uint32 __PPO__DamageDataAsset() { return STRUCT_OFFSET(AHeroPlayerCharacter, DamageDataAsset); } \
+	FORCEINLINE static uint32 __PPO__bIsEquip() { return STRUCT_OFFSET(AHeroPlayerCharacter, bIsEquip); }
 
 
 #define Excalibur_Source_Excalibur_Character_HeroPlayerCharacter_h_12_PROLOG
