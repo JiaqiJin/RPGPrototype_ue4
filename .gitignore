@@ -47,6 +47,7 @@ SourceArt/**/*.tga
 
 # Binary Files
 Excalibur/Binaries/*
+RPGPrototype/Binaries/*
 Binaries/*
 Plugins/*/Binaries/*
 
