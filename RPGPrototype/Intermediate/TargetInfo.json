@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "RPGPrototype",
+			"Path": "E:\\Unreal\\ActionRPG_ue4\\RPGPrototype\\Source\\RPGPrototype.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "RPGPrototypeEditor",
+			"Path": "E:\\Unreal\\ActionRPG_ue4\\RPGPrototype\\Source\\RPGPrototypeEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

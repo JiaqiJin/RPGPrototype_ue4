@@ -31,12 +31,13 @@ AExcaliburCharacter::AExcaliburCharacter(const class FObjectInitializer& Initial
 	bUseControllerRotationYaw = true;
 	bUseControllerRotationRoll = false;
 
-	Shield = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Shield"));
-	Shield->SetupAttachment(GetMesh(), TEXT("Shield_2"));
-
 	Weapon = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("Weapon"));
 	Weapon->SetupAttachment(GetMesh(), TEXT("Sword_2"));
 	
+	Shield = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("OffHand"));
+	Shield->SetupAttachment(GetMesh(), TEXT("Shield"));
+
+
 	UHeroCharacterMovementComponent* MovementComponent = Cast<UHeroCharacterMovementComponent>(GetCharacterMovement());
 	if (MovementComponent)
 	{

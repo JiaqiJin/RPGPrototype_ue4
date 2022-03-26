@@ -1,5 +1,0 @@
-E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Development\Excalibur\Definitions.Excalibur.h
-E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-E:\UnrealEngine4\UE_4.26\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
-E:\Unreal\ActionRPG_ue4\Excalibur\Source\Excalibur/Component/HeroInventoryComponent.h
-E:\Unreal\ActionRPG_ue4\Excalibur\Intermediate\Build\Win64\UE4Editor\Inc\Excalibur\HeroInventoryComponent.generated.h

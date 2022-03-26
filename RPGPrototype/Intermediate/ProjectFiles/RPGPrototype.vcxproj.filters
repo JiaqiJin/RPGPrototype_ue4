@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\RPGPrototype.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{5F6FD1B1-2FCE-4930-AC20-A8F67919A771}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\RPGPrototype.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\RPGPrototypeEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{99F99D51-E6A2-44F2-905F-D6FD3C2528C4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\RPGPrototype">
+      <UniqueIdentifier>{815A5FD5-4DA3-46F7-9F46-1D791B4EB9E7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\RPGPrototype\RPGPrototype.Build.cs">
+      <Filter>Source\RPGPrototype</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\RPGPrototype\RPGPrototype.cpp">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RPGPrototype\RPGPrototype.h">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\RPGPrototype\RPGPrototypeCharacter.cpp">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RPGPrototype\RPGPrototypeCharacter.h">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\RPGPrototype\RPGPrototypeGameMode.cpp">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RPGPrototype\RPGPrototypeGameMode.h">
+      <Filter>Source\RPGPrototype</Filter>
+    </ClInclude>
+    <Filter Include="Source\RPGPrototype\Attribute">
+      <UniqueIdentifier>{02007B07-F382-41C4-BDC0-A2AB87B9F2E4}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RPGPrototype\Attribute\PlayerAttributeSet.cpp">
+      <Filter>Source\RPGPrototype\Attribute</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RPGPrototype\Attribute\PlayerAttributeSet.h">
+      <Filter>Source\RPGPrototype\Attribute</Filter>
+    </ClInclude>
+    <Filter Include="Source\RPGPrototype\Character">
+      <UniqueIdentifier>{B174A166-D240-48D3-8DEC-91BE12FC9F5F}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\RPGPrototype\Character\PlayerRPGCharacter.cpp">
+      <Filter>Source\RPGPrototype\Character</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\RPGPrototype\Character\PlayerRPGCharacter.h">
+      <Filter>Source\RPGPrototype\Character</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
