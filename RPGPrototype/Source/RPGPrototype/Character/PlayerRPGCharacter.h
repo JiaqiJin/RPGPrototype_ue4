@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "RPGPrototype/RPGPrototypeCharacter.h"
+#include "RPGPrototype/Ability/PlayerAbilitySystemComponent.h"
 #include "AbilitySystemInterface.h"
 #include "PlayerRPGCharacter.generated.h"
 
@@ -19,6 +20,8 @@ public:
 
 	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 private:
+
 	// The core ActorComponent for interfacing with the GameplayAbilities System
-	class UAbilitySystemComponent* AbilitySystemComponent;
+	UPROPERTY()
+	class UPlayerAbilitySystemComponent* AbilitySystemComponent;
 };
