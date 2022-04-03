@@ -8,15 +8,14 @@
 #include "PlayerAttributeSet.generated.h"
 
 // Uses macros from AttributeSet.h
+// Automatically generate getter and setter functions for your Attributes.
 #define ATTRIBUTE_ACCESSORS(ClassName, PropertyName) \
 	GAMEPLAYATTRIBUTE_PROPERTY_GETTER(ClassName, PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_GETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_SETTER(PropertyName) \
 	GAMEPLAYATTRIBUTE_VALUE_INITTER(PropertyName)
 
-/**
- * 
- */
+// Player Attribute Set
 UCLASS()
 class RPGPROTOTYPE_API UPlayerAttributeSet : public UAttributeSet
 {

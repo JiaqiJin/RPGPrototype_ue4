@@ -74,9 +74,10 @@ void EmptyLinkFunctionForGeneratedCodePlayerAttributeSet() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UPlayerAttributeSet_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "// Player Attribute Set\n" },
 		{ "IncludePath", "Attribute/PlayerAttributeSet.h" },
 		{ "ModuleRelativePath", "Attribute/PlayerAttributeSet.h" },
+		{ "ToolTip", "Player Attribute Set" },
 	};
 #endif
 #if WITH_METADATA
@@ -180,7 +181,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerAttributeSet() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UPlayerAttributeSet, 2399969519);
+	IMPLEMENT_CLASS(UPlayerAttributeSet, 356121619);
 	template<> RPGPROTOTYPE_API UClass* StaticClass<UPlayerAttributeSet>()
 	{
 		return UPlayerAttributeSet::StaticClass();

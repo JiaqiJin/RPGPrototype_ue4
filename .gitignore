@@ -69,6 +69,8 @@ Build/*/**
 Saved/*
 
 # Compiled source files for the engine to use
+Excalibur/Intermediate/*
+RPGPrototype/Intermediate/*
 Intermediate/*
 Plugins/*/Intermediate/*
 
