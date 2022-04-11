@@ -42,5 +42,7 @@ namespace EHeroAbilityInputID
 		Crouch			UMETA(DisplayName = "Crouch"),
 		// R
 		Equip			UMETA(DisplayName = "Equip"),
+		// Attack
+		Attack			UMETA(DisplayName = "Attack"),
 	};
 }

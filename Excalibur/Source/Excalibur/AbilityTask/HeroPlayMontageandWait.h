@@ -33,6 +33,13 @@ public:
 	virtual FString GetDebugString() const override;
 	virtual void OnDestroy(bool AbilityEnded) override;
 
+	/** Trigger AnimNotifies **/
+	void TriggerAnimNotifies(float DeltaSeconds);
+	void TriggerSingleAnimNotify(const FAnimNotifyEvent* AnimNotifyEvent);
+
+	/** Triggers end on active notify states and clears the array */
+	void EndNotifyStates();
+
 	/** The montage completely finished playing */
 	UPROPERTY(BlueprintAssignable)
 	FHeroPlayMontageAndWaitForEventDelegate OnCompleted;
@@ -64,7 +71,7 @@ public:
 		bool bStopWhenAbilityEnds = true,
 		float AnimRootMotionTranslationScale = 1.f);
 
-private:
+protected:
 	void OnMontageBlendingOut(UAnimMontage* Montage, bool bInterrupted);
 	void OnAbilityCancelled();
 	void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
@@ -72,6 +79,9 @@ private:
 
 	/** Checks if the ability is playing a montage and stops that montage, returns true if a montage was stopped, false if not. */
 	bool StopPlayingMontage();
+
+	/** Return whether this AnimNotifyState should be triggered */
+	virtual bool ShouldTriggerAnimNotifyState(const UAnimNotifyState* AnimNotifyState) const;
 private:
 	/** Montage that is playing */
 	UPROPERTY()
@@ -96,6 +106,13 @@ private:
 	/** Modifies how root motion movement to apply */
 	UPROPERTY()
 	float AnimRootMotionTranslationScale;
+
+	/** Animation Notifies that has been triggered in the latest tick **/
+	UPROPERTY(transient)
+	FAnimNotifyQueue NotifyQueue;
+
+	UPROPERTY(transient)
+	TArray<FAnimNotifyEvent> ActiveAnimNotifyState;
 
 	/** Returns our ability system component */
 	UAbilitySystemComponent* GetTargetASC();

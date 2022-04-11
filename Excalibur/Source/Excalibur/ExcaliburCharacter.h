@@ -48,6 +48,11 @@ public:
 
 	FORCEINLINE UHeroAbilityDataAsset* GetDefaultAbilityDataAsset() const { return DefaultAbilities; }
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapons")
+	USkeletalMeshComponent* Shield;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapons")
+	USkeletalMeshComponent* Weapon;
 protected:
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
@@ -93,12 +98,7 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character, meta = (AllowPrivateAccess = "true"))
-	USkeletalMeshComponent* Shield;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Character, meta = (AllowPrivateAccess = "true"))
-	USkeletalMeshComponent* Weapon;
+	
 protected:
 	void ApplyDefaultAbilities();
 	void GrantAbilityToPlayer(FGameplayAbilitySpec Ability);
