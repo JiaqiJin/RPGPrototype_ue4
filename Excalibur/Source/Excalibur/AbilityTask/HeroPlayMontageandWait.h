@@ -9,7 +9,7 @@
 class HeroGameplayAbility;
 
 /** Delegate type used, EventTag and Payload may be empty if it came from the montage callbacks */
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHeroPlayMontageAndWaitForEventDelegate, FGameplayTag, EventTag, FGameplayEventData, EventData);
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FHeroPlayMontageAndWaitForEventDelegate, FGameplayTag, EventTag, FGameplayEventData, EventData);
 
 /** Delegate called by 'PlayMontageNotify' and 'PlayMontageNotifyWindow' **/
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FUHeroPlayMontageNotify, FName, NotifyName);
@@ -33,63 +33,58 @@ public:
 	virtual FString GetDebugString() const override;
 	virtual void OnDestroy(bool AbilityEnded) override;
 
-	/** Trigger AnimNotifies **/
-	void TriggerAnimNotifies(float DeltaSeconds);
-	void TriggerSingleAnimNotify(const FAnimNotifyEvent* AnimNotifyEvent);
-
-	/** Triggers end on active notify states and clears the array */
-	void EndNotifyStates();
-
 	/** The montage completely finished playing */
 	UPROPERTY(BlueprintAssignable)
-	FHeroPlayMontageAndWaitForEventDelegate OnCompleted;
+	FUHeroPlayMontageNotify OnCompleted;
 
 	/** The montage started blending out */
 	UPROPERTY(BlueprintAssignable)
-	FHeroPlayMontageAndWaitForEventDelegate OnBlendOut;
+	FUHeroPlayMontageNotify OnBlendOut;
 
 	/** The montage was interrupted */
 	UPROPERTY(BlueprintAssignable)
-	FHeroPlayMontageAndWaitForEventDelegate OnInterrupted;
+	FUHeroPlayMontageNotify OnInterrupted;
 
 	/** The ability task was explicitly cancelled by another ability */
 	UPROPERTY(BlueprintAssignable)
-	FHeroPlayMontageAndWaitForEventDelegate OnCancelled;
+	FUHeroPlayMontageNotify OnCancelled;
 
 	/** One of the triggering gameplay events happened */
 	UPROPERTY(BlueprintAssignable)
-	FHeroPlayMontageAndWaitForEventDelegate EventReceived;
+	FUHeroPlayMontageNotify EventReceived;
+
+	/** One of the triggering gameplay events happened */
+	UPROPERTY(BlueprintAssignable)
+	FUHeroPlayMontageNotify OnNotifyBegin;
 
 	UFUNCTION(BlueprintCallable, Category = "Ability|Tasks", meta = (HidePin = "OwningAbility", DefaultToSelf = "OwningAbility", BlueprintInternalUseOnly = "TRUE"))
-	static UHeroPlayMontageandWait* PlayMontageAndWaitForEvent(
-		UGameplayAbility* OwningAbility,
-		FName TaskInstanceName,
-		UAnimMontage* MontageToPlay,
-		FGameplayTagContainer EventTags,
-		float Rate = 1.f,
-		FName StartSection = NAME_None,
-		bool bStopWhenAbilityEnds = true,
-		float AnimRootMotionTranslationScale = 1.f);
+		static UHeroPlayMontageandWait* PlayMontageAndWaitForNotify(
+			UGameplayAbility* OwningAbility,
+			FName TaskInstanceName,
+			UAnimMontage* MontageToPlay,
+			float Rate = 1.f,
+			FName StartSection = NAME_None,
+			bool bStopWhenAbilityEnds = true,
+			float AnimRootMotionTranslationScale = 1.f);
 
-protected:
+private:
 	void OnMontageBlendingOut(UAnimMontage* Montage, bool bInterrupted);
 	void OnAbilityCancelled();
 	void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
-	void OnGameplayEvent(FGameplayTag EventTag, const FGameplayEventData* Payload);
+	//void OnGameplayEvent(FGameplayTag EventTag, const FGameplayEventData* Payload);
+	UFUNCTION()
+	void NotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
 
 	/** Checks if the ability is playing a montage and stops that montage, returns true if a montage was stopped, false if not. */
 	bool StopPlayingMontage();
-
-	/** Return whether this AnimNotifyState should be triggered */
-	virtual bool ShouldTriggerAnimNotifyState(const UAnimNotifyState* AnimNotifyState) const;
 private:
 	/** Montage that is playing */
 	UPROPERTY()
 	UAnimMontage* MontageToPlay;
 
 	/** List of tags to match against gameplay events */
-	UPROPERTY()
-	FGameplayTagContainer EventTags;
+	/*UPROPERTY()
+	FGameplayTagContainer EventTags;*/
 
 	/** Playback rate */
 	UPROPERTY()
@@ -107,18 +102,12 @@ private:
 	UPROPERTY()
 	float AnimRootMotionTranslationScale;
 
-	/** Animation Notifies that has been triggered in the latest tick **/
-	UPROPERTY(transient)
-	FAnimNotifyQueue NotifyQueue;
-
-	UPROPERTY(transient)
-	TArray<FAnimNotifyEvent> ActiveAnimNotifyState;
-
 	/** Returns our ability system component */
 	UAbilitySystemComponent* GetTargetASC();
 
 	FOnMontageBlendingOutStarted BlendingOutDelegate;
 	FOnMontageEnded MontageEndedDelegate;
 	FDelegateHandle CancelledHandle;
-	FDelegateHandle EventHandle;
+	//FDelegateHandle EventHandle;
+	FDelegateHandle NotifyBeginHandle;
 };
