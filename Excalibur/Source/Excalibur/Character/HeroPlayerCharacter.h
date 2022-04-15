@@ -62,6 +62,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Player|States")
 	bool UpdateHeroEquipmentState(bool value) { bIsEquip = value; return bIsEquip; }
 
+	UFUNCTION(BlueprintCallable, Category = "Player|States")
+	bool UpdateHeroBlockingState(bool value) { bIsBlocking = value; return bIsBlocking; }
+
+	UFUNCTION(BlueprintCallable, Category = "Player|States")
+	bool IsHeroBlocking() { return bIsBlocking; }
+
 	FORCEINLINE class UHealthComponent* GetHealthComponent() const { return HealthComponent; }
 	FORCEINLINE class UManaComponent* GetManaComponent() const { return ManaComponent; }
 	FORCEINLINE class UStaminaComponent* GetStaminaComponent() const { return StaminaComponent; }

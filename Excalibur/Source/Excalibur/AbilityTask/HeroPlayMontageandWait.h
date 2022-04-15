@@ -67,6 +67,7 @@ public:
 			bool bStopWhenAbilityEnds = true,
 			float AnimRootMotionTranslationScale = 1.f);
 
+	FORCEINLINE void SetStartSection(FName startSection) { StartSection = startSection; }
 private:
 	void OnMontageBlendingOut(UAnimMontage* Montage, bool bInterrupted);
 	void OnAbilityCancelled();

@@ -44,5 +44,7 @@ namespace EHeroAbilityInputID
 		Equip			UMETA(DisplayName = "Equip"),
 		// Attack
 		Attack			UMETA(DisplayName = "Attack"),
+		// Block
+		Block			UMETA(DisplayName = "Block"),
 	};
 }

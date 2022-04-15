@@ -6,7 +6,8 @@
 #include "Excalibur/ExcaliburCharacter.h"
 #include "Excalibur/Character/HeroPlayerCharacter.h"
 
-UHeroGameplayAbility::UHeroGameplayAbility()
+UHeroGameplayAbility::UHeroGameplayAbility(const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
 {
 	// Default to Instance Per Actor
 	InstancingPolicy = EGameplayAbilityInstancingPolicy::InstancedPerActor;

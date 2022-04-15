@@ -99,6 +99,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player|Data")
 	UHeroAbilityDataAsset* DefaultAbilities;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Player")
+	bool bIsBlocking;
 protected:
 	void ApplyDefaultAbilities();
 	void GrantAbilityToPlayer(FGameplayAbilitySpec Ability);

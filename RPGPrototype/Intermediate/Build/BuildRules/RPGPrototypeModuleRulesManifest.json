@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"E:\\Unreal\\ActionRPG_ue4\\RPGPrototype\\Source\\RPGPrototype\\RPGPrototype.Build.cs",
-		"E:\\Unreal\\ActionRPG_ue4\\RPGPrototype\\Source\\RPGPrototype.Target.cs",
-		"E:\\Unreal\\ActionRPG_ue4\\RPGPrototype\\Source\\RPGPrototypeEditor.Target.cs"
+		"E:\\Unreal\\RPGPrototype_ue4\\RPGPrototype\\Source\\RPGPrototype\\RPGPrototype.Build.cs",
+		"E:\\Unreal\\RPGPrototype_ue4\\RPGPrototype\\Source\\RPGPrototype.Target.cs",
+		"E:\\Unreal\\RPGPrototype_ue4\\RPGPrototype\\Source\\RPGPrototypeEditor.Target.cs"
 	],
 	"EngineVersion": "4.27.2"
 }

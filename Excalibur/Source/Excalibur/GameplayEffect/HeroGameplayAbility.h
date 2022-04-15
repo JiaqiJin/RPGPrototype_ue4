@@ -15,7 +15,7 @@ class EXCALIBUR_API UHeroGameplayAbility : public UGameplayAbility
 	GENERATED_BODY()
 	
 public:
-	UHeroGameplayAbility();
+	UHeroGameplayAbility(const FObjectInitializer& ObjectInitializer);
 
 	UFUNCTION(BlueprintCallable, Category = Ability)
 	class AHeroPlayerCharacter* GetOwningHeroCharacter() const;
