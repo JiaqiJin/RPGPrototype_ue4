@@ -12,6 +12,7 @@ WindowsPlatform.EnumerateSdkRootDirs: Found Windows 10 SDK root at C:\Program Fi
 WindowsPlatform.EnumerateSdkRootDirs: Found Windows 10 SDK root at C:\Program Files (x86)\Windows Kits\10 (2)
 WindowsPlatform.UpdateCachedWindowsSdks: Found Windows 10 SDK version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
 WindowsPlatform.UpdateCachedWindowsSdks: Found Universal CRT version 10.0.19041.0 at C:\Program Files (x86)\Windows Kits\10
+DynamicCompilation.RequiresCompilation: Compiling E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\BuildRules\RPGPrototypeModuleRules.dll: Assembly does not exist
 Log.PushStatus: Binding IntelliSense data...
 ProgressWriter.Write: @progress 'Binding IntelliSense data...' 0%
 UEBuildTarget.AddPlugin: Enabling plugin 'Paper2D' (referenced via default plugins)
@@ -154,6 +155,10 @@ UEBuildTarget.AddPlugin: Enabling plugin 'GameplayAbilities' (referenced via RPG
 UEBuildTarget.AddPlugin: Enabling plugin 'GameplayTagsEditor' (referenced via RPGPrototype.uproject -> GameplayAbilities.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'DataRegistry' (referenced via RPGPrototype.uproject -> GameplayAbilities.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'AssetManagerEditor' (referenced via RPGPrototype.uproject -> GameplayAbilities.uplugin -> DataRegistry.uplugin)
+UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemSteam' (referenced via RPGPrototype.uproject)
+UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystem' (referenced via RPGPrototype.uproject -> OnlineSubsystemSteam.uplugin)
+UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemUtils' (referenced via RPGPrototype.uproject -> OnlineSubsystemSteam.uplugin)
+UEBuildTarget.AddPlugin: Enabling plugin 'SteamShared' (referenced via RPGPrototype.uproject -> OnlineSubsystemSteam.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'Paper2D' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'AISupport' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'EnvironmentQueryEditor' (referenced via default plugins)
@@ -241,11 +246,9 @@ UEBuildTarget.AddPlugin: Enabling plugin 'UdpMessaging' (referenced via default 
 UEBuildTarget.AddPlugin: Enabling plugin 'ActorSequence' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'MatineeToLevelSequence' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemGooglePlay' (referenced via default plugins)
-UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystem' (referenced via default plugins -> OnlineSubsystemGooglePlay.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'AndroidPermission' (referenced via default plugins -> OnlineSubsystemGooglePlay.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemIOS' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemNull' (referenced via default plugins)
-UEBuildTarget.AddPlugin: Enabling plugin 'OnlineSubsystemUtils' (referenced via default plugins -> OnlineSubsystemNull.uplugin)
 UEBuildTarget.AddPlugin: Enabling plugin 'LauncherChunkInstaller' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'ActorLayerUtilities' (referenced via default plugins)
 UEBuildTarget.AddPlugin: Enabling plugin 'AndroidDeviceProfileSelector' (referenced via default plugins)
@@ -295,37 +298,38 @@ ProgressWriter.Write: @progress 'Writing project files...' 100%
 Timeline.Print: Timeline:
 Timeline.Print: 
 Timeline.Print: [ 0.000]
-Timeline.Print: [ 0.000](+0.032) <unknown>
-Timeline.Print: [ 0.032](+0.091) XmlConfig.ReadConfigFiles()
-Timeline.Print: [ 0.124](+0.000) SingleInstanceMutex.Acquire()
-Timeline.Print: [ 0.124](+0.051) UEBuildPlatform.RegisterPlatforms()
-Timeline.Print:   0.125          [ 0.000](+0.026) Initializing InstalledPlatformInfo
-Timeline.Print:   0.151          [ 0.027](+0.000) Querying types
-Timeline.Print:   0.153          [ 0.028](+0.001) MacPlatformFactory
-Timeline.Print:   0.154          [ 0.029](+0.000) TVOSPlatformFactory
-Timeline.Print:   0.154          [ 0.029](+0.013) AndroidPlatformFactory
-Timeline.Print:   0.167          [ 0.042](+0.000) HoloLensPlatformFactory
-Timeline.Print:   0.167          [ 0.043](+0.003) IOSPlatformFactory
-Timeline.Print:   0.171          [ 0.046](+0.003) LinuxPlatformFactory
-Timeline.Print:   0.175          [ 0.050](+0.000) LuminPlatformFactory
-Timeline.Print:   0.175          [ 0.050](+0.000) WindowsPlatformFactory
-Timeline.Print: [ 0.175](+0.423) <unknown>
-Timeline.Print: [ 0.599](+0.003) Finding engine modules
-Timeline.Print: [ 0.603](+0.002) Finding plugin modules
-Timeline.Print: [ 0.606](+0.041) <unknown>
-Timeline.Print: [ 0.647](+0.000) Finding program modules
-Timeline.Print: [ 0.647](+0.000) Finding program targets
-Timeline.Print: [ 0.647](+1.565) <unknown>
-Timeline.Print: [ 2.213](+0.000) RulesCompiler.CreateTargetRulesAssembly()
-Timeline.Print: [ 2.213](+0.002) RulesAssembly.CreateTargetRules()
-Timeline.Print: [ 2.224](+0.003) UEBuildTarget constructor
-Timeline.Print: [ 2.228](+1.283) UEBuildTarget.PreBuildSetup()
-Timeline.Print: [ 3.512](+1.262) <unknown>
-Timeline.Print: [ 4.775](+0.000) RulesCompiler.CreateTargetRulesAssembly()
-Timeline.Print: [ 4.775](+0.002) RulesAssembly.CreateTargetRules()
-Timeline.Print: [ 4.781](+0.051) UEBuildTarget constructor
-Timeline.Print:   4.781          [ 0.000](+0.050) Reading source file metadata cache
-Timeline.Print: [ 4.832](+0.226) UEBuildTarget.PreBuildSetup()
-Timeline.Print: [ 5.059](+3.309) <unknown>
-Timeline.Print: [ 8.369](+0.000) FileMetadataPrefetch.Stop()
-Timeline.Print: [ 8.370]
+Timeline.Print: [ 0.000](+0.036) <unknown>
+Timeline.Print: [ 0.036](+0.097) XmlConfig.ReadConfigFiles()
+Timeline.Print: [ 0.134](+0.000) SingleInstanceMutex.Acquire()
+Timeline.Print: [ 0.134](+0.049) UEBuildPlatform.RegisterPlatforms()
+Timeline.Print:   0.135          [ 0.000](+0.024) Initializing InstalledPlatformInfo
+Timeline.Print:   0.160          [ 0.025](+0.000) Querying types
+Timeline.Print:   0.161          [ 0.026](+0.001) MacPlatformFactory
+Timeline.Print:   0.162          [ 0.027](+0.000) TVOSPlatformFactory
+Timeline.Print:   0.162          [ 0.027](+0.013) AndroidPlatformFactory
+Timeline.Print:   0.175          [ 0.041](+0.000) HoloLensPlatformFactory
+Timeline.Print:   0.175          [ 0.041](+0.003) IOSPlatformFactory
+Timeline.Print:   0.179          [ 0.044](+0.003) LinuxPlatformFactory
+Timeline.Print:   0.182          [ 0.048](+0.000) LuminPlatformFactory
+Timeline.Print:   0.182          [ 0.048](+0.000) WindowsPlatformFactory
+Timeline.Print: [ 0.183](+0.438) <unknown>
+Timeline.Print: [ 0.621](+0.004) Finding engine modules
+Timeline.Print: [ 0.626](+0.002) Finding plugin modules
+Timeline.Print: [ 0.628](+0.034) <unknown>
+Timeline.Print: [ 0.663](+0.000) Finding program modules
+Timeline.Print: [ 0.663](+0.000) Finding program targets
+Timeline.Print: [ 0.663](+0.064) <unknown>
+Timeline.Print: [ 0.727](+0.124) Compiling rules assembly (RPGPrototypeModuleRules.dll)
+Timeline.Print: [ 0.851](+1.354) <unknown>
+Timeline.Print: [ 2.205](+0.000) RulesCompiler.CreateTargetRulesAssembly()
+Timeline.Print: [ 2.206](+0.002) RulesAssembly.CreateTargetRules()
+Timeline.Print: [ 2.216](+0.004) UEBuildTarget constructor
+Timeline.Print: [ 2.220](+1.186) UEBuildTarget.PreBuildSetup()
+Timeline.Print: [ 3.407](+1.318) <unknown>
+Timeline.Print: [ 4.726](+0.000) RulesCompiler.CreateTargetRulesAssembly()
+Timeline.Print: [ 4.726](+0.002) RulesAssembly.CreateTargetRules()
+Timeline.Print: [ 4.732](+0.000) UEBuildTarget constructor
+Timeline.Print: [ 4.732](+0.230) UEBuildTarget.PreBuildSetup()
+Timeline.Print: [ 4.962](+3.698) <unknown>
+Timeline.Print: [ 8.661](+0.000) FileMetadataPrefetch.Stop()
+Timeline.Print: [ 8.663]

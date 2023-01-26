@@ -61,6 +61,8 @@
 "E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\GameplayTags\UE4Editor-GameplayTags.lib"
 "E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\GameplayTasks\UE4Editor-GameplayTasks.lib"
 "E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\AIModule\UE4Editor-AIModule.lib"
+"E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystemSteam\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystemSteam\UE4Editor-OnlineSubsystemSteam.lib"
+"E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Intermediate\Build\Win64\UE4Editor\Development\OnlineSubsystem\UE4Editor-OnlineSubsystem.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"
