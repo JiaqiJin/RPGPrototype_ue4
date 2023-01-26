@@ -9,6 +9,8 @@ public class Excalibur : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay",
-			"GameplayAbilities", "GameplayTags", "GameplayTasks", });
+			"GameplayAbilities", "GameplayTags", "GameplayTasks", "AIModule",});
+
+		PublicIncludePaths.Add("Excalibur");
 	}
 }
