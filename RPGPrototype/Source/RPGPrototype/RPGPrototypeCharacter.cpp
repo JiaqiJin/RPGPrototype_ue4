@@ -9,11 +9,13 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "OnlineSubsystem.h"
+#include "OnlineSessionSettings.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ARPGPrototypeCharacter
 
 ARPGPrototypeCharacter::ARPGPrototypeCharacter()
+	: CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnCreateSessionComplete))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -49,6 +51,46 @@ ARPGPrototypeCharacter::ARPGPrototypeCharacter()
 	if (OnlineSubsytem)
 	{
 		OnlineSessionInterface = OnlineSubsytem->GetSessionInterface();
+	}
+}
+
+void ARPGPrototypeCharacter::CreateGameSession()
+{
+	if (!OnlineSessionInterface.IsValid())
+	{
+		return;
+	}
+
+	auto ExistingSession = OnlineSessionInterface->GetNamedSession(NAME_GameSession);
+	if (ExistingSession)
+	{
+		OnlineSessionInterface->DestroySession(NAME_GameSession);
+	}
+
+	// Set the delegate to the Handle of the SessionInterface
+	OnlineSessionInterface->AddOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegate);
+
+	// Session Settings
+	TSharedPtr<FOnlineSessionSettings> SessionSettings = MakeShareable(new FOnlineSessionSettings());
+	SessionSettings->bIsLANMatch = false;
+	SessionSettings->bUsesPresence = true;
+	SessionSettings->NumPublicConnections = 4;
+	SessionSettings->NumPrivateConnections = 0;
+	SessionSettings->bAllowInvites = true;
+	SessionSettings->bAllowJoinInProgress = true;
+	SessionSettings->bShouldAdvertise = true;
+	SessionSettings->bAllowJoinViaPresence = true;
+	SessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
+
+	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+	OnlineSessionInterface->CreateSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, *SessionSettings);
+}
+
+void ARPGPrototypeCharacter::OnCreateSessionComplete(FName SessioName, bool bWasSucessful)
+{
+	if (bWasSucessful)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Create Session %s"), *SessioName.ToString()));
 	}
 }
 

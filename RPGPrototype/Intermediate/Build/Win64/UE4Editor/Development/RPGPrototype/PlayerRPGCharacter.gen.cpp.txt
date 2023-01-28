@@ -9,6 +9,13 @@ E:\UnrealEngine4\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Root
 E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
 E:\Unreal\RPGPrototype_ue4\RPGPrototype\Source\RPGPrototype/RPGPrototypeCharacter.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\Interfaces/OnlineSessionInterface.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemTypes.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemNames.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemPackage.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineDelegateMacros.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineKeyValuePair.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemPackage.h
 E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Inc\RPGPrototype\RPGPrototypeCharacter.generated.h
 E:\Unreal\RPGPrototype_ue4\RPGPrototype\Source\RPGPrototype/Ability/PlayerAbilitySystemComponent.h
 E:\Unreal\RPGPrototype_ue4\RPGPrototype\Source\RPGPrototype/RPGPrototype.h

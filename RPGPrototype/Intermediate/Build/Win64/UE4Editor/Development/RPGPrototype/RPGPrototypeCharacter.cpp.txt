@@ -6,6 +6,13 @@ E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Ch
 E:\UnrealEngine4\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/RootMotionSource.h
 E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\RootMotionSource.generated.h
 E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Character.generated.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\Interfaces/OnlineSessionInterface.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemTypes.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemNames.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemPackage.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineDelegateMacros.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineKeyValuePair.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemPackage.h
 E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Inc\RPGPrototype\RPGPrototypeCharacter.generated.h
 E:\UnrealEngine4\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayFunctionLibrary.h
 E:\UnrealEngine4\UE_4.27\Engine\Source\Runtime\HeadMountedDisplay\Public\HeadMountedDisplayTypes.h
@@ -42,7 +49,5 @@ E:\UnrealEngine4\UE_4.27\Engine\Source\Runtime\Engine\Classes\GameFramework/Spri
 E:\UnrealEngine4\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
 E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystem.h
 E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemModule.h
-E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemTypes.h
-E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemNames.h
+E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSessionSettings.h
 E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineSubsystemPackage.h
-E:\UnrealEngine4\UE_4.27\Engine\Plugins\Online\OnlineSubsystem\Source\Public\OnlineDelegateMacros.h

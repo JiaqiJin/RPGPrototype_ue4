@@ -1,23 +1,3 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal\RPGPrototype_ue4).
-  Parsing headers for RPGPrototypeEditor
-    Running UnrealHeaderTool "E:\Unreal\RPGPrototype_ue4\RPGPrototype\RPGPrototype.uproject" "E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\RPGPrototypeEditor\Development\RPGPrototypeEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Usuario\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
-  LogInit: Display: Loading text-based GConfig....
-  Reflection code generated for RPGPrototypeEditor in 4,3705067 seconds
-  Building RPGPrototypeEditor...
-  Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
-  Building 10 actions with 12 processes...
-    [1/10] RPGPrototypeGameMode.cpp
-    [2/10] RPGPrototypeCharacter.cpp
-    [3/10] RPGPrototype.init.gen.cpp
-    [4/10] RPGPrototypeCharacter.gen.cpp
-    [5/10] PlayerRPGCharacter.gen.cpp
-    [6/10] PlayerRPGCharacter.cpp
-    [7/10] PlayerAttributeSet.cpp
-E:\Unreal\RPGPrototype_ue4\RPGPrototype\Source\RPGPrototype\Attribute\PlayerAttributeSet.cpp(15): warning C5038: data member 'UPlayerAttributeSet::DefensePower' will be initialized after data member 'UPlayerAttributeSet::MoveSpeed'
-    [8/10] UE4Editor-RPGPrototype.lib
-       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.exp
-    [9/10] UE4Editor-RPGPrototype.dll
-       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.suppressed.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.suppressed.exp
-    [10/10] RPGPrototypeEditor.target
-  Total time in Parallel executor: 7,28 seconds
-  Total execution time: 12,34 seconds
+  Target is up to date
+  Total execution time: 0,86 seconds

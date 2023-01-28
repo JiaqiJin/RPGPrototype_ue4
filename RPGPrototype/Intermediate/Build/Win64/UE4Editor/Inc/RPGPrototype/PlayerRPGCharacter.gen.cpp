@@ -492,7 +492,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerRPGCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(APlayerRPGCharacter, 279005117);
+	IMPLEMENT_CLASS(APlayerRPGCharacter, 1044241205);
 	template<> RPGPROTOTYPE_API UClass* StaticClass<APlayerRPGCharacter>()
 	{
 		return APlayerRPGCharacter::StaticClass();

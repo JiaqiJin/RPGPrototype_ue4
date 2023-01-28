@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\RPGPrototype.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{91F7BC89-7FA0-41DB-B5F2-155A9C686400}</UniqueIdentifier>
+      <UniqueIdentifier>{67BCF96E-F496-4D68-B6AD-41154808ED72}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\RPGPrototype.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{8A135761-D16F-4112-ABF2-A3CE56F50BF5}</UniqueIdentifier>
+      <UniqueIdentifier>{AB0E7305-C33D-4F23-AAB4-4819F8964BE4}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,7 +30,7 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Source\RPGPrototype">
-      <UniqueIdentifier>{511563F4-B7A4-483F-9D53-7B62B1A7A9CA}</UniqueIdentifier>
+      <UniqueIdentifier>{BC9B6583-2535-48C8-9D87-2A56FCA002D6}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\RPGPrototype\RPGPrototype.Build.cs">
       <Filter>Source\RPGPrototype</Filter>
@@ -54,7 +54,7 @@
       <Filter>Source\RPGPrototype</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Ability">
-      <UniqueIdentifier>{980B7871-4775-4FE0-8D3C-F62BBF562B29}</UniqueIdentifier>
+      <UniqueIdentifier>{BD01F894-68AA-455A-9037-0915E8CA315E}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Ability\PlayerAbilitySystemComponent.cpp">
       <Filter>Source\RPGPrototype\Ability</Filter>
@@ -69,7 +69,7 @@
       <Filter>Source\RPGPrototype\Ability</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Attribute">
-      <UniqueIdentifier>{7032616A-17F0-408E-90AC-7BFEE7F5DF28}</UniqueIdentifier>
+      <UniqueIdentifier>{984327F5-9BC3-4675-9613-C4910EED4469}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Attribute\PlayerAttributeSet.cpp">
       <Filter>Source\RPGPrototype\Attribute</Filter>
@@ -78,7 +78,7 @@
       <Filter>Source\RPGPrototype\Attribute</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Character">
-      <UniqueIdentifier>{4832419B-84E2-446A-BC12-FBFE1317997D}</UniqueIdentifier>
+      <UniqueIdentifier>{D3E5C335-8514-4AD5-A28A-5D45933C3693}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Character\PlayerRPGCharacter.cpp">
       <Filter>Source\RPGPrototype\Character</Filter>
@@ -87,7 +87,7 @@
       <Filter>Source\RPGPrototype\Character</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Data">
-      <UniqueIdentifier>{B52D3B2C-1D13-4205-A8EB-EE813C3D2DEA}</UniqueIdentifier>
+      <UniqueIdentifier>{A4528D7F-DFC8-4E2B-8EC1-F846A4C7ABC6}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Data\HeroAbilitytDataAsset.cpp">
       <Filter>Source\RPGPrototype\Data</Filter>
