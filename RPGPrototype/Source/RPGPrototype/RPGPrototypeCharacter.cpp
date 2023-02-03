@@ -14,8 +14,9 @@
 //////////////////////////////////////////////////////////////////////////
 // ARPGPrototypeCharacter
 
-ARPGPrototypeCharacter::ARPGPrototypeCharacter()
-	: CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnCreateSessionComplete))
+ARPGPrototypeCharacter::ARPGPrototypeCharacter(): 
+	CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnCreateSessionComplete)),
+	FindSessionCompleteDelegate(FOnFindSessionsCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnFindSessionComplete))
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -81,9 +82,35 @@ void ARPGPrototypeCharacter::CreateGameSession()
 	SessionSettings->bShouldAdvertise = true;
 	SessionSettings->bAllowJoinViaPresence = true;
 	SessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
+	SessionSettings->bUseLobbiesIfAvailable = true;
+	SessionSettings->Set(FName("MatchType"), FString("FreeForAll"), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
 
 	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
 	OnlineSessionInterface->CreateSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, *SessionSettings);
+}
+
+void ARPGPrototypeCharacter::JoinGameSession()
+{
+	// Find Game Session
+	// Fill in all the SearchSettings, like if we are searching for a LAN game and how many results we want to have!
+
+	if (!OnlineSessionInterface.IsValid())
+	{
+		return;
+	}
+
+	SessionSearch = MakeShareable(new FOnlineSessionSearch());
+	SessionSearch->bIsLanQuery = false;
+	SessionSearch->MaxSearchResults = 10000;
+	SessionSearch->PingBucketSize = 50;
+	SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
+
+	// Set the Delegate to the Delegate Handle of the FindSession function
+	OnlineSessionInterface->AddOnFindSessionsCompleteDelegate_Handle(FindSessionCompleteDelegate);
+
+	// Finally call the SessionInterface function. The Delegate gets called once this is finished
+	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+	OnlineSessionInterface->FindSessions(*LocalPlayer->GetPreferredUniqueNetId(), SessionSearch.ToSharedRef());
 }
 
 void ARPGPrototypeCharacter::OnCreateSessionComplete(FName SessioName, bool bWasSucessful)
@@ -91,6 +118,19 @@ void ARPGPrototypeCharacter::OnCreateSessionComplete(FName SessioName, bool bWas
 	if (bWasSucessful)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Create Session %s"), *SessioName.ToString()));
+	}
+}
+
+void ARPGPrototypeCharacter::OnFindSessionComplete(bool bWasSucessful)
+{
+	for (auto Result : SessionSearch->SearchResults)
+	{
+		FString Id = Result.GetSessionIdStr();
+		FString User = Result.Session.OwningUserName;
+		if (GEngine)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Cyan, FString::Printf(TEXT("Id %s, User : %s"), *Id, *User));
+		}
 	}
 }
 
@@ -114,35 +154,6 @@ void ARPGPrototypeCharacter::SetupPlayerInputComponent(class UInputComponent* Pl
 	PlayerInputComponent->BindAxis("TurnRate", this, &ARPGPrototypeCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("LookUp", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookUpRate", this, &ARPGPrototypeCharacter::LookUpAtRate);
-
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ARPGPrototypeCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ARPGPrototypeCharacter::TouchStopped);
-
-	// VR headset functionality
-	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ARPGPrototypeCharacter::OnResetVR);
-}
-
-
-void ARPGPrototypeCharacter::OnResetVR()
-{
-	// If RPGPrototype is added to a project via 'Add Feature' in the Unreal Editor the dependency on HeadMountedDisplay in RPGPrototype.Build.cs is not automatically propagated
-	// and a linker error will result.
-	// You will need to either:
-	//		Add "HeadMountedDisplay" to [YourProject].Build.cs PublicDependencyModuleNames in order to build successfully (appropriate if supporting VR).
-	// or:
-	//		Comment or delete the call to ResetOrientationAndPosition below (appropriate if not supporting VR)
-	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
-}
-
-void ARPGPrototypeCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		Jump();
-}
-
-void ARPGPrototypeCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-		StopJumping();
 }
 
 void ARPGPrototypeCharacter::TurnAtRate(float Rate)

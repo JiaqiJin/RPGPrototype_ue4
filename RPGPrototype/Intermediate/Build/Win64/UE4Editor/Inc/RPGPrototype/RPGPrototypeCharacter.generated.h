@@ -16,11 +16,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define RPGPrototype_Source_RPGPrototype_RPGPrototypeCharacter_h_13_SPARSE_DATA
 #define RPGPrototype_Source_RPGPrototype_RPGPrototypeCharacter_h_13_RPC_WRAPPERS \
  \
+	DECLARE_FUNCTION(execJoinGameSession); \
 	DECLARE_FUNCTION(execCreateGameSession);
 
 
 #define RPGPrototype_Source_RPGPrototype_RPGPrototypeCharacter_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execJoinGameSession); \
 	DECLARE_FUNCTION(execCreateGameSession);
 
 
