@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "RPGPrototypeCharacter.generated.h"
-
+// https://unreal.gg-labs.com/wiki-archives/networking/how-to-use-sessions-in-c++
 UCLASS(config=Game)
 class ARPGPrototypeCharacter : public ACharacter
 {
@@ -32,6 +32,7 @@ protected:
 
 	void OnCreateSessionComplete(FName SessioName, bool bWasSucessful);
 	void OnFindSessionComplete(bool bWasSucessful);
+	void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
 
 private:
 	// Online session interface
@@ -42,6 +43,9 @@ private:
 
 	/* Delegate for searching for sessions */
 	FOnFindSessionsCompleteDelegate FindSessionCompleteDelegate;
+
+	/* Delegate for join session */
+	FOnJoinSessionCompleteDelegate JoinSessionCompleteDelegate;
 
 	TSharedPtr<class FOnlineSessionSearch> SessionSearch;
 

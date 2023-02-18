@@ -1,3 +1,12 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal\RPGPrototype_ue4).
-  Target is up to date
-  Total execution time: 0,57 seconds
+  Building RPGPrototypeEditor...
+  Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 4 actions with 12 processes...
+    [1/4] RPGPrototypeCharacter.cpp
+    [2/4] UE4Editor-RPGPrototype.lib
+       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.exp
+    [3/4] UE4Editor-RPGPrototype.dll
+       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.suppressed.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\UE4Editor\Development\RPGPrototype\UE4Editor-RPGPrototype.suppressed.exp
+    [4/4] RPGPrototypeEditor.target
+  Total time in Parallel executor: 5,12 seconds
+  Total execution time: 5,78 seconds
