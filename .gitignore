@@ -48,6 +48,7 @@ SourceArt/**/*.tga
 # Binary Files
 Excalibur/Binaries/*
 RPGPrototype/Binaries/*
+Sekhiro/Binaries/*
 Binaries/*
 Plugins/*/Binaries/*
 
@@ -71,6 +72,7 @@ Saved/*
 # Compiled source files for the engine to use
 Excalibur/Intermediate/*
 RPGPrototype/Intermediate/*
+Sekhiro/Intermediate/*
 Intermediate/*
 Plugins/*/Intermediate/*
 
