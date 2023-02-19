@@ -1,0 +1,93 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+#include "UObject/ObjectMacros.h"
+#include "UObject/ScriptMacros.h"
+
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+#ifdef MULTIPLAYERSESSION_MultiplayerSessionSubsystem_generated_h
+#error "MultiplayerSessionSubsystem.generated.h already included, missing '#pragma once' in MultiplayerSessionSubsystem.h"
+#endif
+#define MULTIPLAYERSESSION_MultiplayerSessionSubsystem_generated_h
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_SPARSE_DATA
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_RPC_WRAPPERS
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_RPC_WRAPPERS_NO_PURE_DECLS
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUMultiplayerSessionSubsystem(); \
+	friend struct Z_Construct_UClass_UMultiplayerSessionSubsystem_Statics; \
+public: \
+	DECLARE_CLASS(UMultiplayerSessionSubsystem, UGameInstanceSubsystem, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/MultiplayerSession"), NO_API) \
+	DECLARE_SERIALIZER(UMultiplayerSessionSubsystem)
+
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_INCLASS \
+private: \
+	static void StaticRegisterNativesUMultiplayerSessionSubsystem(); \
+	friend struct Z_Construct_UClass_UMultiplayerSessionSubsystem_Statics; \
+public: \
+	DECLARE_CLASS(UMultiplayerSessionSubsystem, UGameInstanceSubsystem, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/MultiplayerSession"), NO_API) \
+	DECLARE_SERIALIZER(UMultiplayerSessionSubsystem)
+
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_STANDARD_CONSTRUCTORS \
+	/** Standard constructor, called after all reflected properties have been initialized */ \
+	NO_API UMultiplayerSessionSubsystem(const FObjectInitializer& ObjectInitializer); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UMultiplayerSessionSubsystem) \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMultiplayerSessionSubsystem); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMultiplayerSessionSubsystem); \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UMultiplayerSessionSubsystem(UMultiplayerSessionSubsystem&&); \
+	NO_API UMultiplayerSessionSubsystem(const UMultiplayerSessionSubsystem&); \
+public:
+
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UMultiplayerSessionSubsystem(UMultiplayerSessionSubsystem&&); \
+	NO_API UMultiplayerSessionSubsystem(const UMultiplayerSessionSubsystem&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UMultiplayerSessionSubsystem); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UMultiplayerSessionSubsystem); \
+	DEFINE_DEFAULT_CONSTRUCTOR_CALL(UMultiplayerSessionSubsystem)
+
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_PRIVATE_PROPERTY_OFFSET
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_14_PROLOG
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_GENERATED_BODY_LEGACY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_PRIVATE_PROPERTY_OFFSET \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_SPARSE_DATA \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_RPC_WRAPPERS \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_INCLASS \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_STANDARD_CONSTRUCTORS \
+public: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+#define RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_PRIVATE_PROPERTY_OFFSET \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_SPARSE_DATA \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_INCLASS_NO_PURE_DECLS \
+	RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h_17_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> MULTIPLAYERSESSION_API UClass* StaticClass<class UMultiplayerSessionSubsystem>();
+
+#undef CURRENT_FILE_ID
+#define CURRENT_FILE_ID RPGPrototype_Plugins_MultiplayerSession_Source_MultiplayerSession_Public_MultiplayerSessionSubsystem_h
+
+
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

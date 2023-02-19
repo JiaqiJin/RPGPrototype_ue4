@@ -1,5 +1,13 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.MultiplayerSession.cpp.obj": [
+			"MultiplayerSession.cpp.obj",
+			"MultiplayerSessionSubsystem.cpp.obj"
+		],
+		"Module.MultiplayerSession.gen.cpp.obj": [
+			"MultiplayerSession.init.gen.cpp.obj",
+			"MultiplayerSessionSubsystem.gen.cpp.obj"
+		]
 	}
 }
