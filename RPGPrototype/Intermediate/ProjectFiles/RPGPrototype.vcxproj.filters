@@ -3,7 +3,7 @@
   <ItemGroup>
     <None Include="..\..\RPGPrototype.uproject" />
     <Filter Include="Source">
-      <UniqueIdentifier>{86E8F13E-4E50-40D0-95C5-515C13C4EAB3}</UniqueIdentifier>
+      <UniqueIdentifier>{666DD001-2FBC-47F4-BCBE-1DCD9C9A3E01}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\RPGPrototype.Target.cs">
       <Filter>Source</Filter>
@@ -12,7 +12,7 @@
       <Filter>Source</Filter>
     </None>
     <Filter Include="Config">
-      <UniqueIdentifier>{DB968EFC-CF17-47DF-940A-A918CB9BC81A}</UniqueIdentifier>
+      <UniqueIdentifier>{504F61F8-4C4B-499A-8C57-D5C663600C39}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Config\DefaultEditor.ini">
       <Filter>Config</Filter>
@@ -30,23 +30,26 @@
       <Filter>Config</Filter>
     </None>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{4C5AB437-9E89-424A-9BA4-83BCB61FF99B}</UniqueIdentifier>
+      <UniqueIdentifier>{9B18835F-2E5B-454F-911B-E25EDF40B6AA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\MultiplayerSession">
-      <UniqueIdentifier>{C537DD26-39B1-40B6-80A7-DDEEDBE0D1E7}</UniqueIdentifier>
+      <UniqueIdentifier>{0C91D7EA-A0DC-4192-94B2-81BFC464236C}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\MultiplayerSession\Source">
-      <UniqueIdentifier>{4DC83EAC-9F27-4473-AB60-F465E90A05FD}</UniqueIdentifier>
+      <UniqueIdentifier>{9658646E-C16E-4A42-8B47-FA64AA23E8EB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins\MultiplayerSession\Source\MultiplayerSession">
-      <UniqueIdentifier>{0748DEFA-40F5-439D-A4D6-9C698FFA73E1}</UniqueIdentifier>
+      <UniqueIdentifier>{08357A92-508B-4612-8AA1-018B6AA6B71A}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\MultiplayerSession\Source\MultiplayerSession\MultiplayerSession.Build.cs">
       <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession</Filter>
     </None>
     <Filter Include="Plugins\MultiplayerSession\Source\MultiplayerSession\Private">
-      <UniqueIdentifier>{EFEAB640-66B9-40F1-8217-B435F63170E0}</UniqueIdentifier>
+      <UniqueIdentifier>{B6F5990D-1637-4C8D-B024-67B9658EA23F}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Plugins\MultiplayerSession\Source\MultiplayerSession\Private\MenuWidget.cpp">
+      <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Plugins\MultiplayerSession\Source\MultiplayerSession\Private\MultiplayerSession.cpp">
       <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession\Private</Filter>
     </ClCompile>
@@ -54,8 +57,11 @@
       <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession\Private</Filter>
     </ClCompile>
     <Filter Include="Plugins\MultiplayerSession\Source\MultiplayerSession\Public">
-      <UniqueIdentifier>{4CA33D7A-3921-4F84-B9DC-9FBA7E1E91FE}</UniqueIdentifier>
+      <UniqueIdentifier>{69CBEB61-DDA3-4B77-BB3F-2B780B6CC675}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Plugins\MultiplayerSession\Source\MultiplayerSession\Public\MenuWidget.h">
+      <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Plugins\MultiplayerSession\Source\MultiplayerSession\Public\MultiplayerSession.h">
       <Filter>Plugins\MultiplayerSession\Source\MultiplayerSession\Public</Filter>
     </ClInclude>
@@ -66,13 +72,13 @@
       <Filter>Plugins\MultiplayerSession</Filter>
     </None>
     <Filter Include="Plugins\MultiplayerSession\Resources">
-      <UniqueIdentifier>{21AEB2A6-28B7-4AF2-B30D-47739E946A1B}</UniqueIdentifier>
+      <UniqueIdentifier>{6402B94D-CC56-4D72-8C2D-7FC7E175E8FF}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Plugins\MultiplayerSession\Resources\Icon128.png">
       <Filter>Plugins\MultiplayerSession\Resources</Filter>
     </None>
     <Filter Include="Source\RPGPrototype">
-      <UniqueIdentifier>{12B85BA9-6AF2-4FB2-972A-1BAC9B96DBED}</UniqueIdentifier>
+      <UniqueIdentifier>{B1A90410-C2D1-4DC4-9C21-D01388F2326B}</UniqueIdentifier>
     </Filter>
     <None Include="..\..\Source\RPGPrototype\RPGPrototype.Build.cs">
       <Filter>Source\RPGPrototype</Filter>
@@ -96,7 +102,7 @@
       <Filter>Source\RPGPrototype</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Ability">
-      <UniqueIdentifier>{CDBA2913-FF3B-4CE8-BEF4-D0C597DBA540}</UniqueIdentifier>
+      <UniqueIdentifier>{B602EC5A-EAEB-4FB8-9FB5-544CDB611014}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Ability\PlayerAbilitySystemComponent.cpp">
       <Filter>Source\RPGPrototype\Ability</Filter>
@@ -111,7 +117,7 @@
       <Filter>Source\RPGPrototype\Ability</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Attribute">
-      <UniqueIdentifier>{C9846A8F-41AE-4E20-9CF4-B9F1AC70013C}</UniqueIdentifier>
+      <UniqueIdentifier>{8418B992-E729-4992-89E9-B75D668BFF7F}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Attribute\PlayerAttributeSet.cpp">
       <Filter>Source\RPGPrototype\Attribute</Filter>
@@ -120,7 +126,7 @@
       <Filter>Source\RPGPrototype\Attribute</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Character">
-      <UniqueIdentifier>{3D883132-DF0A-4C1D-877C-512CE4D6A87A}</UniqueIdentifier>
+      <UniqueIdentifier>{5961DD0B-C98B-4B09-B093-EC63736AA1ED}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Character\PlayerRPGCharacter.cpp">
       <Filter>Source\RPGPrototype\Character</Filter>
@@ -129,7 +135,7 @@
       <Filter>Source\RPGPrototype\Character</Filter>
     </ClInclude>
     <Filter Include="Source\RPGPrototype\Data">
-      <UniqueIdentifier>{BE33F531-A845-4874-A71F-A3D285C7B97A}</UniqueIdentifier>
+      <UniqueIdentifier>{D7665AF1-9348-497E-95A2-7394FB64E7CB}</UniqueIdentifier>
     </Filter>
     <ClCompile Include="..\..\Source\RPGPrototype\Data\HeroAbilitytDataAsset.cpp">
       <Filter>Source\RPGPrototype\Data</Filter>

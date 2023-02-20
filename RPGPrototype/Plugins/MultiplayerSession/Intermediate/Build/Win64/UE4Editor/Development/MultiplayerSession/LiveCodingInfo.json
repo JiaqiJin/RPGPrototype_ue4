@@ -3,11 +3,13 @@
 	{
 		"Module.MultiplayerSession.cpp.obj": [
 			"MultiplayerSession.cpp.obj",
-			"MultiplayerSessionSubsystem.cpp.obj"
+			"MultiplayerSessionSubsystem.cpp.obj",
+			"MenuWidget.cpp.obj"
 		],
 		"Module.MultiplayerSession.gen.cpp.obj": [
-			"MultiplayerSession.init.gen.cpp.obj",
-			"MultiplayerSessionSubsystem.gen.cpp.obj"
+			"MultiplayerSessionSubsystem.gen.cpp.obj",
+			"MenuWidget.gen.cpp.obj",
+			"MultiplayerSession.init.gen.cpp.obj"
 		]
 	}
 }
