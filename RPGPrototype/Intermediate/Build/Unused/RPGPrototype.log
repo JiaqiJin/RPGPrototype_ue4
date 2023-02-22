@@ -1,3 +1,18 @@
 ﻿  Using 'git status' to determine working set for adaptive non-unity build (E:\Unreal\RPGPrototype_ue4).
-  Target is up to date
-  Total execution time: 1,40 seconds
+  Invalidating makefile for RPGPrototypeEditor (working set of source files changed)
+  Parsing headers for RPGPrototypeEditor
+    Running UnrealHeaderTool "E:\Unreal\RPGPrototype_ue4\RPGPrototype\RPGPrototype.uproject" "E:\Unreal\RPGPrototype_ue4\RPGPrototype\Intermediate\Build\Win64\RPGPrototypeEditor\Development\RPGPrototypeEditor.uhtmanifest" -LogCmds="loginit warning, logexit warning, logdatabase error" -Unattended -WarningsAsErrors -abslog="C:\Users\Usuario\AppData\Local\UnrealBuildTool\Log_UHT.txt" -installed
+  LogInit: Display: Loading text-based GConfig....
+  Reflection code generated for RPGPrototypeEditor in 4,2288972 seconds
+  Building RPGPrototypeEditor...
+  Using Visual Studio 2019 14.29.30141 toolchain (C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133) and Windows 10.0.19041.0 SDK (C:\Program Files (x86)\Windows Kits\10).
+  Building 5 actions with 12 processes...
+    [1/5] Module.MultiplayerSession.cpp
+    [2/5] Module.MultiplayerSession.gen.cpp
+    [3/5] UE4Editor-MultiplayerSession.lib
+       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Plugins\MultiplayerSession\Intermediate\Build\Win64\UE4Editor\Development\MultiplayerSession\UE4Editor-MultiplayerSession.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Plugins\MultiplayerSession\Intermediate\Build\Win64\UE4Editor\Development\MultiplayerSession\UE4Editor-MultiplayerSession.exp
+    [4/5] UE4Editor-MultiplayerSession.dll
+       Creating library E:\Unreal\RPGPrototype_ue4\RPGPrototype\Plugins\MultiplayerSession\Intermediate\Build\Win64\UE4Editor\Development\MultiplayerSession\UE4Editor-MultiplayerSession.suppressed.lib and object E:\Unreal\RPGPrototype_ue4\RPGPrototype\Plugins\MultiplayerSession\Intermediate\Build\Win64\UE4Editor\Development\MultiplayerSession\UE4Editor-MultiplayerSession.suppressed.exp
+    [5/5] RPGPrototypeEditor.target
+  Total time in Parallel executor: 5,79 seconds
+  Total execution time: 13,09 seconds

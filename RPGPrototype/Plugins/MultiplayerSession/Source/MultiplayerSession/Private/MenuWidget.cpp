@@ -2,6 +2,8 @@
 
 
 #include "MenuWidget.h"
+#include "Components/Button.h"
+#include "MultiplayerSessionSubsystem.h"
 
 void UMenuWidget::MenuSetup()
 {
@@ -22,4 +24,44 @@ void UMenuWidget::MenuSetup()
 			PlayerController->SetShowMouseCursor(true);
 		}
 	}
+
+	UGameInstance* GameInstance = GetGameInstance();
+	if (GameInstance)
+	{
+		MultiplayerSessionSubsystem = GameInstance->GetSubsystem<UMultiplayerSessionSubsystem>();
+	}
+}
+
+bool UMenuWidget::Initialize()
+{
+	bool Success = Super::Initialize();
+
+	if (!Success) { return false; }
+
+	if (HostButton)
+	{
+		HostButton->OnClicked.AddDynamic(this, &UMenuWidget::HostButtonClicked);
+	}
+
+	if (JoinButton)
+	{
+		HostButton->OnClicked.AddDynamic(this, &UMenuWidget::JoinButtonClicked);
+	}
+
+	return true;
+}
+
+void UMenuWidget::HostButtonClicked()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Host Button Clicked"));
+
+	if (MultiplayerSessionSubsystem)
+	{
+		MultiplayerSessionSubsystem->CreateSession(4, FString("FreeForAll"));
+	}
+}
+
+void UMenuWidget::JoinButtonClicked()
+{
+
 }
