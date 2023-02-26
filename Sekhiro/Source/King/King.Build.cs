@@ -10,7 +10,8 @@ public class King : ModuleRules
 
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay",
 
-			"GameplayAbilities", "GameplayTags", "GameplayTasks","AIModule","Niagara","NavigationSystem", "MoviePlayer"});
+			"GameplayAbilities", "GameplayTags", "GameplayTasks","AIModule","Niagara","NavigationSystem", "MoviePlayer", 
+			"OnlineSubsystemSteam", "OnlineSubsystem"});
 
 
 		PublicIncludePaths.Add("King");
