@@ -3,6 +3,7 @@
 
 #include "MultiplayerSessionSubsystem.h"
 #include "OnlineSubsystem.h"
+#include "OnlineSessionSettings.h"
 
 UMultiplayerSessionSubsystem::UMultiplayerSessionSubsystem()
 	: CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ThisClass::OnCreateSessionComplete)),
@@ -21,7 +22,39 @@ UMultiplayerSessionSubsystem::UMultiplayerSessionSubsystem()
 
 void UMultiplayerSessionSubsystem::CreateSession(int32 NumPublicConnection, FString MatchType)
 {
+	if (!OnlineSessionInterface.IsValid())
+	{
+		return;
+	}
 
+	auto ExistingSession = OnlineSessionInterface->GetNamedSession(NAME_GameSession);
+	if (ExistingSession)
+	{
+		OnlineSessionInterface->DestroySession(NAME_GameSession);
+	}
+
+	// Set the delegate to the Handle of the SessionInterface
+	CreateSessionCompleteDelegateHandle = OnlineSessionInterface->AddOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegate);
+
+	// Session Settings
+	LastSessionSettings = MakeShareable(new FOnlineSessionSettings());
+	LastSessionSettings->bIsLANMatch = IOnlineSubsystem::Get()->GetSubsystemName() == "NULL" ? true : false;
+	LastSessionSettings->bUsesPresence = true;
+	LastSessionSettings->NumPublicConnections = NumPublicConnection;
+	LastSessionSettings->NumPrivateConnections = 0;
+	LastSessionSettings->bAllowInvites = true;
+	LastSessionSettings->bAllowJoinInProgress = true;
+	LastSessionSettings->bShouldAdvertise = true;
+	LastSessionSettings->bAllowJoinViaPresence = true;
+	LastSessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
+	LastSessionSettings->bUseLobbiesIfAvailable = true;
+	LastSessionSettings->Set(FName("MatchType"), MatchType, EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
+
+	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
+	if (!OnlineSessionInterface->CreateSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, *LastSessionSettings))
+	{
+		OnlineSessionInterface->ClearOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegateHandle);
+	}
 }
 
 void UMultiplayerSessionSubsystem::FindSession(int MaxSearchResults)
