@@ -40,6 +40,14 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		P_THIS->HostButtonClicked();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UMenuWidget::execOnCreateSession)
+	{
+		P_GET_UBOOL(Z_Param_bWasSuccessful);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->OnCreateSession(Z_Param_bWasSuccessful);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UMenuWidget::execMenuSetup)
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_NumberOfPublicConnection);
@@ -57,6 +65,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 			{ "JoinButtonClicked", &UMenuWidget::execJoinButtonClicked },
 			{ "MenuSetup", &UMenuWidget::execMenuSetup },
 			{ "MenuTearDown", &UMenuWidget::execMenuTearDown },
+			{ "OnCreateSession", &UMenuWidget::execOnCreateSession },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -164,6 +173,45 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics
+	{
+		struct MenuWidget_eventOnCreateSession_Parms
+		{
+			bool bWasSuccessful;
+		};
+		static void NewProp_bWasSuccessful_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bWasSuccessful;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
+	{
+		((MenuWidget_eventOnCreateSession_Parms*)Obj)->bWasSuccessful = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MenuWidget_eventOnCreateSession_Parms), &Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::NewProp_bWasSuccessful,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::Function_MetaDataParams[] = {
+		{ "Comment", "// Callbacks for the custom delegates on the MultiplayerSessionSubsystem\n" },
+		{ "ModuleRelativePath", "Public/MenuWidget.h" },
+		{ "ToolTip", "Callbacks for the custom delegates on the MultiplayerSessionSubsystem" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenuWidget, nullptr, "OnCreateSession", nullptr, nullptr, sizeof(MenuWidget_eventOnCreateSession_Parms), Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMenuWidget_OnCreateSession()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMenuWidget_OnCreateSession_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_UMenuWidget_NoRegister()
 	{
 		return UMenuWidget::StaticClass();
@@ -196,6 +244,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		{ &Z_Construct_UFunction_UMenuWidget_JoinButtonClicked, "JoinButtonClicked" }, // 2443439663
 		{ &Z_Construct_UFunction_UMenuWidget_MenuSetup, "MenuSetup" }, // 3787562731
 		{ &Z_Construct_UFunction_UMenuWidget_MenuTearDown, "MenuTearDown" }, // 3565944511
+		{ &Z_Construct_UFunction_UMenuWidget_OnCreateSession, "OnCreateSession" }, // 1777407563
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMenuWidget_Statics::Class_MetaDataParams[] = {
@@ -250,7 +299,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMenuWidget, 296018379);
+	IMPLEMENT_CLASS(UMenuWidget, 2757402019);
 	template<> MULTIPLAYERSESSION_API UClass* StaticClass<UMenuWidget>()
 	{
 		return UMenuWidget::StaticClass();

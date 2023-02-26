@@ -33,6 +33,11 @@ void UMenuWidget::MenuSetup(int32 NumberOfPublicConnection, FString TypeOfMatch)
 	{
 		MultiplayerSessionSubsystem = GameInstance->GetSubsystem<UMultiplayerSessionSubsystem>();
 	}
+
+	if (MultiplayerSessionSubsystem)
+	{
+		MultiplayerSessionSubsystem->MultiplayerOnCreateSessionComplete.AddDynamic(this, &UMenuWidget::OnCreateSession);
+	}
 }
 
 bool UMenuWidget::Initialize()
@@ -67,12 +72,6 @@ void UMenuWidget::HostButtonClicked()
 	if (MultiplayerSessionSubsystem)
 	{
 		MultiplayerSessionSubsystem->CreateSession(NumPublicConnection, MatchType);
-		UWorld* World = GetWorld();
-		if(World)
-		{
-			// listen wait other player to join
-			World->ServerTravel(FString("/Game/Level/Level1?listen"));
-		}
 	}
 }
 
@@ -94,5 +93,24 @@ void UMenuWidget::MenuTearDown()
 			PlayerController->SetInputMode(InputModeData);
 			PlayerController->SetShowMouseCursor(false);
 		}
+	}
+}
+
+void UMenuWidget::OnCreateSession(bool bWasSuccessful)
+{
+	if (bWasSuccessful)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Session Create Successfully")));
+
+		UWorld* World = GetWorld();
+		if (World)
+		{
+			// listen wait other player to join
+			World->ServerTravel(FString("/Game/Level/Level1?listen"));
+		}
+	}
+	else
+	{
+		// TODO 
 	}
 }

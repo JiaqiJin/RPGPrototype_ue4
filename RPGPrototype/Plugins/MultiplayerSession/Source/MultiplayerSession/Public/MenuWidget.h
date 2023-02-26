@@ -19,6 +19,11 @@ public:
 
 	virtual bool Initialize() override;
 	virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld) override;
+
+	// Callbacks for the custom delegates on the MultiplayerSessionSubsystem
+	UFUNCTION()
+	void OnCreateSession(bool bWasSuccessful);
+
 private:
 	UPROPERTY(meta = (BindWidget))
 	UButton* HostButton;

@@ -6,7 +6,7 @@
 #include "GameFramework/Character.h"
 #include "Interfaces/OnlineSessionInterface.h"
 #include "RPGPrototypeCharacter.generated.h"
-// https://unreal.gg-labs.com/wiki-archives/networking/how-to-use-sessions-in-c++
+
 UCLASS(config=Game)
 class ARPGPrototypeCharacter : public ACharacter
 {

@@ -128,11 +128,9 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARPGPrototypeCharacter_Statics::Class_MetaDataParams[] = {
-		{ "Comment", "// https://unreal.gg-labs.com/wiki-archives/networking/how-to-use-sessions-in-c++\n" },
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "RPGPrototypeCharacter.h" },
 		{ "ModuleRelativePath", "RPGPrototypeCharacter.h" },
-		{ "ToolTip", "https:unreal.gg-labs.com/wiki-archives/networking/how-to-use-sessions-in-c++" },
 	};
 #endif
 #if WITH_METADATA
@@ -208,7 +206,7 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 2121485089);
+	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 2796535133);
 	template<> RPGPROTOTYPE_API UClass* StaticClass<ARPGPrototypeCharacter>()
 	{
 		return ARPGPrototypeCharacter::StaticClass();

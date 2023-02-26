@@ -8,9 +8,12 @@
 
 #include "MultiplayerSessionSubsystem.generated.h"
 
-/**
- * 
- */
+// https://juejin.cn/post/7144339595314855966
+// https://unreal.gg-labs.com/wiki-archives/networking/how-to-use-sessions-in-c++
+
+// Declaring our custum delegates for the Menu class to bind callback to
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FMultiplayerOnCreateSessionComplete, bool, bWasSuccessful);
+
 UCLASS()
 class MULTIPLAYERSESSION_API UMultiplayerSessionSubsystem : public UGameInstanceSubsystem
 {
@@ -26,6 +29,9 @@ public:
 	void JoinSession(const FOnlineSessionSearchResult& SessionResult);
 	void DestroySession();
 	void StartSession();
+
+	// Delegates
+	FMultiplayerOnCreateSessionComplete MultiplayerOnCreateSessionComplete;
 
 protected:
 
