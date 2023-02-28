@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
+#include "Interfaces/OnlineSessionInterface.h"
+
 #include "MenuWidget.generated.h"
 
 class UButton;
@@ -23,6 +25,12 @@ public:
 	// Callbacks for the custom delegates on the MultiplayerSessionSubsystem
 	UFUNCTION()
 	void OnCreateSession(bool bWasSuccessful);
+	void OnFindSessionsComplete (const TArray<FOnlineSessionSearchResult>& SessionResult, bool bWasSuccessful);
+	void OnJoinSessionComplete (EOnJoinSessionCompleteResult::Type Result);
+	UFUNCTION()
+	void OnDestroySessionComplete (bool bWasSuccessful);
+	UFUNCTION()
+	void OnStartSessionComplete(bool bWasSuccessful);
 
 private:
 	UPROPERTY(meta = (BindWidget))
