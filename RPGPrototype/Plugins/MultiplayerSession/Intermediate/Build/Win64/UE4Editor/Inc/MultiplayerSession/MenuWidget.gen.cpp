@@ -40,20 +40,20 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		P_THIS->HostButtonClicked();
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UMenuWidget::execOnStartSessionComplete)
+	DEFINE_FUNCTION(UMenuWidget::execOnStartSession)
 	{
 		P_GET_UBOOL(Z_Param_bWasSuccessful);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnStartSessionComplete(Z_Param_bWasSuccessful);
+		P_THIS->OnStartSession(Z_Param_bWasSuccessful);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UMenuWidget::execOnDestroySessionComplete)
+	DEFINE_FUNCTION(UMenuWidget::execOnDestroySession)
 	{
 		P_GET_UBOOL(Z_Param_bWasSuccessful);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->OnDestroySessionComplete(Z_Param_bWasSuccessful);
+		P_THIS->OnDestroySession(Z_Param_bWasSuccessful);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UMenuWidget::execOnCreateSession)
@@ -82,8 +82,8 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 			{ "MenuSetup", &UMenuWidget::execMenuSetup },
 			{ "MenuTearDown", &UMenuWidget::execMenuTearDown },
 			{ "OnCreateSession", &UMenuWidget::execOnCreateSession },
-			{ "OnDestroySessionComplete", &UMenuWidget::execOnDestroySessionComplete },
-			{ "OnStartSessionComplete", &UMenuWidget::execOnStartSessionComplete },
+			{ "OnDestroySession", &UMenuWidget::execOnDestroySession },
+			{ "OnStartSession", &UMenuWidget::execOnStartSession },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -230,9 +230,9 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics
+	struct Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics
 	{
-		struct MenuWidget_eventOnDestroySessionComplete_Parms
+		struct MenuWidget_eventOnDestroySession_Parms
 		{
 			bool bWasSuccessful;
 		};
@@ -244,32 +244,32 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
+	void Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
 	{
-		((MenuWidget_eventOnDestroySessionComplete_Parms*)Obj)->bWasSuccessful = 1;
+		((MenuWidget_eventOnDestroySession_Parms*)Obj)->bWasSuccessful = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MenuWidget_eventOnDestroySessionComplete_Parms), &Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::NewProp_bWasSuccessful,
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MenuWidget_eventOnDestroySession_Parms), &Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::NewProp_bWasSuccessful,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/MenuWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenuWidget, nullptr, "OnDestroySessionComplete", nullptr, nullptr, sizeof(MenuWidget_eventOnDestroySessionComplete_Parms), Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenuWidget, nullptr, "OnDestroySession", nullptr, nullptr, sizeof(MenuWidget_eventOnDestroySession_Parms), Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMenuWidget_OnDestroySession()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMenuWidget_OnDestroySession_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics
+	struct Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics
 	{
-		struct MenuWidget_eventOnStartSessionComplete_Parms
+		struct MenuWidget_eventOnStartSession_Parms
 		{
 			bool bWasSuccessful;
 		};
@@ -281,26 +281,26 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 #endif
 		static const UE4CodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
+	void Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::NewProp_bWasSuccessful_SetBit(void* Obj)
 	{
-		((MenuWidget_eventOnStartSessionComplete_Parms*)Obj)->bWasSuccessful = 1;
+		((MenuWidget_eventOnStartSession_Parms*)Obj)->bWasSuccessful = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MenuWidget_eventOnStartSessionComplete_Parms), &Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
-	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::NewProp_bWasSuccessful,
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::NewProp_bWasSuccessful = { "bWasSuccessful", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(MenuWidget_eventOnStartSession_Parms), &Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::NewProp_bWasSuccessful_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::NewProp_bWasSuccessful,
 	};
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::Function_MetaDataParams[] = {
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Public/MenuWidget.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenuWidget, nullptr, "OnStartSessionComplete", nullptr, nullptr, sizeof(MenuWidget_eventOnStartSessionComplete_Parms), Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete()
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMenuWidget, nullptr, "OnStartSession", nullptr, nullptr, sizeof(MenuWidget_eventOnStartSession_Parms), Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMenuWidget_OnStartSession()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete_Statics::FuncParams);
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMenuWidget_OnStartSession_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -337,8 +337,8 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		{ &Z_Construct_UFunction_UMenuWidget_MenuSetup, "MenuSetup" }, // 3787562731
 		{ &Z_Construct_UFunction_UMenuWidget_MenuTearDown, "MenuTearDown" }, // 3565944511
 		{ &Z_Construct_UFunction_UMenuWidget_OnCreateSession, "OnCreateSession" }, // 1777407563
-		{ &Z_Construct_UFunction_UMenuWidget_OnDestroySessionComplete, "OnDestroySessionComplete" }, // 405239465
-		{ &Z_Construct_UFunction_UMenuWidget_OnStartSessionComplete, "OnStartSessionComplete" }, // 3205048732
+		{ &Z_Construct_UFunction_UMenuWidget_OnDestroySession, "OnDestroySession" }, // 1114085611
+		{ &Z_Construct_UFunction_UMenuWidget_OnStartSession, "OnStartSession" }, // 907392282
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMenuWidget_Statics::Class_MetaDataParams[] = {
@@ -393,7 +393,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMenuWidget, 339074511);
+	IMPLEMENT_CLASS(UMenuWidget, 467013935);
 	template<> MULTIPLAYERSESSION_API UClass* StaticClass<UMenuWidget>()
 	{
 		return UMenuWidget::StaticClass();

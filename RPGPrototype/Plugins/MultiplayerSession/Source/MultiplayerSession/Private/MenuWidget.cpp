@@ -39,10 +39,10 @@ void UMenuWidget::MenuSetup(int32 NumberOfPublicConnection, FString TypeOfMatch)
 	if (MultiplayerSessionSubsystem)
 	{
 		MultiplayerSessionSubsystem->MultiplayerOnCreateSessionComplete.AddDynamic(this, &UMenuWidget::OnCreateSession);
-		MultiplayerSessionSubsystem->MultiplayerOnFindSessionsComplete.AddUObject(this, &UMenuWidget::OnFindSessionsComplete);
-		MultiplayerSessionSubsystem->MultiplayerOnJoinSessionComplete.AddUObject(this, &UMenuWidget::OnJoinSessionComplete);
-		MultiplayerSessionSubsystem->MultiplayerOnDestroySessionComplete.AddDynamic(this, &UMenuWidget::OnDestroySessionComplete);
-		MultiplayerSessionSubsystem->MultiplayerOnStartSessionComplete.AddDynamic(this, &UMenuWidget::OnStartSessionComplete);
+		MultiplayerSessionSubsystem->MultiplayerOnFindSessionsComplete.AddUObject(this, &UMenuWidget::OnFindSessions);
+		MultiplayerSessionSubsystem->MultiplayerOnJoinSessionComplete.AddUObject(this, &UMenuWidget::OnJoinSession);
+		MultiplayerSessionSubsystem->MultiplayerOnDestroySessionComplete.AddDynamic(this, &UMenuWidget::OnDestroySession);
+		MultiplayerSessionSubsystem->MultiplayerOnStartSessionComplete.AddDynamic(this, &UMenuWidget::OnStartSession);
 	}
 }
 
@@ -125,22 +125,50 @@ void UMenuWidget::OnCreateSession(bool bWasSuccessful)
 	}
 }
 
-void UMenuWidget::OnFindSessionsComplete(const TArray<FOnlineSessionSearchResult>& SessionResult, bool bWasSuccessful)
+void UMenuWidget::OnFindSessions(const TArray<FOnlineSessionSearchResult>& SessionResult, bool bWasSuccessful)
 {
-	
+	if (!MultiplayerSessionSubsystem)
+	{
+		return;
+	}
+
+	for (auto Result : SessionResult)
+	{
+		FString SettingValue;
+		Result.Session.SessionSettings.Get(FName("MatchType"), SettingValue);
+		if (SettingValue == MatchType)
+		{
+			MultiplayerSessionSubsystem->JoinSession(Result);
+		}
+	}
 }
 
-void UMenuWidget::OnJoinSessionComplete(EOnJoinSessionCompleteResult::Type Result)
+void UMenuWidget::OnJoinSession(EOnJoinSessionCompleteResult::Type Result)
+{
+	IOnlineSubsystem* OnlineSubsytem = IOnlineSubsystem::Get();
+	if (OnlineSubsytem)
+	{
+		IOnlineSessionPtr SessionInterface = OnlineSubsytem->GetSessionInterface();
+		if (SessionInterface.IsValid())
+		{
+			FString Address;
+			SessionInterface->GetResolvedConnectString(NAME_GameSession, Address);
+
+			APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
+			if (PlayerController)
+			{
+				PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
+			}
+		}
+	}
+}
+
+void UMenuWidget::OnDestroySession(bool bWasSuccessful)
 {
 
 }
 
-void UMenuWidget::OnDestroySessionComplete(bool bWasSuccessful)
-{
-
-}
-
-void UMenuWidget::OnStartSessionComplete(bool bWasSuccessful)
+void UMenuWidget::OnStartSession(bool bWasSuccessful)
 {
 
 }

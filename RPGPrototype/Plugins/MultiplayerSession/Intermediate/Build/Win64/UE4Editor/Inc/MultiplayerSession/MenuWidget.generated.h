@@ -19,8 +19,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execMenuTearDown); \
 	DECLARE_FUNCTION(execJoinButtonClicked); \
 	DECLARE_FUNCTION(execHostButtonClicked); \
-	DECLARE_FUNCTION(execOnStartSessionComplete); \
-	DECLARE_FUNCTION(execOnDestroySessionComplete); \
+	DECLARE_FUNCTION(execOnStartSession); \
+	DECLARE_FUNCTION(execOnDestroySession); \
 	DECLARE_FUNCTION(execOnCreateSession); \
 	DECLARE_FUNCTION(execMenuSetup);
 
@@ -30,8 +30,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	DECLARE_FUNCTION(execMenuTearDown); \
 	DECLARE_FUNCTION(execJoinButtonClicked); \
 	DECLARE_FUNCTION(execHostButtonClicked); \
-	DECLARE_FUNCTION(execOnStartSessionComplete); \
-	DECLARE_FUNCTION(execOnDestroySessionComplete); \
+	DECLARE_FUNCTION(execOnStartSession); \
+	DECLARE_FUNCTION(execOnDestroySession); \
 	DECLARE_FUNCTION(execOnCreateSession); \
 	DECLARE_FUNCTION(execMenuSetup);
 
