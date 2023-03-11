@@ -68,9 +68,10 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 	{
 		P_GET_PROPERTY(FIntProperty,Z_Param_NumberOfPublicConnection);
 		P_GET_PROPERTY(FStrProperty,Z_Param_TypeOfMatch);
+		P_GET_PROPERTY(FStrProperty,Z_Param_LobbyPath);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->MenuSetup(Z_Param_NumberOfPublicConnection,Z_Param_TypeOfMatch);
+		P_THIS->MenuSetup(Z_Param_NumberOfPublicConnection,Z_Param_TypeOfMatch,Z_Param_LobbyPath);
 		P_NATIVE_END;
 	}
 	void UMenuWidget::StaticRegisterNativesUMenuWidget()
@@ -137,9 +138,11 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		{
 			int32 NumberOfPublicConnection;
 			FString TypeOfMatch;
+			FString LobbyPath;
 		};
 		static const UE4CodeGen_Private::FIntPropertyParams NewProp_NumberOfPublicConnection;
 		static const UE4CodeGen_Private::FStrPropertyParams NewProp_TypeOfMatch;
+		static const UE4CodeGen_Private::FStrPropertyParams NewProp_LobbyPath;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -148,12 +151,15 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 	};
 	const UE4CodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_NumberOfPublicConnection = { "NumberOfPublicConnection", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MenuWidget_eventMenuSetup_Parms, NumberOfPublicConnection), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_TypeOfMatch = { "TypeOfMatch", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MenuWidget_eventMenuSetup_Parms, TypeOfMatch), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_LobbyPath = { "LobbyPath", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(MenuWidget_eventMenuSetup_Parms, LobbyPath), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_NumberOfPublicConnection,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_TypeOfMatch,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::NewProp_LobbyPath,
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMenuWidget_MenuSetup_Statics::Function_MetaDataParams[] = {
+		{ "CPP_Default_LobbyPath", "/Game/Level/Level1" },
 		{ "CPP_Default_NumberOfPublicConnection", "4" },
 		{ "CPP_Default_TypeOfMatch", "FreeForAll" },
 		{ "ModuleRelativePath", "Public/MenuWidget.h" },
@@ -334,7 +340,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_UMenuWidget_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UMenuWidget_HostButtonClicked, "HostButtonClicked" }, // 689890172
 		{ &Z_Construct_UFunction_UMenuWidget_JoinButtonClicked, "JoinButtonClicked" }, // 2443439663
-		{ &Z_Construct_UFunction_UMenuWidget_MenuSetup, "MenuSetup" }, // 3787562731
+		{ &Z_Construct_UFunction_UMenuWidget_MenuSetup, "MenuSetup" }, // 4031812358
 		{ &Z_Construct_UFunction_UMenuWidget_MenuTearDown, "MenuTearDown" }, // 3565944511
 		{ &Z_Construct_UFunction_UMenuWidget_OnCreateSession, "OnCreateSession" }, // 1777407563
 		{ &Z_Construct_UFunction_UMenuWidget_OnDestroySession, "OnDestroySession" }, // 1114085611
@@ -393,7 +399,7 @@ void EmptyLinkFunctionForGeneratedCodeMenuWidget() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMenuWidget, 467013935);
+	IMPLEMENT_CLASS(UMenuWidget, 2695129909);
 	template<> MULTIPLAYERSESSION_API UClass* StaticClass<UMenuWidget>()
 	{
 		return UMenuWidget::StaticClass();

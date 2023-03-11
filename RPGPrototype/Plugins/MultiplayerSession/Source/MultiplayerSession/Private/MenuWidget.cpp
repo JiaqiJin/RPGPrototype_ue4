@@ -7,10 +7,11 @@
 #include "OnlineSubsystem.h"
 #include "OnlineSessionSettings.h"
 
-void UMenuWidget::MenuSetup(int32 NumberOfPublicConnection, FString TypeOfMatch)
+void UMenuWidget::MenuSetup(int32 NumberOfPublicConnection, FString TypeOfMatch, FString LobbyPath)
 {
 	NumPublicConnection = NumberOfPublicConnection;
 	MatchType = TypeOfMatch;
+	PathToLobby = FString::Printf(TEXT("%s?listen"), *LobbyPath);
 
 	AddToViewport();
 	SetVisibility(ESlateVisibility::Visible);
@@ -73,8 +74,9 @@ void UMenuWidget::OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld)
 
 void UMenuWidget::HostButtonClicked()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Host Button Clicked"));
+	//UE_LOG(LogTemp, Warning, TEXT("Host Button Clicked"));
 
+	HostButton->SetIsEnabled(false);
 	if (MultiplayerSessionSubsystem)
 	{
 		MultiplayerSessionSubsystem->CreateSession(NumPublicConnection, MatchType);
@@ -116,12 +118,13 @@ void UMenuWidget::OnCreateSession(bool bWasSuccessful)
 		if (World)
 		{
 			// listen wait other player to join
-			World->ServerTravel(FString("/Game/Level/Level1?listen"));
+			World->ServerTravel(PathToLobby);
 		}
 	}
 	else
 	{
 		// TODO 
+		HostButton->SetIsEnabled(true);
 	}
 }
 
@@ -140,6 +143,11 @@ void UMenuWidget::OnFindSessions(const TArray<FOnlineSessionSearchResult>& Sessi
 		{
 			MultiplayerSessionSubsystem->JoinSession(Result);
 		}
+	}
+
+	if (!bWasSuccessful || SessionResult.Num() == 0)
+	{
+		JoinButton->SetIsEnabled(true);
 	}
 }
 
@@ -160,6 +168,11 @@ void UMenuWidget::OnJoinSession(EOnJoinSessionCompleteResult::Type Result)
 				PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
 			}
 		}
+	}
+
+	if (Result != EOnJoinSessionCompleteResult::Success)
+	{
+		JoinButton->SetIsEnabled(true);
 	}
 }
 

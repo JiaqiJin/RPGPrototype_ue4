@@ -17,7 +17,8 @@ class MULTIPLAYERSESSION_API UMenuWidget : public UUserWidget
 	
 public:
 	UFUNCTION(BlueprintCallable)
-	void MenuSetup(int32 NumberOfPublicConnection = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")));
+	void MenuSetup(int32 NumberOfPublicConnection = 4, FString TypeOfMatch = FString(TEXT("FreeForAll")),
+		FString LobbyPath = FString(TEXT("/Game/Level/Level1")));
 
 	virtual bool Initialize() override;
 	virtual void OnLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld) override;
@@ -53,4 +54,5 @@ private:
 
 	int32 NumPublicConnection{ 4 };
 	FString MatchType{ TEXT("FreeForAll") };
+	FString PathToLobby{ TEXT("") };
 };
