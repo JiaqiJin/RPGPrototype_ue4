@@ -11,13 +11,13 @@ void ARPG_LobbyGameMode::PostLogin(APlayerController* NewPlayer)
 
 	int32 NumberOfPlayers = GameState->PlayerArray.Num();
 
-	if (GameState)
+	if(NumberOfPlayers == 2)
 	{
-		APlayerState* PlayerState = NewPlayer->GetPlayerState<APlayerState>();
-		if (PlayerState)
+		UWorld* World = GetWorld();
+		if (World)
 		{
-			FString PlayerName = PlayerState->GetPlayerName();
-			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("%s has joined the game!"), *PlayerName));
+			bUseSeamlessTravel = true;
+			World->ServerTravel(FString("/Game/Level/Level1?listen"));
 		}
 	}
 }

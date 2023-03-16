@@ -22,32 +22,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
-protected:
-
-	UFUNCTION(BlueprintCallable)
-	void CreateGameSession();
-
-	UFUNCTION(BlueprintCallable)
-	void JoinGameSession();
-
-	void OnCreateSessionComplete(FName SessioName, bool bWasSucessful);
-	void OnFindSessionComplete(bool bWasSucessful);
-	void OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result);
-
 private:
-	// Online session interface
-	IOnlineSessionPtr OnlineSessionInterface;
-
-	/* Delegate called when session created */
-	FOnCreateSessionCompleteDelegate CreateSessionCompleteDelegate;
-
-	/* Delegate for searching for sessions */
-	FOnFindSessionsCompleteDelegate FindSessionCompleteDelegate;
-
-	/* Delegate for join session */
-	FOnJoinSessionCompleteDelegate JoinSessionCompleteDelegate;
-
-	TSharedPtr<class FOnlineSessionSearch> SessionSearch;
+	
+	class UOverheadWidget* OverheadWidget;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))

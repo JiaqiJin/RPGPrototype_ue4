@@ -20,72 +20,8 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
-	DEFINE_FUNCTION(ARPGPrototypeCharacter::execJoinGameSession)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->JoinGameSession();
-		P_NATIVE_END;
-	}
-	DEFINE_FUNCTION(ARPGPrototypeCharacter::execCreateGameSession)
-	{
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->CreateGameSession();
-		P_NATIVE_END;
-	}
 	void ARPGPrototypeCharacter::StaticRegisterNativesARPGPrototypeCharacter()
 	{
-		UClass* Class = ARPGPrototypeCharacter::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "CreateGameSession", &ARPGPrototypeCharacter::execCreateGameSession },
-			{ "JoinGameSession", &ARPGPrototypeCharacter::execJoinGameSession },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "RPGPrototypeCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARPGPrototypeCharacter, nullptr, "CreateGameSession", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession_Statics::FuncParams);
-		}
-		return ReturnFunction;
-	}
-	struct Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics
-	{
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UE4CodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "RPGPrototypeCharacter.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ARPGPrototypeCharacter, nullptr, "JoinGameSession", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics::Function_MetaDataParams)) };
-	UFunction* Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	UClass* Z_Construct_UClass_ARPGPrototypeCharacter_NoRegister()
 	{
@@ -94,7 +30,6 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	struct Z_Construct_UClass_ARPGPrototypeCharacter_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -121,10 +56,6 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	UObject* (*const Z_Construct_UClass_ARPGPrototypeCharacter_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_ACharacter,
 		(UObject* (*)())Z_Construct_UPackage__Script_RPGPrototype,
-	};
-	const FClassFunctionLinkInfo Z_Construct_UClass_ARPGPrototypeCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ARPGPrototypeCharacter_CreateGameSession, "CreateGameSession" }, // 1652592646
-		{ &Z_Construct_UFunction_ARPGPrototypeCharacter_JoinGameSession, "JoinGameSession" }, // 3691573183
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARPGPrototypeCharacter_Statics::Class_MetaDataParams[] = {
@@ -187,11 +118,11 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_ARPGPrototypeCharacter_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_ARPGPrototypeCharacter_Statics::PropPointers),
 		0,
 		0x008000A4u,
@@ -206,7 +137,7 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 2796535133);
+	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 3797909891);
 	template<> RPGPROTOTYPE_API UClass* StaticClass<ARPGPrototypeCharacter>()
 	{
 		return ARPGPrototypeCharacter::StaticClass();

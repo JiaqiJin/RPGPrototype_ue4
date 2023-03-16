@@ -14,10 +14,7 @@
 //////////////////////////////////////////////////////////////////////////
 // ARPGPrototypeCharacter
 
-ARPGPrototypeCharacter::ARPGPrototypeCharacter(): 
-	CreateSessionCompleteDelegate(FOnCreateSessionCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnCreateSessionComplete)),
-	FindSessionCompleteDelegate(FOnFindSessionsCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnFindSessionComplete)),
-	JoinSessionCompleteDelegate(FOnJoinSessionCompleteDelegate::CreateUObject(this, &ARPGPrototypeCharacter::OnJoinSessionComplete))
+ARPGPrototypeCharacter::ARPGPrototypeCharacter()
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -47,137 +44,6 @@ ARPGPrototypeCharacter::ARPGPrototypeCharacter():
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
-	// Online subsystem
-	IOnlineSubsystem* OnlineSubsytem = IOnlineSubsystem::Get();
-	if (OnlineSubsytem)
-	{
-		OnlineSessionInterface = OnlineSubsytem->GetSessionInterface();
-	}
-}
-
-void ARPGPrototypeCharacter::CreateGameSession()
-{
-	if (!OnlineSessionInterface.IsValid())
-	{
-		return;
-	}
-
-	auto ExistingSession = OnlineSessionInterface->GetNamedSession(NAME_GameSession);
-	if (ExistingSession)
-	{
-		OnlineSessionInterface->DestroySession(NAME_GameSession);
-	}
-
-	// Set the delegate to the Handle of the SessionInterface
-	OnlineSessionInterface->AddOnCreateSessionCompleteDelegate_Handle(CreateSessionCompleteDelegate);
-
-	// Session Settings
-	TSharedPtr<FOnlineSessionSettings> SessionSettings = MakeShareable(new FOnlineSessionSettings());
-	SessionSettings->bIsLANMatch = false;
-	SessionSettings->bUsesPresence = true;
-	SessionSettings->NumPublicConnections = 4;
-	SessionSettings->NumPrivateConnections = 0;
-	SessionSettings->bAllowInvites = true;
-	SessionSettings->bAllowJoinInProgress = true;
-	SessionSettings->bShouldAdvertise = true;
-	SessionSettings->bAllowJoinViaPresence = true;
-	SessionSettings->bAllowJoinViaPresenceFriendsOnly = false;
-	SessionSettings->bUseLobbiesIfAvailable = true;
-	SessionSettings->Set(FName("MatchType"), FString("FreeForAll"), EOnlineDataAdvertisementType::ViaOnlineServiceAndPing);
-
-	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-	OnlineSessionInterface->CreateSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, *SessionSettings);
-}
-
-void ARPGPrototypeCharacter::JoinGameSession()
-{
-	// Find Game Session
-	// Fill in all the SearchSettings, like if we are searching for a LAN game and how many results we want to have!
-
-	if (!OnlineSessionInterface.IsValid())
-	{
-		return;
-	}
-
-	SessionSearch = MakeShareable(new FOnlineSessionSearch());
-	SessionSearch->bIsLanQuery = false;
-	SessionSearch->MaxSearchResults = 10000;
-	SessionSearch->PingBucketSize = 50;
-	SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
-
-	// Set the Delegate to the Delegate Handle of the FindSession function
-	OnlineSessionInterface->AddOnFindSessionsCompleteDelegate_Handle(FindSessionCompleteDelegate);
-
-	// Finally call the SessionInterface function. The Delegate gets called once this is finished
-	const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-	OnlineSessionInterface->FindSessions(*LocalPlayer->GetPreferredUniqueNetId(), SessionSearch.ToSharedRef());
-}
-
-void ARPGPrototypeCharacter::OnCreateSessionComplete(FName SessioName, bool bWasSucessful)
-{
-	if (bWasSucessful)
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Blue, FString::Printf(TEXT("Create Session %s"), *SessioName.ToString()));
-	}
-
-	UWorld* World = GetWorld();
-	if (World)
-	{
-		World->ServerTravel(FString("/Game/Level/Level1?listen"));
-	}
-}
-
-void ARPGPrototypeCharacter::OnFindSessionComplete(bool bWasSucessful)
-{
-	if (!OnlineSessionInterface.IsValid())
-	{
-		return;
-	}
-
-	for (auto Result : SessionSearch->SearchResults)
-	{
-		FString Id = Result.GetSessionIdStr();
-		FString User = Result.Session.OwningUserName;
-
-		FString MatchType;
-		Result.Session.SessionSettings.Get(FName("MatchType"), MatchType);
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Cyan, FString::Printf(TEXT("Id %s, User : %s"), *Id, *User));
-		}
-
-		if (MatchType == FString("FreeForAll"))
-		{
-			GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Cyan, FString::Printf(TEXT("Joining MatchType : %s"), *MatchType));
-
-			// Join the session complete
-			OnlineSessionInterface->AddOnJoinSessionCompleteDelegate_Handle(JoinSessionCompleteDelegate);
-
-			const ULocalPlayer* LocalPlayer = GetWorld()->GetFirstLocalPlayerFromController();
-			OnlineSessionInterface->JoinSession(*LocalPlayer->GetPreferredUniqueNetId(), NAME_GameSession, Result);
-		}
-	}
-}
-
-void ARPGPrototypeCharacter::OnJoinSessionComplete(FName SessionName, EOnJoinSessionCompleteResult::Type Result)
-{
-	if (!OnlineSessionInterface.IsValid())
-	{
-		return;
-	}
-
-	FString Address;
-	if (OnlineSessionInterface->GetResolvedConnectString(NAME_GameSession, Address))
-	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.f, FColor::Cyan, FString::Printf(TEXT("Connect string : %s"), *Address));
-
-		APlayerController* PlayerController = GetGameInstance()->GetFirstLocalPlayerController();
-		if (PlayerController)
-		{
-			PlayerController->ClientTravel(Address, ETravelType::TRAVEL_Absolute);
-		}
-	}
 }
 
 //////////////////////////////////////////////////////////////////////////
