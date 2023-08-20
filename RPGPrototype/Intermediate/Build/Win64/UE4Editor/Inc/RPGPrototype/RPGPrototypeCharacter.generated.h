@@ -59,6 +59,7 @@ public: \
 
 
 #define RPGPrototype_Source_RPGPrototype_RPGPrototypeCharacter_h_13_PRIVATE_PROPERTY_OFFSET \
+	FORCEINLINE static uint32 __PPO__OverheadWidget() { return STRUCT_OFFSET(ARPGPrototypeCharacter, OverheadWidget); } \
 	FORCEINLINE static uint32 __PPO__CameraBoom() { return STRUCT_OFFSET(ARPGPrototypeCharacter, CameraBoom); } \
 	FORCEINLINE static uint32 __PPO__FollowCamera() { return STRUCT_OFFSET(ARPGPrototypeCharacter, FollowCamera); }
 

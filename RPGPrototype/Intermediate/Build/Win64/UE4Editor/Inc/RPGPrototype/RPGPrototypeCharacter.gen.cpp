@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	RPGPROTOTYPE_API UClass* Z_Construct_UClass_ARPGPrototypeCharacter();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	UPackage* Z_Construct_UPackage__Script_RPGPrototype();
+	UMG_API UClass* Z_Construct_UClass_UWidgetComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 // End Cross Module References
@@ -41,6 +42,10 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BaseLookUpRate_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_BaseLookUpRate;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OverheadWidget_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_OverheadWidget;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CameraBoom_MetaData[];
 #endif
@@ -83,6 +88,15 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_BaseLookUpRate = { "BaseLookUpRate", nullptr, (EPropertyFlags)0x0010000000020015, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARPGPrototypeCharacter, BaseLookUpRate), METADATA_PARAMS(Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_BaseLookUpRate_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_BaseLookUpRate_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_OverheadWidget_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "RPGPrototypeCharacter" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "RPGPrototypeCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_OverheadWidget = { "OverheadWidget", nullptr, (EPropertyFlags)0x004000000008001d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ARPGPrototypeCharacter, OverheadWidget), Z_Construct_UClass_UWidgetComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_OverheadWidget_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_OverheadWidget_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_CameraBoom_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
@@ -107,6 +121,7 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ARPGPrototypeCharacter_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_BaseTurnRate,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_BaseLookUpRate,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_OverheadWidget,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_CameraBoom,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ARPGPrototypeCharacter_Statics::NewProp_FollowCamera,
 	};
@@ -137,7 +152,7 @@ void EmptyLinkFunctionForGeneratedCodeRPGPrototypeCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 3797909891);
+	IMPLEMENT_CLASS(ARPGPrototypeCharacter, 4110998630);
 	template<> RPGPROTOTYPE_API UClass* StaticClass<ARPGPrototypeCharacter>()
 	{
 		return ARPGPrototypeCharacter::StaticClass();
